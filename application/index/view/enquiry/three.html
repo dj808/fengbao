@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>选择保险公司</title>
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/api.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/aui-slide.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/weui.css" />
+
+		<script src="__STATIC__/js/zepto.min.js"></script>
+		<script type="text/javascript" src="__STATIC__/js/api.js"></script>
+		<script type="text/javascript" src="__STATIC__/js/aui-slide.js"></script>
+
+		<style>
+			.left {
+				margin-left: 0.6rem;
+			}
+			
+			.underline {
+				height: 0.2rem;
+				border: none;
+				border-top: 1px solid #EEEEEE;
+				width: 92%;
+				margin: 0.5rem 0.6rem 0 0.7rem
+			}
+			
+			.aui-switch:checked {
+				border-color: #CB924F;
+				background-color: #CB924F;
+			}
+
+			#four{
+				border-radius: 2rem;
+				width: 80%;
+				margin: 0 auto;
+				background-size: 100% 100%;
+				background-color: #CB924F;
+				margin-bottom: 1rem;
+				text-align: center;
+			}
+
+			.img {
+				width: 2.5rem;
+				height: 2.5rem;
+				margin-left: 1rem;
+				margin-top: 0.3rem;
+			}
+			
+			.img img {
+				width: 100%;
+				height: 100%;
+				border-radius: 2rem;
+			}
+			
+			.info {
+				position: absolute;
+				top: 1.5rem;
+				left: 23%;
+				font-size: .7rem;
+				font-weight: 500;
+			}
+			
+			.checkbox1 {
+				position: absolute;
+				top: 1.5rem;
+				right: 7rem;
+				width: 1rem !important;
+				height: 1rem !important;
+			}
+			
+			.checkbox2 {
+				position: absolute;
+				top: 1.5rem;
+				right: 3rem;
+				width: 1rem !important;
+				height: 1rem !important;
+			}
+			
+			.bj {
+				position: absolute;
+				top: 1.5rem;
+				right: 5rem;
+				font-size: 0.7rem;
+			}
+			
+			.hb {
+				position: absolute;
+				top: 1.5rem;
+				right: 1rem;
+				font-size: 0.7rem;
+			}
+			
+			.aui-checkbox:checked,
+			.aui-checkbox.aui-checked {
+				background-color: #CB924F!important;
+				border: solid 1px #CB924F!important;
+				text-align: center;
+				background-clip: padding-box;
+			}
+			
+			.aui-radio,
+			.aui-checkbox {
+				background-color: #CB924F!important;
+				border: solid 1px #CB924F!important;
+			}
+			.btnnext {
+				background: url("__STATIC__/img/loginbtn.png") no-repeat 100%;
+				/* width: 50px; */
+				/* height: 30px; */
+				/* border: none; */
+				/* left: 0rem; */
+				color: wheat;
+				background-size: 100%;
+			}
+			.xyb{
+				margin-top: 4rem;
+			}
+		</style>
+
+	</head>
+
+	<body class="aui-bg-grey">
+		<div class="aui-content aui-bg-white">
+			<div class="aui-col-xs-12 aui-text-left aui-padded-t-15 aui-padded-b-15 cp">
+				<span class="blackfont  left">选择保险公司报价、核保(可多选)</span>
+
+			</div>
+
+		</div>
+		<form id="formId" >
+	        	<div class="aui-content aui-bg-white aui-margin-t-15">
+			<div class="aui-col-xs-12 aui-text-left aui-padded-t-5 aui-padded-b-5 cp">
+				<div class="img">
+					<img src="__STATIC__/img/tpy.png">
+				</div>
+				<span class="blackfont  left info">太平洋车险</span>
+				<input class="aui-checkbox checkbox1" name="bg"  type="checkbox" >
+				<span class="blackfont  left bj">报价</span>
+				<input class="aui-checkbox checkbox2" name="hb"  type="checkbox" >
+				<span class="blackfont  hb">核保</span>
+			</div>
+			<!--下划线-->
+			<div class="aui-col-xs-12 aui-text-right">
+				<hr class="underline" />
+			</div>
+			<div class="aui-col-xs-12 aui-text-left aui-padded-t-5 aui-padded-b-5 cp">
+				<div class="img">
+					<img src="__STATIC__/img/rb.png">
+				</div>
+				<span class="blackfont  left info">人保车险</span>
+				<input class="aui-checkbox checkbox1" name="bg1"  type="checkbox" >
+				<span class="blackfont  left bj">报价</span>
+				<input class="aui-checkbox checkbox2" name="hb1"  type="checkbox" >
+				<span class="blackfont  hb">核保</span>
+			</div>
+			<!--下划线-->
+
+
+		</div>
+			  
+			<div class="aui-col-xs-12">
+				<div class=" xyb">
+					<!--<div class="aui-btn aui-btn-block aui-btn-sm btnnext">-->
+						<!--提交报价-->
+					<!--</div>-->
+					<input class="aui-btn aui-btn-block aui-btn-sm btnnext" type="button" style="cursor:pointer" id="four" value="提交报价">
+					<div class="a"></div>
+				</div>
+			</div>
+		
+		</form>
+		<script type="text/javascript" src="__STATIC__/js/jquery-3.3.1.min.js"></script>
+	<script>
+		$(function() {
+	var checkboxarray = $(".checkbox2");
+	var checkbox1array = $(".checkbox1");
+	$.each(checkboxarray, function() {
+		if(this.checked) {
+			$(this).parent().find(".checkbox1").prop('checked', true);
+//			$(this).parent().find(".checkbox1").attr("disabled", true);　　　　
+		} else {　　　　
+			$(this).parent().find(".checkbox1").removeAttr('checked');
+//			$(this).parent().find(".checkbox1").attr("disabled", true);　　　　
+		}
+	});
+
+	$.each(checkboxarray, function() {
+		$(this).click(function() {　　　　　
+				$(this).parent().find(".checkbox1").prop('checked', this.checked);　　　		
+		})
+
+	});
+	$.each(checkbox1array, function() {
+		$(this).click(function() {
+			if(this.checked){			　　
+			}else{
+				$(this).parent().find(".checkbox2").prop('checked', false);　
+			}　　　　　
+		})　　　　　　　　　
+	});
+
+        $("#four").click(function(){
+          var data = $("#formId").serialize();
+            var  bg =  $("input[name='bg']").is(':checked');
+            var  hb =  $("input[name='hb']").is(':checked');
+            var  bg1 =  $("input[name='bg1']").is(':checked');
+            var  hb1 =  $("input[name='hb1']").is(':checked');
+           if( bg== false && bg1==false){
+               alert('强险和商业险至少选择一个！');
+               return  false;
+		   }
+            setTimeout(function () {
+          location.href = "http://www.fengbaowang.net/index/enquiry/four?"+ data;
+       }, 500);
+//            setTimeout(function () {
+//                location.href = "http://www.fengbaowang.net/index/enquiry/four?bg=" + bg +  "&hb=" + hb +  "&bg1=" + bg1 + "&hb1="+hb1;
+//            }, 500);
+
+        })
+
+
+
+})
+
+	</script>
+	</body>
+
+</html>
+

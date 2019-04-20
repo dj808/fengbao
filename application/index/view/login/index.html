@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>蜂保网</title>
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css" />
+		<!--<link rel="stylesheet" type="text/css" href="css/api.css"/>-->
+		<!--<link rel="stylesheet" type="text/css" href="css/aui-slide.css"/>-->
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/login.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/weui.css" />
+		<!-- <link rel="stylesheet" type="text/css" href="css/weuix.css"/>-->
+		<!--<script type="text/javascript" src="js/api.js"></script>-->
+		<!--<script type="text/javascript" src="js/aui-slide.js"></script>-->
+
+		<script src="__STATIC__/js/zepto.min.js"></script>
+		<script src="__STATIC__/js/jquery-3.3.1.min.js"></script>
+		<script src="__STATIC__/js/zepto.weui.js"></script>
+		<style>
+			.btnlogin {
+				background: url("__STATIC__/img/loginbtn.png") no-repeat 100%;
+				background-size: 100%;
+				color: wheat;
+			}
+			
+			.weui-cell__hd {
+				margin-right: -5rem;
+				position: absolute;
+				left: 1rem;
+				top: 0.1rem;
+			}
+			
+			.weui-cells_checkbox .weui-check:checked+.weui-icon-checked:before {
+				content: '\EA06';
+				color: #C68B47;
+			}
+		</style>
+	</head>
+
+	<body class="aui-bg-white">
+
+		<header class="aui-bar aui-bar-nav aui-bar-light">
+			<a class="aui-pull-left aui-btn" href="javascript:history.back(-1)">
+				<span class="aui-iconfont aui-icon-left text-js"></span>
+			</a>
+			<div class="aui-title">&nbsp;</div>
+			<a class="aui-pull-right aui-btn" href="{:Url('register/index')}">
+				<span class="text-js">注册</span>
+			</a>
+		</header>
+
+		<div class="aui-bg-white  cooperative_partner first">
+			<div class="aui-padded-15">
+				<div class="login-logo-img">
+					<img class="logo" src="__STATIC__/img/logo.jpg" alt="">
+				</div>
+			</div>
+
+		</div>
+
+		<div class="aui-bg-white aui-padded-15">
+
+			<div class="aui-row">
+				<!--手机号-->
+				<div class="aui-col-xs-12">
+					<div class="aui-padded-b-15">
+						<div class="aui-input-row border-input">
+							<div class="phoneimg">
+								<img src="__STATIC__/img/tc3.png" alt="" />
+							</div>
+							<input class="pb" type="text" placeholder="请输入手机号" name="phone" id="phone">
+						</div>
+					</div>
+
+				</div>
+				<!--手密码-->
+				<div class="aui-col-xs-12">
+					<div class="aui-padded-b-15">
+						<div class="aui-input-row border-input">
+							<div class="phoneimg">
+								<img src="__STATIC__/img/mima.png" alt="" />
+							</div>
+							<div class="eyeimg">
+								<img title="显示密码" class="ico" id="ico" onclick="xs()" src="__STATIC__/img/eye.jpg" alt="" />
+							</div>
+							<input class="pb"  type="password" placeholder="请输入密码" name="password" id="password">
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="aui-row">
+				<div class="aui-col-xs-6 aui-text-left">
+					<a href="{:Url('login/code')}" class="text-js aui-padded-l-10 aui-font-size-14"> 验证码登陆</a>
+				</div>
+				<div class="aui-col-xs-6 aui-text-right">
+					<a href="{:Url('login/pwd')}" class="text-js aui-padded-r-10 aui-font-size-14">忘记密码</a>
+				</div>
+			</div>
+
+			<div class="aui-row">
+				<div class="aui-col-xs-12">
+					<div class="aui-padded-25 aui-margin-t-15">
+						<div class="aui-btn aui-btn-block aui-btn-sm btnlogin">
+							登陆
+						</div>
+					</div>
+
+				</div>
+
+				<div class="aui-col-xs-12 aui-text-center">
+					<div class="aui-margin-t-15">
+						<div class=" weui-cells_checkbox">
+							<label class="weui-cell" for="s11">
+									<div class="weui-cell__hd aui-col-xs-12 ">
+										<input class="weui-check" name="checkbox1" id="s11" checked="checked" type="checkbox">
+										<i class="weui-icon-checked"></i>
+										<a href="{:Url('register/getAgreement')}"><span class="xy">同意名莲动力协议</span></a>
+									</div>
+									 <div class="weui-cell__bd">
+										<p class="xy"> &nbsp;&nbsp;&nbsp;</p>
+									</div>
+                            </label>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+				function xs() {
+					var aa = document.getElementById("ico").title;
+					if(aa ==="隐藏密码") {
+						document.getElementById("in").type = "password";
+						document.getElementById("ico").title = "显示密码";
+						document.getElementById("ico").src = "__STATIC__/img/eye1.png";
+					} else {
+						document.getElementById("ico").title = "隐藏密码";
+						document.getElementById("in").type = "text";
+						document.getElementById("ico").src = "__STATIC__/img/eye.png";
+					}
+
+				}
+				//登录模块
+				$('.btnlogin').click(function () {
+
+					var phone=$("#phone").val();
+                    console.log(phone);
+					var password=$("#password").val();
+					console.log(password);
+					$.ajax({
+
+						type:"POST",
+
+						url:"{:url('index/login/login')}",
+
+						data:{"phone":phone,"password":password},
+
+						success:function (res) {
+							if (res.code==1) {
+								alert(res.message);
+								//$.toptip(res.message);
+
+								    window.location.href = "{:url('user/getApprove')}"
+							}else{
+								//$.toptip(res.message);
+								alert(res.message);
+							}
+						},
+
+						dataType: 'json'
+
+					});
+
+					return false;
+
+				});
+    
+          </script>
+    </body>
+
+</html>

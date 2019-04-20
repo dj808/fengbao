@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>蜂保网</title>
+		<style>
+			#container{
+
+				position:relative;
+				overflow:hidden;  /*这个东西折腾了很久才弄出来*/
+				width:550px;
+				height:25px;
+				line-height:25px;
+				margin-top: 0.3rem;
+				margin-left: 0.8rem;
+			}
+
+			#content{
+				position:absolute;
+				font-size: 0.7rem;
+				color: yellowgreen;
+				left:0;
+				top:0;
+				white-space:nowrap;   /*重要，不然文字显示效果不好*/
+			}
+
+			#content span{
+				/*width: 18rem;*/
+				height: 15rem;
+				display: inline-block;
+				color: #717171;
+				margin-right: 10rem;
+				margin-left: 5rem;
+			}
+			.zxzx{
+				width: 4rem!important;
+				height: 2rem;
+			}
+			.zxzx img{
+				width: 100%;
+				height: 100%;
+
+			}
+
+			.border-r-b{
+				border-bottom: 1px solid #F2F2F2;
+				border-right: 1px solid #F2F2F2;
+			}
+			.border-b{
+				border-bottom: 1px solid #F2F2F2;
+			}
+			.border-r{
+			border-right: 1px solid #F2F2F2;
+			}
+			p {
+				font-size: 0.6rem!important;
+				color: #757575;
+			}
+			li {
+				list-style:none;
+			}
+			a {
+				text-decoration:none;
+			}
+			img {
+				border:none;
+			}
+			.box {
+				padding-left: 14px;
+			}
+			.winBox {
+				width:300px;
+				height:40px;
+				overflow:hidden;
+				position:relative;
+
+			}
+			.scroll {
+				/*width的大小是根据下面li的长度和多少个li而定的，需注意！*/
+				width:1500px;
+				position:absolute;
+				left:0px;
+				top:0px;
+			}
+			.scroll li {
+				width:150px;
+				float:left;
+				line-height:40px;
+				text-align:center;
+				font-size: 14px;
+			}
+			.fxhy{
+				width: 90%;
+				margin: 0 auto!important;
+				font-size: 0.625rem!important;
+			}
+			
+			
+
+		/*	.h-3-brfore{
+			margin-left: 0rem!important;
+			}*/
+
+			
+
+		</style>
+
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/api.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/aui-slide.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/style-1.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/index.css" />
+
+		<script src="__STATIC__/js/php.js"></script>
+		<script src="__STATIC__/js/zepto.min.js"></script>
+		<script src="__STATIC__/js/zepto.weui.min.js"></script>
+		<script src="__STATIC__/js/jquery-3.3.1.min.js"></script>
+	</head>
+	<body>
+		<!--轮播图-->
+		<div id="aui-slide3">
+			<div class="aui-slide-wrap">
+				{volist name="banner" id="vo"}
+				<div class="slide1 aui-slide-node bg-dark">
+					<img src="__IMG__/{$vo.logo}">
+				</div>
+				{/volist}
+			</div>
+			<div class="aui-slide-page-wrap" aui-slide-page-wrap style="text-align: center;">
+				<span class="aui-slide-page aui-slide-page-line aui-slide-page-active" style="width:33.333333333333336%"></span>
+				<span class="aui-slide-page aui-slide-page-line" style="width:33.333333333333336%"></span>
+				<span class="aui-slide-page aui-slide-page-line" style="width:33.333333333333336%"></span>
+			</div>
+		</div>
+		<div class="aui-bg-white aui-padded-b-15">
+			<a href="{:Url('index/enquiry/one')}">
+			<div class="aui-padded-15 autoinsuranceimg">
+				<img src="__STATIC__/img/autoinsurance.jpg" alt="" />
+			</div>
+			</a>
+			<div class="aui-row list-2 fxhy">
+				<div class="aui-col-xs-3 ">
+					<a href="{:Url('index/home/share')}">
+						<div class="aui-content-padded">
+							<img src="__STATIC__/img/index03.png" alt="" />
+						</div>
+						<p class="aui-text-center blackfont">
+							分享好友
+						</p>
+					</a>
+				</div>
+				<div class="aui-col-xs-3 ">
+					<a href="{:Url('index/enquiry/one')}">
+						<div class="aui-content-padded">
+							<img src="__STATIC__/img/index04.png" alt="" />
+						</div>
+						<p class=" aui-text-center blackfont">
+							续保报价
+						</p>
+					</a>
+				</div>
+				<div class="aui-col-xs-3 ">
+					<a href="{:Url('index/enquiry/findEnquiry')}">
+						<div class="aui-content-padded">
+						<img src="__STATIC__/img/index01.png" alt="" />
+					    </div>
+						<p class=" aui-text-center blackfont">
+							我的客户
+						</p>
+					</a>
+				</div>
+				<div class="aui-col-xs-3 ">
+					<a href="{:Url('index/user/user')}">
+						<div class="aui-content-padded">
+							<img src="__STATIC__/img/index02.png" alt="" />
+						</div>
+						<p class=" aui-text-center blackfont">
+							个人中心
+						</p>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="aui-bg-white aui-margin-t-10">
+			<div class="aui-content-padded list-3">
+				<div class="aui-row">
+					<!--第一行-->
+					<div class="aui-col-xs-6 border-r-b">
+						<div class="">
+							<div class="">
+								<div class="aui-row">
+									<a href="{:l('index/circle/index')}">
+										<div class="aui-col-xs-6 h-1">
+											<p class="title header-text aui-text-left blackfont">邀请好友</p>
+											<p class="de aui-text-left hs">赚取高额奖金</p>
+										</div>
+										<div class="aui-col-xs-6 h-2">
+											<img src="__STATIC__/img/friends.jpg" alt="" />
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="aui-col-xs-6 border-b">
+						<div class="">
+							<div class="">
+								<div class="aui-row">
+									<a href="{:Url('index/home/server')}">
+										<div class="aui-col-xs-6 h-1 h-3-brfore">
+											<p class="title header-text aui-text-left blackfont">增值服务</p>
+											<p class="de aui-text-left hs">查询 代办 养车</p>
+										</div>
+										<div class="aui-col-xs-6 h-2 h-3">
+											<img src="__STATIC__/img/indexadd.jpg" alt="" />
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!--第二行-->
+					<div class="aui-col-xs-6 border-r">
+						<div class="">
+							<div class="">
+								<div class="aui-row">
+									<a href="https://mp.weixin.qq.com/s?__biz=MzU5MDgwNTcxMQ==&tempkey=MTAwMV84alEwMTBXOElrNlY1WTY3WTA3ZWZNMk9XWmdfTmhOaUpteUx4RlVzNThjMGRsTFZ1TUthaE55WEJyMHVXN2d1NnVkQVRXUW9wWGtDSWhzV1Y3VHBwampMSGMwb1U5bTFxbG9HVjNPSklESlhhenk3ZkllcEUxME5uZ0N2WXVwS2tFT3ZnRnBZeDdrWVl3NFVyVVdUcmdLLWZXTGVNRmpLUTk1MGRRfn4%3D&chksm=7e39eea4494e67b200fcc7cb49029dbcfc7e61ebe78a33ed2fc3801aef1b0c99b52dd30dfa0f#rd">
+										<div class="aui-col-xs-6 h-1">
+											<p class="title aui-text-left header-text blackfont">学点干货</p>
+											<p class="de aui-text-left hs">获取更多知识</p>
+										</div>
+										<div class="aui-col-xs-6 h-2">
+											<img src="__STATIC__/img/03.jpg" alt="" />
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="aui-col-xs-6">
+						<div>
+							<div class="">
+								<div class="aui-row">
+									<a href="{:Url('htlp/aboutUs')}">
+										<div class="aui-col-xs-6 h-1 aui-padded-b-5 h-3-brfore">
+											<p class="title aui-text-left header-text aui-font-size-25 blackfont">关于我们</p>
+											<p class="de aui-text-left hs">了解更多</p>
+										</div>
+										<div class="aui-col-xs-6 h-2 h-3">
+											<img src="__STATIC__/img/user.jpg" alt="" />
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!---->
+		<div class="aui-bg-white aui-padded-l-15">
+			<div class="aui-row">
+				<div class="zxzx aui-col-xs-3">
+					<img src="__STATIC__/img/25.png" alt="" />
+				</div>
+				<div class="aui-col-xs-9">
+
+					<div class="box">
+						<div class="winBox">
+							<ul class="scroll">
+								{volist name="news" id="vo"}
+								 <li><a href="#">{$vo.title}</a></li>
+								{/volist}
+							</ul>
+						</div>
+					</div>
+			    </div>
+		    </div>
+		</div>
+
+			<!--</div>	品牌车险合作伙伴-->
+		<div class="aui-bg-white aui-margin-t-10">
+			<div class="aui-padded-15">
+				<div class="header-text   titlefont">
+					品牌车险合作伙伴
+				</div>
+
+				<div class="aui-row">
+					{volist name="pingpai" id="vo"}
+					<div class="aui-col-xs-4">
+						<div class="aui-padded-5">
+							<img src="__IMG__/{$vo.logo}" alt="" />
+						</div>
+					</div>
+					{/volist}
+				</div>
+				<div class="aui-row">
+					<div class="aui-col-xs-12">
+						<img src="__STATIC__/img/polang.png"/>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		<!--技术合作伙伴-->
+		<div class="aui-bg-white aui-margin-t-10  cooperative_partner">
+			<div class="aui-padded-15">
+				<div class="header-text aui-margin-b-15  titlefont">
+					技术合作伙伴
+				</div>
+				<a href="https://webchat.7moor.com/wapchat.html?accessId=cee3d850-50fc-11e9-bc94-a7c038f01a0b&fromUrl=&urlTitle=">
+					<div class="online_secretary">
+						<img src="__STATIC__/img/33.png">
+					</div>
+				</a>
+				<div class="aui-row cooperative_partner_margin_top">
+					{volist name="jishu" id="vo"}
+					<div class="aui-col-xs-6">
+						<div class="aui-padded-5">
+							<img src="__IMG__/{$vo.logo}" alt="">
+						</div>
+					</div>
+					{/volist}
+				</div>
+
+			</div>
+
+		</div>
+		<!--技术合作伙伴-->
+		<div class="aui-bg-grey aui-margin-t-10  cooperative_partner botomdiv">
+			<div class="aui-padded-15">
+
+				<div class="aui-row">
+
+				</div>
+
+			</div>
+
+		</div>
+		<div class="myfooter">
+			{include file="public:footer"}
+		</div>
+		<script type="text/javascript" src="__STATIC__/js/api.js"></script>
+		<script type="text/javascript" src="__STATIC__/js/aui-tab.js"></script>
+
+		<script type="text/javascript" src="__STATIC__/js/aui-slide.js"></script>
+		<script type="text/javascript">
+				
+			var slide3 = new auiSlide({
+				container: document.getElementById("aui-slide3"),
+				"height": 240,
+				"speed": 800,
+				"autoPlay": 5000, //自动播放
+				"loop": true,
+				"pageShow": true,
+				"pageStyle": 'dot',
+				'dotPosition': 'center'
+			});
+
+			$(function() {
+				var num = 0;
+				function goLeft() {
+					//750是根据你给的尺寸，可变的
+					if (num == -750) {
+						num = 0;
+					}
+					num -= 1;
+					$(".scroll").css({
+						left: num
+					})
+				}
+				//设置滚动速度
+				var timer = setInterval(goLeft, 20);
+				//设置鼠标经过时滚动停止
+				$(".box").hover(function() {
+							clearInterval(timer);
+						},
+						function() {
+							timer = setInterval(goLeft, 20);
+						})
+			})
+
+			// (function($) {
+			// 	$.fn.extend({
+			// 		roll: function(options) {
+			// 			var defaults = {
+			// 				speed:1                                   };
+			// 			var options = $.extend(defaults, options);
+			// 			var speed=(document.all) ? options.speed : Math.max(1,options.speed-1);
+			// 			if ($(this) == null) return ;
+			// 			var $container = $(this);
+			// 			var $content = $("#content");
+			// 			var init_left = $container.width();
+			// 			$content.css({left:parseInt(init_left) + "px"});
+			// 			var This = this;
+			// 			var time = setInterval(function(){This.move($container,$content,speed);},20); //setInterval会改变this指向，即使加了This=this，也要用匿名函数封装，这里调试了n久
+			//
+			// 			$container.bind("mouseover",function()
+			// 			{
+			// 				clearInterval(time);
+			// 			});
+			// 			$container.bind("mouseout",function()
+			// 			{
+			// 				time = setInterval(function(){This.move($container,$content,speed);},20);
+			// 			});
+			// 			setTimeout(function(){$("#container").slideUp();},30000);  //毫秒单位，显示30s后消失
+			// 			return this;
+			// 		},
+			// 		move:function($container,$content,speed){
+			// 			var container_width = $container.width();
+			// 			var content_width = $content.width();                        if (parseInt($content.css("left")) + content_width > 0)
+			// 			{
+			// 				$content.css({left:parseInt($content.css("left")) - speed + "px"});
+			// 			}
+			// 			else
+			// 			{
+			// 				$content.css({left:parseInt(container_width) + "px"});                        }
+			// 		}
+			// 	});
+			// })(jQuery);
+			//
+			// $(document).ready(
+			// 		function(){
+			// 	    $("#container").roll({speed:2});
+			// 		}
+			//  );
+
+		</script>
+
+
+	</body>
+
+</html>

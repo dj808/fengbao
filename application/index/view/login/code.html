@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>蜂保网</title>
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css" />
+
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/login.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/weui.css" />
+
+		<script src="__STATIC__/js/jquery-3.3.1.min.js"></script>
+		<script src="__STATIC__/js/zepto.min.js"></script>
+		<style>
+			.btnlogin {
+				background: url("__STATIC__/img/loginbtn.png") no-repeat 100%;
+				background-size: 100%;
+				color: wheat;
+			}
+			
+			.weui-cell__hd {
+				margin-right: -5rem;
+				position: absolute;
+				left: 1rem;
+				top: 0.1rem;
+			}
+			
+			.weui-cells_checkbox .weui-check:checked+.weui-icon-checked:before {
+				content: '\EA06';
+				color: #C68B47;
+			}
+			.identifyingcode{
+				position: absolute;
+				top: 0.5rem;
+				right: 1rem;
+				border-radius: 1rem;
+				color: #D8D8D8;
+				background-color: #EEEEEE;
+			}
+			.identifying{
+				position: relative;
+			}
+		</style>
+	</head>
+
+	<body class="aui-bg-white">
+
+		<header class="aui-bar aui-bar-nav aui-bar-light">
+			<a class="aui-pull-left aui-btn" href="javascript:history.back(-1)">
+				<span class="aui-iconfont aui-icon-left text-js"></span>
+			</a>
+			<div class="aui-title">&nbsp;</div>
+			<a class="aui-pull-right aui-btn" href="{:Url('register/index')}">
+				<span class="text-js">注册</span>
+			</a>
+		</header>
+
+		<div class="aui-bg-white  cooperative_partner first">
+			<div class="aui-padded-15">
+				<div class="login-logo-img">
+					<img class="logo" src="__STATIC__/img/logo.jpg" alt="">
+				</div>
+			</div>
+
+		</div>
+
+		<div class="aui-bg-white aui-padded-15">
+
+			<div class="aui-row">
+				<!--手机号-->
+				<div class="aui-col-xs-12">
+					<div class="aui-padded-b-15">
+						<div class="aui-input-row border-input">
+							<div class="phoneimg">
+								<img src="__STATIC__/img/registphone.png" alt="" />
+							</div>
+							<input class="pb" type="text" placeholder="请输入11位手机号" id="phone" name="phone">
+						</div>
+					</div>
+
+				</div>
+				<!--4位验证码-->
+				<div class="aui-col-xs-12">
+					<div class="aui-padded-b-15">
+						<div class="aui-input-row border-input" >
+							<div class="phoneimg">
+								<img src="__STATIC__/img/refistcode.jpg" alt="" />
+							</div>
+							<input class="pb identifying" type="text" placeholder="请输入6位验证码" id="vcode" name="vcode">
+							<div class="identifyingcode aui-btn" id="sendmsg">获取验证码</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="aui-row">
+				<div class="aui-col-xs-12">
+					<div class="aui-padded-25 aui-margin-t-15">
+						<div class="aui-btn aui-btn-block aui-btn-sm btnlogin">
+							登录
+						</div>
+					</div>
+
+				</div>
+
+              </div>
+			</div>
+			<script>
+				//隐藏显示密码
+				function xs() {
+					var aa = document.getElementById("ico").title;
+					if(aa == "隐藏密码") {
+						document.getElementById("in").type = "password";
+						document.getElementById("ico").title = "显示密码";
+						document.getElementById("ico").src = "img/eye.jpg";
+					} else {
+						document.getElementById("ico").title = "隐藏密码";
+						document.getElementById("in").type = "text";
+						document.getElementById("ico").src = "img/eye2.png";
+					}
+				}
+				//发送验证码
+				//发送验证码
+				var InterValObj; //timer变量，控制时间
+				var count = 60; //间隔函数，1秒执行
+				var curCount;//当前剩余秒数
+				var code = ""; //验证码
+				var codeLength = 6;//验证码长度
+
+				$('#sendmsg').click(function(){
+					var phone=$("#phone").val();
+					$.ajax({
+						type:"POST",
+						url:"{:url('index/register/sendSms')}",
+						data:{"phone":phone},
+						success:function (res){
+							console.log(res);
+							if(res.code=="1"){
+								curCount = count;
+								//设置button效果，开始计时
+								$('#sendmsg').attr("disabled", "true");
+								$('#sendmsg').text("还剩" + curCount + "秒");
+								InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+							}else if(res.code=="-1"){
+								alert(res.message);
+							}else{
+								alert(res.message);
+							}
+						},
+						dataType: 'json'
+					});
+					return false;
+				});
+
+				function SetRemainTime() {
+					if (curCount == 0) {
+						window.clearInterval(InterValObj);//停止计时器
+						$("#sendmsg").removeAttr("disabled");//启用按钮
+						$("#sendmsg").text("重发验证码");
+						code = ""; //清除验证码。如果不清除，过时间后，输入收到的验证码依然有效
+					}else {
+						curCount--;
+						$("#sendmsg").text("获取" + curCount + "秒");
+					}
+				}
+				//登录模块
+				$('.btnlogin').click(function () {
+
+					var phone=$("#phone").val();
+					var vcode=$("#vcode").val();
+					$.ajax({
+						type:"POST",
+						url:"{:url('index/login/codeLogin')}",
+						data:{"phone":phone,"vcode":vcode},
+						success:function (res) {
+							console.log(res);
+							if (res.code==1) {
+								alert(res.message);
+								window.location.href = "{:url('user/getApprove')}"
+							}else{
+								alert(res.message);
+								//    window.location.href = "{:url('index/login/index')}"
+							}
+						},
+						dataType: 'json'
+					});
+					return false;
+				});
+			</script>
+	</body>
+
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+	<head>
+     <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>蜂保网</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/mystyle.css" />
+ 	<script src="__STATIC__/js/zepto.min.js"></script>
+	<script src="__STATIC__/js/jquery-3.3.1.min.js"></script>
+ 	<style type="text/css">
+		.put{
+			z-index: 10;
+			cursor: pointer;
+			position: absolute;
+			font-size: 0.75rem;
+			width: 9rem;
+			height: 8rem;
+
+			left: 50%;
+			top: 50%;
+			margin-left: -4.5rem;
+			margin-top: -4rem;
+			opacity: 0;
+		}
+ 	</style>
+</head>
+
+	<body >
+		<div class="myborder1-1 aui-padded-0 ">
+			<div class="aui-row myborder1 myfontsize-1">
+				<input type="hidden" id="order_id" value="{$order_id}">
+				<div class="aui-col-xs-12 aui-padded-15 ">
+					被保险人身份证
+				</div>
+			</div>
+			<div class="aui-content-padded myborder1">
+	            <div class="aui-row">
+	                <div class="aui-col-xs-6" >
+	                    <div class="aui-padded-15 aui-padded-t-0">
+							<div class="weui-uploader__bd">
+								<ul class="weui-uploader__files">
+								</ul>
+								<div class="weui-uploader__input-box">
+
+									<img src="__STATIC__/img/face.png" alt="" id="face">
+									<input class="weui-uploader__input put" accept="image/*" multiple="" type="file" name="idcard_pro"  onchange="previewImage(this)">
+
+								</div>
+							</div>
+
+	                    </div>
+	                </div>
+	                <div class="aui-col-xs-6">
+	                    <div class="aui-padded-15 aui-padded-t-0">
+	                        <img src="__STATIC__/img/back.png" alt="" id="face1">
+							<input class="weui-uploader__input put" accept="image/*" multiple="" type="file" name="idcard_con"  onchange="previewImage1(this)">
+	                    </div>
+	                </div>
+	            </div>
+    		</div>
+		
+			<div class="aui-row myborder1 myfontsize-1">
+				<div class="aui-col-xs-12 aui-padded-15 ">
+					车辆行驶证
+				</div>
+			</div>
+			<div class="aui-content-padded myborder1">
+	            <div class="aui-row">
+	                <div class="aui-col-xs-6">
+	                    <div class="aui-padded-15 aui-padded-t-0">
+	                        <img src="__STATIC__/img/xsz.png" alt="" id="face2">
+							<input class="weui-uploader__input put" accept="image/*" multiple="" type="file" name="driving_pro"  onchange="previewImage2(this)">
+	                    </div>
+	                </div>
+	                <div class="aui-col-xs-6">
+	                    <div class="aui-padded-15 aui-padded-t-0">
+	                        <img src="__STATIC__/img/xsz1.png" alt="" id="face3">
+							<input class="weui-uploader__input put" accept="image/*" multiple="" type="file" name="driving_con"  onchange="previewImage3(this)">
+	                    </div>
+	                </div>
+	            </div>
+    		</div>
+		</div>
+		<div >
+			<span class="myfontcolor aui-margin-15 ">
+				*确保图像清晰可提高辨识度哦
+			</span>
+		</div>
+        <div class="mymargin-top">
+        	<div class="aui-content-padded">
+            	<div class="mybtn">
+                	<div class="mymargin-top">
+			        	<div class="aui-content-padded">
+			            	<div class="mybtn" >
+			                	立即提交
+			            	</div>
+			        	</div>
+    				</div>
+            	</div>
+        	</div>
+    	</div>
+		<script>
+			function previewImage(file) {
+
+				var formData = new FormData();
+				formData.append('file', $('input[name=idcard_pro]')[0].files[0]);
+				$.ajax({
+					type:'post',
+					url:"{:url('index/base/upload')}",
+					data:formData,
+					contentType: false, // 注意这里应设为false
+					processData: false,
+					cache: false,
+					success: function(ret){
+						if (ret.code==1){
+							$("#face").attr("src",ret.data);
+						}else{
+							$("#face").attr("src", '')
+						}
+					},
+					error:function(ret){
+						alert(res.message);
+					}
+				})
+
+			}
+			function previewImage1(file) {
+
+				var formData = new FormData();
+				formData.append('file', $('input[name=idcard_con]')[0].files[0]);
+				$.ajax({
+					type:'post',
+					url:"{:url('index/base/upload')}",
+					data:formData,
+					contentType: false, // 注意这里应设为false
+					processData: false,
+					cache: false,
+					success: function(ret){
+						if (ret.code==1){
+							$("#face1").attr("src",ret.data);
+						}else{
+							$("#face1").attr("src", '')
+						}
+					},
+					error:function(ret){
+						alert(res.message);
+					}
+				})
+
+			}
+			function previewImage2(file) {
+
+				var formData = new FormData();
+				formData.append('file', $('input[name=driving_pro]')[0].files[0]);
+				$.ajax({
+					type:'post',
+					url:"{:url('index/base/upload')}",
+					data:formData,
+					contentType: false, // 注意这里应设为false
+					processData: false,
+					cache: false,
+					success: function(ret){
+						if (ret.code==1){
+							$("#face2").attr("src",ret.data);
+						}else{
+							$("#face2").attr("src", '')
+						}
+					},
+					error:function(ret){
+						alert(res.message);
+					}
+				})
+
+			}
+			function previewImage3(file) {
+
+				var formData = new FormData();
+				formData.append('file', $('input[name=driving_con]')[0].files[0]);
+				$.ajax({
+					type:'post',
+					url:"{:url('index/base/upload')}",
+					data:formData,
+					contentType: false, // 注意这里应设为false
+					processData: false,
+					cache: false,
+					success: function(ret){
+						if (ret.code==1){
+							$("#face3").attr("src",ret.data);
+						}else{
+							$("#face3").attr("src", '')
+						}
+					},
+					error:function(ret){
+						alert(res.message);
+					}
+				})
+
+			}
+            //上传材料
+			$('.mybtn').click(function () {
+                var id=$("#order_id").val();
+				var face= $("#face").attr("src");
+				var face1= $("#face1").attr("src");
+				var face2= $("#face2").attr("src");
+				var face3= $("#face3").attr("src");
+				$.ajax({
+					type:"POST",
+					url:"{:url('index/order/addOrderInfo')}",
+					data:{
+						"id":id,
+						"idcard_pro":face,
+						"idcard_con":face1,
+						"driving_pro":face2,
+						"driving_con":face3
+					},
+					success:function (res) {
+						console.log(res);
+						if (res.code==1) {
+							alert(res.message);
+							window.location.href = "{:url('index/home/index')}"
+						}else{
+							alert(res.message);
+
+						}
+					},
+					dataType: 'json'
+				});
+				return false;
+			});
+
+
+		</script>
+	</body>
+	
+
+</html>

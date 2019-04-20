@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>蜂保网</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/mystyle.css" />
+    <link rel="stylesheet" href="__STATIC__/css/weui.css"/>
+    <link rel="stylesheet" href="__STATIC__/css/weuix.css"/>
+
+    <script src="__STATIC__/js/zepto.min.js"></script>
+    <script src="__STATIC__/js/zepto.weui.js"></script>
+    <script src="__STATIC__/js/php.js"></script>
+	<style>
+		.ewm-11>img{
+			width:100%;
+			height:100%
+		}
+	</style>
+</head>
+	<body class="aui-bg-white">
+		<header class="aui-bar aui-bar-nav aui-bar-light border-none">
+			<a class="aui-pull-left aui-btn" href="javascript:history.back(-1)">
+				<span class="aui-iconfont aui-icon-left mycolor"></span>
+			</a>
+			<div class="aui-title mycolor">邀请好友</div>
+	
+		</header>
+		<div class="bj">
+			
+			<div class="rzbj-1" style="position: relative;">
+				<img class="rzbj-11" src="__STATIC__/img/rzbj.png"  />
+				 <div class="aui-list-item-right">
+					 <a href="{:Url('index/circle/getRule')}">
+	                <span class="btn-11  btn-color myfonts-111 border-none " >奖励规则</span>
+					 </a>
+	              </div>
+				  <div class="ewm-11" style="width: 6rem;height: 6rem;background:red;position:absolute;left: 50%;margin-left: -3rem;top: 53%;margin-top: -7rem;">
+					  <img src="__ROOT__/{$data.qrcode}"/>
+					 
+					 <!-- <img src="__STATIC__/img/erwm.png" alt="">-->
+				  </div>
+
+				<div class="mybgt2">
+					<h2 class="mycolor my-liststyle">活动说明</h2>
+					<ul class="mycolor my-liststyle-1">
+						<li>1.分享页面给微信好友，或好友扫描您的个人二维码（邀请好友-二维码）</li>
+						<li>2.好友在您的邀请页关注并注册成为蜂保网分享人</li>
+						<li>3.完成以上步骤，在蜂保网成功完成出单，你即可获得多重奖励。</li>
+					</ul>
+				</div>
+
+	              <div class="myfooter-title aui-padded-t-5 ">
+					邀请方式
+				</div>
+			</div>	
+				
+
+			<div class="aui-row myalert-11 aui-padded-t-5 " style="" >
+				<div class="aui-col-xs-4 ">
+					<div class="aui-margin-b-0">
+						<img src="__STATIC__/img/wch.png" alt="" class="myheight-1 " onclick="share()">
+					</div>
+					<p class="aui-font-size-10 aui-text-center myfontize">
+						微信
+					</p>
+				</div>
+				<div class="aui-col-xs-4 ">
+					<div class=" aui-margin-b-0 " >
+						<img src="__STATIC__/img/pyq.png" alt="" class="myheight-1 " onclick="share()">
+					</div>
+					<p class="aui-font-size-10 aui-text-center myfontize">
+						朋友圈
+					</p>
+				</div>
+				<div class="aui-col-xs-4 ">
+				<div class=" aui-margin-b-0">
+					<input type="hidden" value="__ROOT__/{$data.qrcode}" id="qrcode">
+					<img src="__STATIC__/img/erwm.png" alt="" class="myheight-1 " onclick="openSharebox()">
+				</div>
+				<p class=" aui-text-center myfontize">
+					二维码
+				</p>
+			</div>
+			
+			</div>
+		</div>
+		<script type="text/javascript" src="__STATIC__/js/auisharebox.js"></script>
+		<script type="text/javascript">
+			apiready = function() {
+				api.parseTapmode();
+			}
+			var sharebox = new auiSharebox();
+			var qrcode=$('#qrcode').val();
+			console.log(qrcode);
+			function openSharebox() {
+				sharebox.init({
+					frameBounces: true, //当前页面是否弹动，（主要针对安卓端）
+					buttons: [{
+						image: qrcode,
+						text: '长按识别二维码马上出单拿奖励',
+						value: 'ewm'
+					}],
+					col: 2,
+					//cancelTitle: '关闭' //可选,当然也可以采用下面的方式使用图标
+					cancelTitle:'<i class="aui-iconfont aui-icon-close aui-font-size-16"></i>'//可选
+				}, function(ret) {
+					if(ret) {
+						document.getElementById("button-index").textContent = ret.buttonIndex;
+						document.getElementById("button-value").textContent = ret.buttonValue;
+					}
+				})
+			}
+		</script>
+	</body>
+</html>

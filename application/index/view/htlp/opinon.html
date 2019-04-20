@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>蜂保网</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/mystyle.css" />
+    <link rel="stylesheet" href="__STATIC__/css/weui.css"/>
+    <link rel="stylesheet" href="__STATIC__/css/weuix.css"/>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/style-1.css" />
+    <script src="__STATIC__/js/zepto.min.js"></script>
+    <script src="__STATIC__/js/zepto.weui.js"></script>
+    <script src="__STATIC__/js/lrz.min.js"></script>
+    <style>
+    	.myimage{
+    		position: relative;
+    	}
+    	#myclear{
+    	position: absolute;
+    	top:0rem;
+    	right:0rem;	
+    	}
+    </style>
+</head>
+	<body>
+		<div class="textarea-0 aui-margin-15">
+			<div id="test" style="display: none;"></div>
+            <input type="hidden" id="user_id" value="{$user_id}">
+			<textarea class="textarea-1" id="textarea" name="content" rows="31" cols="15" placeholder="请在此输入您宝贵意见" maxlength="600" ></textarea>
+			<p class="wzdw" id="wzdw">0/600</p>
+		</div>
+		<div class="weui-uploader aui-margin-l-15 aui-margin-t-15">
+			 <div class=" input-img " >
+            <input id="uploaderInput" class="weui-uploader__input " accept="image/*" multiple="" type="file" name="file">
+            <input type="hidden" name="" id="photos" value="">
+                 <!--<i class="weui-icon-clear" id="myclear" onclick="mydelete()"></i>-->
+        	</div>
+           <div class="weui-uploader__bd aui-margin-l-0 aui-margin-t-15">
+                <ul class="weui-uploader__files" id="uploaderFiles" >
+
+                </ul>
+            </div>
+　　　　</div>
+	<div class="mymargin">
+        	<div class="aui-content-padded">
+            	<div class="mybtn" >
+                	立即提交
+            	</div>
+        	</div>
+    	</div>
+        <div class="myfooter">
+            {include file="public:footer"}
+        </div>
+       <script src="__STATIC__/js/jquery-3.3.1.min.js"></script>
+        <script>
+            $(function(){
+                var tmpl = '<li class="weui-uploader__file" style="background-image:url(#url#)"></li>';
+                var      $uploaderInput = $("#uploaderInput"); //上传按钮+
+                var       $uploaderFiles = $("#uploaderFiles");    //图片列表
+                var $galleryImg = $(".weui-gallery__img");//相册图片地址
+                var $gallery = $(".weui-gallery");
+                $uploaderInput.on("change", function(e){
+                    var formData = new FormData();
+                    formData.append('file', $('input[name=file]')[0].files[0]);
+
+                    $.ajax({
+                        type:'post',
+                        url:"{:url('index/base/upload')}",
+                        data:formData,
+                        contentType: false, // 注意这里应设为false
+                        processData: false,
+                        cache: false,
+                        success: function(ret){
+                            if (ret.code==1){
+                               // $("#face").attr("src",ret.data);
+                                $uploaderFiles.append($(tmpl.replace('#url#', ret.data)));
+
+                                var tmp=$("#photos").val()+','+ret.data;
+                               // var a =tmp+ret.data;
+                                $("#photos").val(tmp);
+                            }else{
+                                alert(res.message);
+                            }
+                        },
+                        error:function(ret){
+                            alert(res.message);
+                        }
+                    });
+                });
+
+                $uploaderFiles.on("click", "li", function(){
+                    $galleryImg.attr("style", this.getAttribute("style"));
+                    $gallery.fadeIn(100);
+                });
+                $gallery.on("click", function(){
+                    $gallery.fadeOut(100);
+                });
+
+            });
+
+             textarea.onpropertychange = iii;
+             textarea.oninput = iii;
+
+             // 实时显示文字
+              function iii() {
+                test.innerHTML = textarea.value;
+                var changdu = test.innerHTML.length;
+              document.getElementById("wzdw").innerHTML = changdu +"/600";
+            }
+              function mydelete(){
+                $("#myclear").parent().remove();
+              }
+
+
+
+
+            //提交意见
+            $(".mybtn").click(function(){
+                  var content=$("#textarea").val();
+                  var user_id=$("#user_id").val();
+
+                  var photos=$("#photos").val();
+                  console.log(photos);
+
+                $.ajax({
+                    type:"POST",
+                    url:"{:url('index/htlp/opinionAdd')}",
+                    data:{"content":content,"photos":photos,"user_id":user_id},
+                    success:function (res) {
+                        console.log(res);
+                        if (res.code==1) {
+                            alert(res.message);
+
+                            window.location.href = "{:url('user/user')}"
+                        }else{
+                            alert(res.message);
+                        }
+                    },
+                    dataType: 'json'
+                });
+            });
+        </script>
+	</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title></title>
+		<script type="text/javascript" src="__STATIC__/js/api.js"></script>
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css" />
+		<link rel="stylesheet" href="__STATIC__/css/weui.css">
+		<link rel="stylesheet" href="__STATIC__/css/weuix.css">
+
+		<script src="__STATIC__/js/zepto.min.js"></script>
+		<script src="__STATIC__/js/zepto.weui.js"></script>
+		<style>
+			.left {
+				margin-left: 0.6rem;
+			}
+			/*.citysure{
+    		margin-left:11rem;
+    	}*/
+			
+			.right {
+				float: right;
+				margin-right: 2rem;
+			}
+			/*.right{
+    		margin-left: 8rem;
+    	}*/
+			
+			.underline {
+				height: 0.2rem;
+				border: none;
+				border-top: 1px solid #EEEEEE;
+				width: 92%;
+				margin: 0.5rem 0.6rem 0 0.7rem
+			}
+			
+			.btnnext {
+				background: url("__STATIC__/img/loginbtn.png") no-repeat 100%;
+				color: wheat;
+				/*	width: 16rem;*/
+				/*margin-left: 1rem;*/
+				border-radius: 2rem;
+				width: 80%;
+				margin: 0 auto;
+				background-size: 100%;
+			}
+			
+			.rightinput {
+				position: absolute;
+				display: inline-block;
+				top: 0.81rem;
+				/* margin-left: 3rem; */
+				right: 0.5rem;
+				text-align: right;
+			}
+			
+			.positionrelative {
+				position: relative;
+			}
+			
+			.aui-switch:checked {
+				border-color: #CB924F;
+				background-color: #CB924F;
+			}
+			
+			.weui-input {
+				text-align: right;
+			}
+			
+			.weui-cell {
+				padding: 0px 15px;
+				position: relative;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+			}
+			
+			.weui-cell input {
+				width: 96%;
+			}
+			
+			.aui-list-sarrow:before {
+				content: '';
+				width: 0.4rem;
+				height: 0.4rem;
+				position: absolute;
+				top: 50%;
+				right: 0.75rem;
+				margin-top: 0.6rem;
+				background: transparent;
+				border: 1px solid #dddddd;
+				border-top: none;
+				border-right: none;
+				z-index: 2;
+				-webkit-border-radius: 0;
+				border-radius: 0;
+				-webkit-transform: rotate(-135deg);
+				transform: rotate(-135deg);
+			}
+			
+			.weui-cell__hd1 {
+				position: absolute;
+				top: 0.2rem;
+				right: 1.5rem;
+			}
+		</style>
+	</head>
+
+	<body class="aui-bg-grey">
+		<div class="aui-content aui-bg-white">
+			<div class="aui-col-xs-12 aui-text-left aui-padded-t-15 aui-padded-b-10">
+				<span class="blackfont  left">投保城市</span>
+				<span class="blackfont  right">南京</span>
+				<span class="aui-list-sarrow"></span>
+			</div>
+			<!--下划线-->
+			<div class="aui-col-xs-12 aui-text-right">
+				<hr class="underline" />
+			</div>
+			<div class="aui-col-xs-12 aui-text-left aui-padded-t-15 aui-padded-b-15 positionrelative">
+				<span class="blackfont  left">交强险</span>
+				<input type="checkbox" class="aui-switch aui-pull-right switchbtn" style="" checked>
+			</div>
+			<!--下划线-->
+			<div class="aui-col-xs-12 aui-text-right">
+				<hr class="underline" />
+			</div>
+			<div class="aui-col-xs-12 aui-text-left  positionrelative">
+				<div class="weui-cell">
+					<div class="weui-cell__hd"><label for="date" class="weui-label">交强险起期</label></div>
+					<div class="weui-cell__bd">
+						<input class="weui-input" id="date" type="text" readonly="">
+					</div>
+				</div>
+
+				<span class="aui-list-item-arrow"></span>
+			</div>
+		</div>
+
+		<div class="aui-content aui-bg-white aui-margin-t-15">
+			<div class="aui-col-xs-12 aui-text-left aui-padded-t-15 aui-padded-b-15">
+				<span class="blackfont  left">保额</span>
+				<!--<span class="blackfont  right">77</span>-->
+				<input class=" aui-iconfont blackfont  rightinput name inputname" value="" placeholder="77">
+			</div>
+			<!--下划线-->
+			<div class="aui-col-xs-12 aui-text-right">
+				<hr class="underline" />
+			</div>
+			<div class="aui-col-xs-12 aui-text-left aui-padded-t-15 aui-padded-b-15">
+				<span class="blackfont  left">车辆损失险</span>
+				<!-- <span class="blackfont  right">88</span>-->
+				<input class=" aui-iconfont blackfont  rightinput name inputname" value="" placeholder="88">
+			</div>
+			<!--下划线-->
+			<div class="aui-col-xs-12 aui-text-right">
+				<hr class="underline" />
+			</div>
+			<div class="aui-col-xs-12 aui-text-left aui-padded-t-15 aui-padded-b-10">
+				<span class="blackfont  left">第三责任险</span>
+				<!--<span class="blackfont  right">不投保</span>-->
+				<div class="weui-cell__hd1">
+					<select class="weui-select" name="select2">
+						<option value="1">不投保</option>
+						<option value="2">投保</option>
+					</select>
+				</div>
+				<span class="aui-list-sarrow"></span>
+			</div>
+
+		</div>
+		<div class="aui-content aui-bg-grey aui-margin-t-15">
+			<div class="aui-col-xs-12">
+				<div class="aui-padded-25">
+					<a href="{:Url('enquiry/four')}">
+					<div class="aui-btn aui-btn-block aui-btn-sm btnnext">
+						下一步
+					</div>
+					</a>
+				</div>
+
+			</div>
+		</div>
+		<script>
+			$("#date").calendar({
+				onChange: function(p, values, displayValues) {
+					console.log(values, displayValues);
+				}
+			});
+			$("#date2").calendar({
+				value: ['2018-12-12'],
+				dateFormat: 'yyyy-mm-dd'
+			});
+			$("#date-multiple").calendar({
+				multiple: true,
+				onChange: function(p, values, displayValues) {
+					console.log(values, displayValues);
+				}
+			});
+			$("#date3").calendar({
+				container: "#inline-calendar"
+			});
+		</script>
+	</body>
+
+</html>

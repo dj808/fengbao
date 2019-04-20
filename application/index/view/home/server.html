@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+	<style type="text/css">
+		
+	</style>
+<head>
+     <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=yes,email=no,date=no,address=no">
+    <title>蜂保网</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/mystyle.css" />
+  	<link rel="stylesheet" type="text/css" href="__STATIC__/css/myfooter.css"/>	
+	<style>
+		.lllll{
+			    width: 2.1rem;
+    padding: 0.05rem 0.2rem;
+    background: #ef4a4a;
+    border-radius: 0.4rem;
+    font-size: 0.4rem;
+    color: white;
+    text-align: center;
+    position: absolute;
+    top: 0.6rem;
+    right: 0rem;
+		}
+	</style>
+</head>
+	
+<body>
+    <header class="aui-bar aui-bar-nav navcolor">
+        <a class="aui-pull-left aui-btn" href="javascript:history.back(-1)">
+            <span class="aui-iconfont aui-icon-left mycolor"></span>
+        </a>
+        <div class="aui-title mycolor">增值服务</div>
+    </header>
+
+    <div class="aui-content user-info aui-text-center aui-margin-b-15 head">
+        <img src="{$userInfo.avatar}" class="avatar aui-img-round" id="my-liststyle-12">
+        <p class="aui-margin-t-15 myPhone " >{$userInfo.phone}</p>
+    </div>
+
+    <div class=" aui-bg-white aui-margin-l-15 aui-margin-r-15 list-1-1 aui-padded-15 " id="borders">
+        <div class=" radius-5 aui-padded-b-15 borders" >
+            <div class="aui-row" >
+                <div class="aui-col-xs-4" id="myalert">
+                    <a href="http://jiaofa.njcgs.com:8888/fjfl_wx_nj/query/csfwMainRequest.do?cityid=320100">
+                        <div class="aui-padded-15">
+                            <img class="my-liststyle-11" src="__STATIC__/img/order_icon1.png" alt="">
+                        </div>
+                        <p class="aui-text-center text-c-333">
+                            违章查询
+                        </p>
+                    </a>
+                </div>
+                <div class="aui-col-xs-4" id="myalert">
+                    <a href="#">
+                        <div class="aui-padded-15">
+                            <img src="__STATIC__/img/order_icon2.png" alt="" class="my-liststyle-11">
+                        </div>
+                        <p class="aui-text-center text-c-333">
+                            保单查询
+                        </p>
+                    </a>
+                </div>
+                <div class="aui-col-xs-4" id="myalert">
+                    <div class="aui-padded-15">
+                        <img class="my-liststyle-11" src="__STATIC__/img/order_icon3.png" alt="" >
+                    </div>
+                    <p class="aui-text-center v">
+                        车检代办
+                    </p>
+                </div>
+                <div class="aui-col-xs-4" id="myalert">
+                    <a href="tel:{$about_us.tel}">
+                        <div class="aui-padded-15">
+                            <img src="__STATIC__/img/order_icon4.png" alt="" class="my-liststyle-11">
+                        </div>
+                        <p class="aui-text-center text-c-333">
+                            事故救援
+                        </p>
+                    </a>
+                </div>
+                <div class="aui-col-xs-4" id="myalert">
+                    <div class="aui-padded-15">
+                        <img src="__STATIC__/img/order_icon5.png" alt="" class="my-liststyle-11">
+                    </div>
+                    <p class="aui-text-center text-c-333">
+                        维修保养
+                    </p>
+					<div class="lllll" >敬请期待</div>
+                </div>
+                <div class="aui-col-xs-4" id="myalert">
+                    <div class="aui-padded-15">
+                        <img src="__STATIC__/img/order_icon6.png" alt="" class="my-liststyle-11">
+                    </div>
+                    <p class="aui-text-center text-c-333">
+                        洗车服务
+                    </p>
+					<div class="lllll" >敬请期待</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="myfooter">
+        {include file="public:footer"}
+    </div>
+    <script src="__STATIC__/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    	$(function(){
+    		$(".aui-row").on("click","#myalert img",function(){
+    			$("#myalert-1").show();
+    		})
+    		$("#quxiao").on("click","p ",function(){
+    			$("#myalert-1").hide();
+    		})
+    	})
+    	
+    	
+    </script>
+</body>
+
+</html>

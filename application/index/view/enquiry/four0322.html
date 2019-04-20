@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title></title>
+		<script type="text/javascript" src="__STATIC__/js/api.js"></script>
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/login.css" />
+
+		<style>
+			.border-input {
+				padding: 0 3rem;
+				border: 1px solid #eee;
+				border-radius: 2rem;
+			}
+			
+			.aui-bg-grey {
+				background-color: #F2F2F2;
+			}
+			
+			.arrowrightcontainer {
+				position: relative;
+			}
+			
+			.arrowright {
+				/*margin-left: 15rem;*/
+				display: inline-block;
+				position: absolute;
+				right: 0.21rem;
+				top: 0rem;
+			}
+			
+			.b {
+				border-radius: 1rem;
+				position: relative;
+			}
+			
+			.money {
+				position: absolute;
+				left: 1rem;
+				top: 0.6rem;
+			}
+			
+			.record {
+				position: absolute;
+				left: 3rem;
+				top: 0.3rem;
+			}
+			
+			.nooffer {
+				position: absolute;
+				left: 1rem;
+				top: 0.3rem;
+			}
+			
+			.family {
+				position: absolute;
+				right: 2rem;
+				top: 0.3rem;
+			}
+			
+			.blackfont {
+				color: #323232;
+				font-size: 0.85rem;
+				font-weight: bold;
+			}
+			
+			.greyfont {
+				color: #666666;
+				font-size: 0.65rem;
+				font-weight: bold;
+			}
+			
+			.content {
+				padding-top: 2rem;
+				height: 8rem;
+			}
+			
+			.content img {
+				width: 80%;
+				margin: 0 auto;
+			}
+			
+			.second,
+			.three {
+				position: relative;
+				height: 3rem;
+			}
+			
+			.aui-progress-bar {
+				float: left;
+				width: 0;
+				height: 100%;
+				font-size: 0.6rem;
+				line-height: 1rem;
+				color: #ffffff;
+				text-align: center;
+				background-color: #C38844;
+			}
+			
+			.aui-progress {
+				width: 80%;
+				height: 1rem;
+				border-radius: 2rem;
+				overflow: hidden;
+				background-color: #f0f0f0;
+				margin: 0 auto;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/style-1.css" />
+
+		<script src="__STATIC__/js/php.js"></script>
+		<script src="__STATIC__/js/zepto.min.js"></script>
+		<script src="__STATIC__/js/zepto.weui.min.js"></script>
+		<script>
+			$(function() {
+				var data = {
+					is_show: 1,
+					bal: 121.05,
+					integral: 10
+				};
+
+				$(".display").click(function() {
+					if(data.is_show == 1) {
+						data.is_show = 2;
+						$(this).find('.icon-y').attr('src', '__STATIC__/img/yj_icon_2.png');
+						var bal = $("#number-1").text();
+						var integral = $("#number-2").text();
+						$("#number-1").text("****");
+						$("#number-2").text("**");
+
+					} else {
+						data.is_show = 1;
+						$(this).find('.icon-y').attr('src', '__STATIC__/img/yj_icon_1.png');
+						var bal = $("#number-1").text();
+						var integral = $("#number-2").text();
+						$("#number-1").text(data.bal);
+						$("#number-2").text(data.integral);
+					}
+				})
+			})
+		</script>
+	</head>
+
+	<body class="aui-bg-grey">
+		<!--第一部分-->
+		<div class="aui-margin-t-15 aui-padded-15 aui-text-center">
+			<div class="aui-row aui-bg-white b">
+				<div class="aui-col-xs-12 content">
+					<!--<img class="aui-padded-t-15" src="img/jdt.jpg">-->
+					<div class="aui-progress aui-progress ">
+
+						<div class="aui-progress-bar" style="width: 60%;"></div>
+					</div>
+					<p class="aui-margin-t-15 greyfont">已完成100%</p>
+
+				</div>
+			</div>
+		</div>
+		<!--第二部分-->
+		<div class="aui-margin-t-15 aui-padded-15 aui-text-center arrowrightcontainer">
+			<div class="aui-row aui-bg-white b second">
+				<div class="aui-text-left  nooffer">
+					<p class="aui-padded-l-15 aui-padded-t-15 aui-font-size-14 blackfont"> 未报价公司</p>
+				</div>
+				<div class=" aui-text-right ">
+					<img class="aui-padded-15 arrowright" src="__STATIC__/img/jtr.jpg">
+				</div>
+				<div class=" aui-text-right family">
+					<p class="aui-padded-l-15 aui-padded-t-15 aui-font-size-14 blackfont"> 5 家</p>
+				</div>
+				<!--<div class="money">
+            <img src="img/moneyicon.jpg" alt=""/>
+        </div>-->
+			</div>
+		</div>
+		<!--第三部分-->
+		<div class="aui-margin-t-5 aui-padded-15 aui-text-center arrowrightcontainer">
+			<div class="aui-row aui-bg-white b three">
+				<div class="aui-text-left record">
+					<p class="aui-padded-l-15 aui-padded-t-15 aui-font-size-14 blackfont"> 提现记录</p>
+				</div>
+				<div class=" aui-text-right ">
+					<img class="aui-padded-15 arrowright" src="__STATIC__/img/jtr.jpg">
+				</div>
+				<div class="money">
+					<img src="__STATIC__/img/moneyicon.jpg" alt="" />
+				</div>
+			</div>
+		</div>
+		<div class="myfooter">
+			{include file="public:footer"}
+		</div>
+		<script type="text/javascript" src="js/api.js"></script>
+		<script type="text/javascript" src="js/aui-tab.js"></script>
+
+	</body>
+
+</html>

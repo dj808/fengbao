@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/api.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/aui-slide.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/login.css" />
+
+		<script type="text/javascript" src="__STATIC__/js/api.js"></script>
+		<script type="text/javascript" src="__STATIC__/js/aui-slide.js"></script>
+		<script src="__STATIC__/js/jquery-3.3.1.min.js"></script>
+		<style>
+			.news {
+				width: 100%;
+				/* height: 0.9rem; */
+				/* margin-top: 0.2rem; */
+				position: relative;
+				background-color: #FFFFFF;
+				/* padding-top: 0.17rem; */
+				padding-left: 0.28rem;
+				margin-bottom: 2.3rem;
+			}
+
+			.news span {
+				display: inline-block;
+				font-size: 0.7rem;
+				width: 11rem;
+				position: absolute;
+				top: 0.5rem;
+				left: 3.3rem;
+				padding-top: 0.17rem;
+			}
+
+			.btnlogin {
+				background: url("__STATIC__/img/loginbtn.png") no-repeat 100%;
+				/* width: 50px; */
+				/* height: 30px; */
+				/* border: none; */
+				/* left: 0rem; */
+				color: wheat;
+				background-size: 100%;
+			}
+
+			.text-js {
+				color: #D4AD82!important;
+			}
+
+			.greyfont {
+				color: #9A9A9A;
+			}
+
+			.aui-bg-grey {
+				background-color: #F2F2F2;
+			}
+
+			.cameracontainer {
+				width: 9rem;
+				height: 4rem;
+				margin: 0 auto;
+			}
+
+			.bingnow {
+				margin-top: 3rem;
+			}
+
+			.borderstyle {
+				border-radius: 1rem;
+			}
+
+			.blackfont {
+				    color: #000000;
+					font-size: 0.65rem;
+			}
+
+			.arrowrightcontainer:before {
+				content: '';
+				width: 0.35rem;
+				height: 0.35rem;
+				position: absolute;
+				top: 0.26rem;
+				left: 28%;
+				margin-top: 0.5rem;
+				background: transparent;
+				border: 1px solid #dddddd;
+				border-top: none;
+				border-right: none;
+				z-index: 2;
+				-webkit-border-radius: 0;
+				border-radius: 0;
+				-webkit-transform: rotate(-135deg);
+				transform: rotate(-135deg);
+			}
+
+			.underline {
+				height: 0.2rem;
+				border: none;
+				border-top: 1px solid #EEEEEE;
+				margin-top: 1rem;
+				
+
+			}
+
+			.identitycardcontainer,
+			.infocontainer {
+				position: relative;
+			}
+			.infocontainer  div{
+				    width: 0.8rem;
+					height: 0.8rem;
+					position: absolute;
+					top: 0.2rem;
+			}
+
+
+			.identitycard {
+				position: absolute;
+				top: -0.2rem;
+				left: 3rem;
+			}
+
+			.info {
+				position: absolute;
+				top: 0.1rem;
+				left: 1.2rem;
+				font-size: 0.65rem;
+			}
+
+			.text-js {
+				color: #D4AD82!important;
+			}
+
+			img.newsimg {
+				margin-left: -1.6rem;
+			}
+
+			.insuredarea {
+				margin-left: 1.4rem;
+			}
+
+			.licensenumber {
+				margin-left: 2.2rem;
+			}
+
+			.next {
+				text-decoration: underline;
+			}
+
+			.aui-slide-wrap {
+				display: block;
+				position: relative;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				height: 9rem;
+				width: 100%;
+				overflow: hidden;
+			}
+
+			.aui-slide-wrap img {
+				width: 100%;
+				height: 100%;
+			}
+			/***/
+			.cp{
+				position: absolute;
+				top: 0.52rem;
+			}
+			.cpselect{
+				width: 50%;
+				position: absolute;
+				left: 2.8rem;
+				top: -0.16rem;
+			}
+			.car{
+				left: 7rem;
+				text-transform: uppercase;
+				position: absolute;
+				top: 0rem;
+			}
+			/***/
+			.tbdselect{
+				left: 1.5rem;
+				position: absolute;
+				width: 50%;
+				top: -0.25rem;
+			}
+			.arrowrightcontainer1:before {
+				content: '';
+				width: 0.4rem;
+				height: 0.4rem;
+				position: absolute;
+				top: 18px;
+				right:4%;
+				margin-top: -0.2rem;
+				background: transparent;
+				border: 1px solid #dddddd;
+				border-top: none;
+				border-right: none;
+				z-index: 2;
+				border-radius: 0;
+				transform: rotate(-135deg);
+			}
+			.newsimg_container{
+				width: 6rem;
+				height: 2rem;
+				position: absolute;
+				top: 0.1rem;
+
+			}
+			.newsimg_container img{
+				width: 100%;
+				height:100%;
+			}
+
+			.xyb{
+				margin-top: 2.5rem;
+			}
+			.paimg{
+				width: 1rem;
+				height: 1rem;
+				position: absolute;
+				top: 1rem;
+			}
+			.paimg img{
+				width: 100%;
+				height:100%;
+			}
+			.car{
+				text-transform: uppercase;
+				position: absolute;
+				width: 8rem;
+				left: 36%;
+				top: -0.15rem;
+			}
+			.tbd{
+				    height: 0.8rem;
+					padding-top:0.25rem;
+			}
+
+
+		</style>
+	</head>
+
+	<body class="aui-bg-white">
+		<!--<header class="aui-bar aui-bar-nav aui-bar-light">-->
+			<!--<a class="aui-pull-left aui-btn">-->
+				<!--<span class="aui-iconfont aui-icon-left text-js"></span>-->
+			<!--</a>-->
+			<!--<div class="aui-title text-js">基本信息</div>-->
+
+		<!--</header>-->
+		<div id="" style="position: relative; ">
+			<div class="aui-slide-wrap">
+
+				<img src="__STATIC__/img/28.png">
+			</div>
+		</div>
+		<div class=" aui-text-center ">
+			<div class="aui-row aui-bg-white aui-padded-15  borderstyle">
+				<!-- 最新资讯-->
+				<div class="news">
+					<div class="newsimg_container">
+						<img class="newsimg" src="__STATIC__/img/carsure.jpg">
+					</div>
+					<span class="text-js">(目前仅支持私家车投保)</span>
+
+				</div>
+
+				<!--下划线-->
+				<div class="aui-col-xs-12 aui-text-right">
+					<hr class="underline" />
+				</div>
+				<!--<div class="aui-col-xs-12 aui-text-left aui-margin-t-15">
+					<span class="blackfont">车牌</span>
+					<span class="licensenumber blackfont arrowrightcontainer">苏A</span>
+				</div>-->
+			<form id="formId"  >
+				<div class="aui-col-xs-12 aui-text-left" style="height:0.8rem !important;">
+					<span class="blackfont cp">车牌</span>
+					<span class="licensenumber blackfont arrowrightcontainer">
+					<select name="car_gs" id="car_gs" class="cpselect" style="font-size: 0.65rem;">
+						<option selected="selected" value="苏A">苏A</option>
+					</select>
+					</span>
+					<input style="font-size: 0.65rem;" class="car" name="car_id" id="car_id" style="text-transform:uppercase" type="text" placeholder="请输入车牌号">
+					<!--<select  class="arrowrightcontainer">
+						<option>苏A</option>
+						<option>苏A</option>
+					</select>-->
+					<!--<input type="" placeholder="请输入车牌号" >-->
+				</div>
+				<div class="aui-col-xs-12 aui-text-right">
+					<hr class="underline" />
+				</div>
+				<!--<div class="aui-col-xs-12 aui-text-left aui-margin-t-15">-->
+					<!--<span class="blackfont">投保地</span>-->
+					<!--<span class="blackfont aui-list-item-arrow insuredarea">南京市</span>-->
+				<!--</div>-->
+				<div class="aui-col-xs-12 aui-text-left tbd">
+					<span class="blackfont">投保地</span>
+					<span class="arrowrightcontainer1">
+					<select id="tbd" name="tbd" class=" tbdselect blackfont aui-list-item-arrow insuredarea" >
+						{volist id="vo" name="data"}
+						{volist id="vo1" name="$vo.son" key="k" }
+						{if condition="$k eq 1"}
+						<option  value="{$vo1.pid}">&nbsp;{$vo.province}&nbsp;&nbsp;&nbsp;&nbsp;{$vo1.tbd}</option>
+						{else}
+						<option  value="{$vo1.pid}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$vo1.tbd}</option>
+						{/if}
+                       {/volist}
+                       {/volist}
+					</select>
+					</span>
+				</div>
+
+				<div class="aui-col-xs-12 aui-text-right">
+					<hr class="underline" />
+				</div>
+				<div class="aui-col-xs-12 aui-text-left tbd identitycardcontainer">
+					<span class="blackfont">身份证</span>
+					<input style="font-size: 0.65rem;"  class="identitycard" name="identitycard" id="identitycard" type="text" placeholder="请输入身份证号">
+				</div>
+				<!--下划线-->
+				<div class="aui-col-xs-12 aui-text-right">
+					<hr class="underline" />
+				</div>
+
+				<div class="aui-col-xs-12 aui-text-right infocontainer">
+					<div class="paimg" >
+						<img src="/public/static/index/img/war.jpg" />
+				     </div>
+				<span class="info text-js">仅平安车主需填写身份证号码</span>
+			   </div>
+
+
+				<div class="aui-col-xs-12">
+					<div class="aui-padded-25 xyb">
+							<input  type="button" style="cursor:pointer" class="aui-btn aui-btn-block aui-btn-sm btnlogin " id="next" value="下一步" />
+					</div>
+				</div>
+			</form>
+				<div class="aui-col-xs-12">
+					<div class="aui-margin-t-15 aui-text-right">
+						<a class="text-js next" href="{:Url('enquiry/findEnquiry')}" style="text-align: center;font-size: 0.65rem;">最近询价记录</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+
+</html>
+<script>
+    $(document).ready(function () {
+        var url = '{:url("Enquiry/getRegion")}';
+        $("#tbd").change(function () {
+            var address = $(this).val();
+            $.ajax({
+                type: 'post',
+                url: url,
+                data: {pid: address},
+                dataType: 'json',
+                success:function (data) {
+                    var status = data.code;
+                  //  console.log(data);
+                    if(status == 0){
+                        var cities = data.data;
+                        var option = '';
+                        for(var i=0; i<cities.length; i++){
+                            option += '<option value="'+ cities[i].car_gs +'">' + cities[i].car_gs + '</option>';
+                        }
+                    }else{
+                        var option = '<option value="0">请选择车牌归属地缩写</option>';
+                    }
+                    $("#car_gs").html(option);
+                }
+            });
+        });
+    });
+	var btn = true;
+    $("#next").click(function(){
+   // var data = $("#formId").serialize();
+		if(btn){
+            var data = {
+                car_gs : $("#car_gs").val(),
+                car_id: $("#car_id").val(),
+                tbd: $("#tbd").val(),
+                identitycard: $("#identitycard").val(),
+
+            }
+
+            if(data.car_gs=='0'){
+                alert('车牌归属地缩写！');
+                return false;
+            }
+            //    console.log(data);
+            // 验证
+            if(data.car_id==''){
+                alert('车牌号不能为空！');
+                return false;
+            }
+
+            if(data.tbd=='0'){
+                alert('投保地不能为空！');
+                return false;
+            }
+
+            $.ajax({
+                type:'post',
+                url: "{:url('enquiry/one')}",
+                dataType: 'json',
+                data: data,
+                success: function (data) {
+                    if(data.code=='0'){
+                        location.href = "{:url('enquiry/two')}";
+                    }else if(data.code=='5'){
+                        alert(data.message);
+                        location.reload();
+                        return false;
+                     //   location.href = "{:url('enquiry/two')}";
+                    }else{
+                        alert(data.message);
+                        location.reload();
+                        return false;
+                    }
+                    //  document.getElementsByName("CarVin").value = data.data.UserInfo.CarVin;
+                },
+//                     console.log(data.code);
+//                     console.log(data.message);
+//                     console.log(data.data.UserInfo.LicenseNo);
+                //     return;
+
+                error: function (xhr) {
+                //    alert(xhr.message);
+                    location.reload();
+                    return false;
+                }
+
+            });
+
+		    btn = false;
+		}
+
+
+
+//        var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+//        if(reg.test(data.identitycard) === false)
+//        {
+//            alert("身份证输入不合法");
+//            return  false;
+//        }
+//        setTimeout(function () {
+//            location.href = "http://www.fengbaowang.net/index/enquiry/two?car_gs=" + data.car_gs +  "&car_id=" + data.car_id +  "&tbd=" + data.tbd + "&identitycard="+data.identitycard;
+//        }, 500);
+
+    })
+</script>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>蜂保网</title>
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/weui.css" />
+
+		<script src="__STATIC__/js/zepto.min.js"></script>
+		<style>
+			.btnlogin {
+				background: url("__STATIC__/img/loginbtn.png") no-repeat 100%;
+				background-size: 100%;
+				color: wheat;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			p {
+				text-indent: 2em;
+				text-align: justify;
+				text-justify: inter-ideograph;
+				/*IE*/
+			}
+		</style>
+	</head>
+
+	<body class="aui-bg-white">
+
+		<div class="aui-bg-white aui-padded-15">
+
+			<div class="aui-row">
+
+				<div class="aui-col-xs-12">
+					<div class="aui-padded-b-15">
+						<h1 class="aui-text-center">蜂保网用户指南</h1>
+						{$help.editorValue|html_entity_decode}
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="aui-row">
+				<div class="aui-col-xs-12">
+					<div class="aui-padded-25 aui-margin-t-15">
+						<a href="javascript:history.back(-1)">
+							<div class="aui-btn aui-btn-block aui-btn-sm btnlogin">
+								返回
+							</div>
+						</a>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</body>
+
+</html>

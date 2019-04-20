@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<title>报价</title>
+	<link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css" />
+	<link rel="stylesheet" type="text/css" href="__STATIC__/css/api.css" />
+	<link rel="stylesheet" type="text/css" href="__STATIC__/css/aui-slide.css" />
+	<link rel="stylesheet" type="text/css" href="__STATIC__/css/weui.css" />
+
+	<script src="__STATIC__/js/zepto.min.js"></script>
+	<script type="text/javascript" src="__STATIC__/js/api.js"></script>
+	<script type="text/javascript" src="__STATIC__/js/aui-slide.js"></script>
+	<link rel="stylesheet" href="__STATIC__/css/weuix.css">
+
+	<script src="__STATIC__/js/zepto.min.js"></script>
+	<script src="__STATIC__/js/zepto.weui.js"></script>
+	<script type="text/javascript" src="__STATIC__/js/jquery-3.3.1.min.js"></script>
+
+	<style>
+		.one {
+			padding-left: 0.7rem;
+		}
+		.height3 .label1 {
+			position: absolute;
+			top: 1rem;
+		}
+		.img {
+			width: 3rem;
+			height: 3rem;
+			margin-top: 0.2rem;
+			margin-left: 0.5rem;
+		}
+		.img img {
+			width: 100%;
+			height: 100%;
+			border-radius: 2rem;
+		}
+		.two {
+			/*	height: 5rem;*/
+		}
+		.left {
+			position: absolute;
+			top: 1.2rem;
+			left: 3.8rem;
+		}
+		.middle {
+			position: absolute;
+			top: 1.2rem;
+			left: 8rem;
+			color: #0088CC;
+		}
+		.right {
+			position: absolute;
+			right: 1rem;
+			top: 1.2rem;
+			color: #881308;
+		}
+		.right1 {
+			position: absolute;
+			right: 1rem;
+			top: 1.2rem;
+			color: #0088CC;
+		}
+		.underline {
+			height: 0.2rem;
+			border: none;
+			border-top: 1px solid #EEEEEE;
+			width: 92%;
+			margin: 0.5rem 0.6rem 0 0.7rem;
+		}
+		.weui-loadmore {
+			width: 6rem;
+			margin: 1.5em auto;
+			line-height: 1.6em;
+			font-size: 14px;
+			text-align: center;
+			position: absolute;
+			top: 3px;
+			left: 152px;
+		}
+	</style>
+</head>
+
+<body class="aui-bg-grey">
+<!--第一部分-->
+<div class="aui-text-center">
+
+	<div class="aui-row aui-bg-white  aui-margin-t-0 one">
+		<div class="aui-col-xs-12 aui-text-left aui-padded-b-15">
+			<label class="label1">车牌号码:</label>
+			<label class="label3">{$details.LicenseNo}</label>
+		</div>
+		<div class="aui-col-xs-12 aui-text-left aui-padded-b-15">
+			<label class="label1">车主姓名:</label>
+			<label class="label3">{$details.HolderName}</label>
+		</div>
+		<div class="aui-col-xs-12 aui-text-left aui-padded-b-15">
+			<label class="label1">品牌型号:</label>
+			<label class="label3">{$details.ModleName}</label>
+		</div>
+		<div class="aui-col-xs-12 aui-text-left aui-padded-b-15">
+			<label class="label1">初次登记日期:</label>
+			<label class="label3">{$details.RegisterDate}</label>
+		</div>
+		<div class="aui-col-xs-12 aui-text-left aui-padded-b-15">
+			<label class="label1">交强险到期时间:</label>
+			<label class="label3">{$details.ForceExpireDate}</label>
+		</div>
+		<div class="aui-col-xs-12 aui-text-left aui-padded-b-15">
+			<label class="label1">商业险到期时间:</label>
+			<label class="label3">{$details.BusinessExpireDate}</label>
+		</div>
+
+	</div>
+</div>
+<!--第二部分-->
+<div class="a three aui-text-center aui-margin-t-15">
+	<div class="aui-row aui-bg-white two aui-margin-t-0 ">
+         {volist name="priceDetails" id="vo"}
+		<a href="{:Url('enquiry/detailsInfo',array('id'=>$vo.id))}" id="bigqi" style="color: #0a0a0a;">
+			<div class="aui-col-xs-12 aui-text-left aui-padded-t-5   aui-padded-b-5 height3">
+				{if condition="$vo.Source==1"}
+				<div class="img">
+					<img src="__STATIC__/img/tpy.png">
+				</div>
+				{else/}
+				<div class="img">
+					<img src="__STATIC__/img/rb.png">
+				</div>
+				{/if}
+				<label class="left">{$vo.Source==1 ?'太平洋车险':'人保车险'}</label>
+				<!--<div class="weui-loadmore">
+					<i class="weui-loading"></i>
+					<span class="weui-loadmore__tips" >正在加载</span>
+				</div>
+				<input type="hidden" id="bg" value="">
+				<input type="hidden" id="hb" value="">-->
+
+				<label class="middle" id="tpy" >{$vo.tpy}</label>
+				{if condition="$vo.hebao=='核保失败'"}
+				<label class="right" id="hebao" >{$vo.hebao}</label>
+				{else/}
+				<label class="right1" id="hebao" >{$vo.hebao}</label>
+				{/if}
+			</div>
+		</a>
+		<!--下划线-->
+		<div class="aui-col-xs-12 aui-text-right">
+			<hr class="underline" />
+		</div>
+		{/volist}
+
+	</div>
+</div>
+
+
+</body>
+
+</html>

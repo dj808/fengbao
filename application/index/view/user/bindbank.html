@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css" />
+
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/login.css" />
+		<script src="__STATIC__/js/jquery-3.3.1.min.js"></script>
+		<style>
+			.btnlogin {
+				background: url("__STATIC__/img/loginbtn.png") no-repeat 100%;
+				color: wheat;
+				width: 90%;
+				margin: 0 auto;
+				border: 0.025rem solid;
+				background-size: 100%;
+			}
+			
+			.text-js {
+				color: #D4AD82!important;
+			}
+			
+			.greyfont {
+				color: #9A9A9A;
+				font-size: 0.8rem;
+			}
+			
+			.aui-bg-grey {
+				background-color: #F2F2F2;
+			}
+			
+			.cameracontainer {
+				position: relative;
+				width: 9rem;
+				height: 8rem;
+				margin: 0 auto;
+			}
+			
+			.bingnow {
+				margin-top: 3rem;
+			}
+			
+			.content {
+				height: 8rem;
+			}
+			
+			.bindright {
+				margin-left: 2rem;
+			}
+			
+			.greycolor {
+				color: #666666;
+			}
+			
+			input::-webkit-input-placeholder {
+				/* placeholder颜色  */
+				color: black;
+				/* placeholder字体大小  */
+				font-size: 0.8rem;
+				/* placeholder位置  */
+				text-align: left;
+				padding-left: 0.51rem;
+			}
+            #face{
+				max-width: 100%;
+				display: block;
+				width: 100%;
+			}
+			.put {
+				z-index: 10;
+				cursor: pointer;
+				position: absolute;
+				font-size: 0.75rem;
+				width: 9rem;
+				height: 8rem;
+
+				left: 50%;
+				top: 50%;
+				margin-left: -4.5rem;
+				margin-top: -4rem;
+				opacity: 0;
+			}
+		</style>
+	</head>
+
+	<body class="aui-bg-grey">
+
+		<header class="aui-bar aui-bar-nav aui-bar-light">
+			<a class="aui-pull-left aui-btn" href="javascript:history.back(-1)">
+				<span class="aui-iconfont aui-icon-left text-js"></span>
+			</a>
+			<div class="aui-title text-js">绑定银行卡</div>
+			<a class="aui-pull-right aui-btn">
+				<span class="greyfont">跳过</span>
+			</a>
+		</header>
+
+		<div class="aui-content aui-margin-t-15">
+			<ul class="aui-list aui-list-in">
+
+				<li class="aui-list-item">
+					<div class="aui-list-item-label-icon">
+						<i class="aui-iconfont greycolor">户名</i>
+					</div>
+					<div class="aui-list-item-inner">
+						<input class="pb" type="text" value="" placeholder="请输入户名" id="bank_username" name="bank_username">
+					</div>
+				</li>
+				<li class="aui-list-item">
+					<div class="aui-list-item-label-icon">
+						<i class="aui-iconfont greycolor">卡号</i>
+					</div>
+					<div class="aui-list-item-inner">
+						<input class="pb" type="text" value="" placeholder="请输入银行卡号" id="bank_no" name="bank_no">
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<div class="aui-content aui-margin-t-15">
+			<ul class="aui-list">
+				<li class="aui-list-item">
+					<div class="aui-list-item-label-icon">
+						<i class="aui-iconfont greycolor">开户行</i>
+					</div>
+					<div class="aui-list-item-inner aui-list-item-arrow">
+						<select id="bank_id" name="bank_id">
+							{volist name="bankName" id="vo"}
+							<option value="{$vo.id}">{$vo.name}</option>
+							{/volist}
+						</select>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="aui-margin-t-15 aui-margin-b-15  aui-text-center">
+			<div class="aui-row aui-bg-white b">
+				<div class="aui-col-xs-12 content">
+					<p class="aui-margin-t-15 aui-text-left aui-padded-l-15 greyfont camerainfo">上传银行照片</p>
+					<div class="cameracontainer">
+						<img src="__STATIC__/img/camaral.jpg" alt="" id="face"/>
+						<input class="weui-uploader__input put" accept="image/*" id="uploads" multiple="" name="file"
+							   type="file"  onchange="previewImage(this)">
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="aui-row bingnow">
+			<div class="aui-col-xs-12">
+				<div class="aui-padded-25">
+					<div class="aui-btn aui-btn-block aui-btn-sm btnlogin" id="bangdin">
+						立即绑定
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		<script>
+
+			function previewImage(file) {
+				var img=window.location.host;
+				var formData = new FormData();
+				formData.append('file', $('input[name=file]')[0].files[0]);
+				$.ajax({
+					type:'post',
+					url:"{:url('index/base/upload')}",
+					data:formData,
+					contentType: false, // 注意这里应设为false
+					processData: false,
+					cache: false,
+					success: function(ret){
+						if (ret.code==1){
+							$("#face").attr("src",ret.data);
+						}else{
+							$("#face").attr("src", '')
+		             	}
+					},
+				   	error:function(ret){
+						alert(res.message);
+					}
+				})
+
+			}
+			//绑定银行卡逻辑
+			$('#bangdin').click(function () {
+				var bank_username=$("#bank_username").val();
+				var bank_no=$("#bank_no").val();
+				var bank_id=$("#bank_id").val();
+				var bank_img= $("#face").attr("src");
+				$.ajax({
+					type:"POST",
+					url:"{:url('index/user/addBankInfo')}",
+					data:{
+						"bank_username":bank_username,
+						"bank_no":bank_no,
+						"bank_id":bank_id,
+						"bank_img":bank_img
+					},
+					success:function (res) {
+						console.log(res);
+						if (res.code==1) {
+							alert(res.message);
+							window.location.href = "{:url('index/home/index')}"
+						}else if(res.code==2){
+							alert(res.message);
+							window.location.href = "{:url('index/user/tixian')}"
+						}else{
+							alert(res.message);
+
+						}
+					},
+					dataType: 'json'
+				});
+				return false;
+			});
+			//点击跳过触发逻辑
+			$('.greyfont').click(function () {
+				$.ajax({
+					type:"POST",
+					url:"{:url('index/user/tiaoguo')}",
+					data:'',
+					success:function (res) {
+						console.log(res);
+						if (res.code==1) {
+							window.location.href = "{:url('index/home/index')}"
+						}else{
+							alert(res.message);
+
+						}
+					},
+					dataType: 'json'
+				});
+				return false;
+			});
+
+
+		</script>
+	</body>
+
+</html>

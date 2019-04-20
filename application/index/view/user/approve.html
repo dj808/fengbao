@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>蜂保网</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css"/>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/style-1.css"/>
+
+    <script src="__STATIC__/js/zepto.min.js"></script>
+    <script src="__STATIC__/js/jquery-3.3.1.min.js"></script>
+    <style>
+        .cameracontainer {
+            position: relative;
+            /*width: 9rem;
+            height: 8rem;*/
+            margin: 0 auto;
+        }
+        #face{
+            max-width: 100%;
+            display: block;
+            width: 100%;
+        }
+        #face1{
+            max-width: 100%;
+            display: block;
+            width: 100%;
+        }
+        .put {
+            z-index: 10;
+            cursor: pointer;
+            position: absolute;
+            font-size: 0.75rem;
+            width: 9rem;
+            height: 8rem;
+
+            left: 50%;
+            top: 50%;
+            margin-left: -4.5rem;
+            margin-top: -4rem;
+            opacity: 0;
+        }
+        select,#username,#idcard,.gg{
+            height: 2.6rem!important;
+
+        }
+
+        input::-webkit-input-placeholder {
+
+            /* placeholder字体大小  */
+            font-size: 0;
+            color: grey;
+            padding-top: 0.1rem;
+        }
+
+
+
+
+
+
+    </style>
+    <script>
+        $(function(){
+            $(".label-1").click(function(){
+                var index = $(this).index();
+                $(this).addClass('action').siblings().removeClass('action');
+            })
+        })
+
+    </script>
+</head>
+<body>
+
+    <!-- 头部 -->
+    <header class="aui-bar aui-bar-nav aui-bar-light">
+        <a class="aui-pull-left aui-btn" href="javascript:history.back(-1)">
+            <span class="aui-iconfont aui-icon-left text-c-js"></span>
+        </a>
+        <div class="aui-title text-c-js">实名认证</div>
+    </header>
+
+    <!-- 内容 -->
+    <div class="aui-margin-t-10">
+        <ul class="aui-list aui-list-in">
+            <li class="aui-list-item">
+                <div class="aui-list-item-label-icon">
+                    <p class="list-1-text aui-font-size-16">姓名</p>
+                   
+                </div>
+                <div class="aui-list-item-inner">
+                     <input class="aui-iconfont" type="text" value="" placeholder="请输入姓名" id="username" name="username">
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-label-icon">
+                    <p class="list-1-text aui-font-size-16">身份证号</p>
+                </div>
+                <div class="aui-list-item-inner">
+                    <input class=" aui-iconfont" type="text" value="" placeholder="请输入身份证号" id="idcard"  name="idcard" >
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 内容2 -->
+    <div class="aui-margin-t-10">
+        <ul class="aui-list aui-list-in">
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">
+                        <p class="list-1-text aui-font-size-16">所在行业</p>
+                    </div>
+                    <div class="aui-list-item-right">
+                    	<select id="industry_id" name="industry_id">
+                            {volist name="industryInfo" id="vo"}
+                    		<option value="{$vo.id}">{$vo.name}</option>
+                            {/volist}
+                    	</select>
+                    </div>
+                </div>
+
+            </li>
+            <li class="aui-list-item gg">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">
+                        <p class="list-1-text aui-font-size-16">是否保险代理人</p>
+                    </div>
+                    <div class="aui-list-item-right">
+                        <div class="aui-label aui-label-info label-1 action" data-index="0">是</div>
+                        <div class="aui-label aui-label-info label-1" data-index="1">否</div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!--内容三-->
+    <div class="aui-margin-t-10 aui-bg-white">
+        <div class="aui-content-padded">
+            <div class="list-3-text aui-font-size-16">
+                上传身份证照片(选填)
+            </div>
+        </div>
+        <div class="aui-content-padded">
+            <div class="aui-row">
+                <div class="aui-col-xs-6 cameracontainer">
+                    <div class="aui-padded-15 aui-padded-t-0">
+                        <img src="__STATIC__/img/sfz_z.png" alt="" id="face">
+                        <input class="weui-uploader__input put" accept="image/*"  multiple="" name="file"
+                               type="file"  onchange="previewImage(this)">
+                    </div>
+                </div>
+                <div class="aui-col-xs-6 cameracontainer">
+                    <div class="aui-padded-15 aui-padded-t-0" >
+                        <img src="__STATIC__/img/sfz_f.png" alt="" id="face1">
+                        <input class="weui-uploader__input put" accept="image/*"  multiple="" name="file1"
+                               type="file"  onchange="previewImage1(this)">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="margin-top-20">
+        <div class="aui-content-padded">
+            <div class="btn" id="yanzhen">
+                立即验证
+            </div>
+        </div>
+    </div>
+<script>
+    function previewImage(file) {
+        var formData = new FormData();
+        formData.append('file', $('input[name=file]')[0].files[0]);
+        console.log(formData);
+        $.ajax({
+            type:'post',
+            url:"{:url('index/base/upload')}",
+            data:formData,
+            contentType: false, // 注意这里应设为false
+            processData: false,
+            cache: false,
+            success: function(ret){
+                if (ret.code==1){
+                    $("#face").attr("src",ret.data);
+                }else{
+                    $("#face").attr("src", '')
+                }
+            },
+            error:function(ret){
+                alert(res.message);
+            }
+        })
+
+    }
+    function previewImage1(file) {
+        var formData = new FormData();
+        formData.append('file', $('input[name=file1]')[0].files[0]);
+
+        $.ajax({
+            type:'post',
+            url:"{:url('index/base/upload')}",
+            data:formData,
+            contentType: false, // 注意这里应设为false
+            processData: false,
+            cache: false,
+            success: function(ret){
+                console.log(ret);
+                if (ret.code==1){
+                    $("#face1").attr("src",ret.data);
+                }else{
+                    $("#face1").attr("src", '')
+                }
+            },
+            error:function(ret){
+                alert(res.message);
+            }
+        })
+
+    }
+    //实名认证
+    $(function(){
+        var is_agenter = 1;
+        $(".label-1").click(function(){
+            is_agenter = $(this).attr('data-index');
+            console.log(is_agenter);
+        });
+
+        $('#yanzhen').click(function () {
+            var username=$("#username").val();
+            var idcard=$("#idcard").val();
+            var industry_id=$("#industry_id").val();
+            var idcard_pros= $("#face").attr("src");
+            var idcard_cons= $("#face1").attr("src");
+            $.ajax({
+                type:"POST",
+                url:"{:url('index/user/addApprove')}",
+                data:{
+                    "username":username,
+                    "idcard":idcard,
+                    "is_agenter":is_agenter,
+                    "industry_id":industry_id,
+                    "idcard_pros":idcard_pros,
+                    "idcard_cons":idcard_cons
+                },
+                success:function (res) {
+                    console.log(res);
+                    if (res.code==1) {
+                        alert(res.message);
+                            window.location.href = "{:url('index/user/bindBank')}"
+                    }else{
+                        alert(res.message);
+                    }
+                },
+                dataType: 'json'
+            });
+            return false;
+        });
+
+    })
+
+
+
+</script>
+
+</body>
+</html>

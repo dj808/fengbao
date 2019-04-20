@@ -1,0 +1,44 @@
+
+<style type="text/css">
+    #foot{
+        color: #333;
+        width: 25%;
+    }
+</style>
+    <footer class="aui-bar aui-bar-tab" id="footer">
+        <div class="aui-bar-tab-item aui-active" tapmode>
+          <!--  <div class="aui-bar-tab-item aui-active" tapmode>-->
+            <a href="{:Url('home/index')}" id="foot">
+                <i class="footer-icon-1"></i>
+                <div class="aui-bar-tab-label">首页</div>
+            </a>
+        </div>
+        <div class="aui-bar-tab-item" tapmode>
+            <a href="{:Url('circle/index')}" id="foot">
+                <i class="footer-icon-2"></i>
+                <div class="aui-bar-tab-label">圈子</div>
+            </a>
+        </div>
+        <div class="aui-bar-tab-item" tapmode>
+            <a href="{:Url('order/orderAll')}" id="foot">
+                <i class="footer-icon-3"></i>
+                <div class="aui-bar-tab-label">订单</div>
+            </a>
+        </div>
+        <div class="aui-bar-tab-item" tapmode>
+            <a href="{:Url('user/user')}" id="foot">
+               <i class="footer-icon-4"> </i>
+               <div class="aui-bar-tab-label">我的</div>
+            </a>
+        </div>
+    </footer>
+     <script src="__STATIC__/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    	$(function(){
+    		$(".aui-bar-tab-item").click(function(){
+    			$(this).addClass("aui-active").siblings().removeClass("aui-active");
+               /* $(this).siblings().removeClass("aui-active");*/
+    		})
+    	})
+
+    </script>

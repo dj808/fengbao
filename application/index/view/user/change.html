@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>积分兑换</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/mystyle.css" />
+    <link rel="stylesheet" href="__STATIC__/css/weui.css"/>
+    <link rel="stylesheet" href="__STATIC__/css/weuix.css"/>
+    <script src="__STATIC__/js/zepto.min.js"></script>
+    <script src="__STATIC__/js/zepto.weui.js"></script>
+    <script src="__STATIC__/js/lrz.min.js"></script>
+	<script src="__STATIC__/js/jquery-3.3.1.min.js"></script>
+    <style>
+    	.tixian-content{
+    		background: #fbf7f7;
+    		border-radius: 0.25rem;;
+    	}
+    	.font-weight{
+    		font-weight:800;
+    	}
+    	.input-bg{
+    		background:#fafafa !important; 
+    		border:1px solid  #eae8e8 !important;
+    		padding-left: 1.5rem !important;
+    		width:90% !important;
+    		   	}
+    	.search-input11{
+    		position:relative;
+    	}
+    	.money-icon{
+    		position: absolute;
+			left:1.2rem;
+		}
+		.border-11{
+			border-bottom-left-radius: 0.25rem;
+			border-bottom-right-radius: 0.25rem;
+		}
+    </style>
+</head>
+	<body>
+		<div class="aui-content-padded">
+			<div class="tixian-content ">
+				<div class=" aui-margin-b-10 aui-padded-l-10">
+					<span>提现到账号</span >
+					<span class="font-weight mycolor">{$infoUser.nickname}</span>
+				</div>
+			<div class="aui-bg-white border-11">
+				 <div class=" aui-searchbar aui-bg-white aui-padded-t-15" id="search">
+					 <input type="hidden" id="user_id" value="{$infoUser.id}">
+            		<span class="font-weight aui-font-size-10 aui-margin-l-10">兑换积分</span>
+	                <div class="aui-searchbar-input search-input11 aui-font-size-10">
+	                	<i class="icon icon-42 money-icon"></i>
+	                    <input class="input-bg " type="number" placeholder="请输入兑换积分" id="score" name="score" >
+	                </div>
+               
+            	</div>
+            	<div class="aui-content-padded aui-padded-b-5">
+            		<div class="aui-margin-b-15 aui-font-size-10 ">
+            			可兑换积分 <span class="mycolor font-weight" id="userScore">{$infoUser.score}</span> <span class="aui-text-info  font-weight" id="qbtixian">全部兑换</span>
+            		</div>
+            		
+            	</div>
+            	
+			</div>
+			</div>
+		</div>
+
+		<div class="aui-margin-t-15">
+	        	<div class="aui-content-padded">
+	            	<div class="mybtn">
+	                	兑换
+	            	</div>
+	        	</div>
+	    </div>
+     <script>
+		 //判断输入的金额是否大于能提现的金额
+
+		 $("#score").blur(function () {
+			 var score=$("#score").val();
+			 var userScore=$("#userScore").html();
+			 if(score-userScore>0){
+				 alert('输入的积分过大');
+			 }
+			 if(score<=0){
+				 alert('输入的积分不能小于等于0');
+			 }
+		 });
+		 //全部兑换
+         $('#qbtixian').click(function () {
+			 var userScore=$("#userScore").html();
+			 $("#score").val(userScore);
+		 });
+		//兑换逻辑
+		$('.mybtn').click(function () {
+			var score=$("#score").val();
+			var user_id=$("#user_id").val();
+			$.ajax({
+
+				type:"POST",
+
+				url:"{:url('index/user/applyScore')}",
+
+				data:{"score":score,"user_id":user_id},
+
+				success:function (res) {
+					console.log(res);
+					if (res.code==1) {
+						alert(res.message);
+						window.location.href = "{:url('index/user/user')}"
+					}else{
+						alert(res.message);
+
+					}
+				},
+
+				dataType: 'json'
+
+			});
+
+			return false;
+
+		});
+	</script>
+	</body>
+</html>

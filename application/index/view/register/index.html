@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+	<head>
+     <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>蜂保网</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css" />
+      <link rel="stylesheet" type="text/css" href="__STATIC__/css/mystyle.css" />
+        <link rel="stylesheet" type="text/css" href="__STATIC__/css/login.css" />
+        <link rel="stylesheet" type="text/css" href="__STATIC__/css/weui.css" />
+        <script src="__STATIC__/js/jquery-3.3.1.min.js"></script>
+  <style type="text/css">
+  	.zhdlstyle{
+  		position:absolute;
+  		font-size:0.6rem;
+  		margin-right:1rem;
+  		text-align: center;
+  		position: absolute;
+		right: 1.45rem;
+  	}
+  	.zhuceStyle{
+  		position: relative;
+  		padding-left: 2.25rem !important;
+  	}
+    .weui-cells_checkbox .weui-check:checked+.weui-icon-checked:before {
+        content: '\EA06';
+        color: #C68B47;
+    }
+      .jz{
+          margin-left: 3rem;
+      }
+  </style>
+</head>
+
+<body class="aui-bg-white">
+	<header class="aui-bar aui-bar-nav aui-bar-light border-none ">
+    <a class="aui-pull-left aui-btn " href="javascript:history.back(-1)">
+        		<span class="aui-iconfont aui-icon-left mycolor"></span>
+    		</a>
+    		<div class="aui-title">&nbsp;</div>
+    		<a class="aui-pull-right aui-btn" href="{:Url('login/index')}">
+        		<span class="mycolor aui-margin-r-5" >登录</span>
+   			 </a>
+	</header>
+
+	<div class="aui-bg-white  cooperative_partner first ">
+     	<div class="aui-padded-15 ">
+        	<div class="aui-margin-b-15 logoSize">
+            	<img class="mywhere" src="__STATIC__/img/logo.jpg" alt="">
+        	</div>
+    	</div>
+	</div>
+	<div class="aui-row  ">
+		<div class="aui-col-xs-12">
+            <div class="aui-padded-b-15">
+                <div class="aui-input-row mystyle-1">
+                    <div class="mystyle-2" >
+                        <img src="__STATIC__/img/mb.png" alt=""/>
+                        
+                    </div>
+					
+                    <input class="zhuceStyle"  type="tel" id="phone"  name="phone" min="11" placeholder="11位手机号">
+                    <span class="checkExistRong" id="checkExistPhone"></span>
+                    
+                </div>
+            </div>
+
+        </div>
+	</div>
+		<div class="aui-row  ">
+			<div class="aui-col-xs-12">
+            <div class="aui-padded-b-15">
+                <div class="aui-input-row mystyle-1">
+                    <div class="mystyle-2" >
+                        <img src="__STATIC__/img/yzm.png" alt=""/>
+                        
+                    </div>
+                    <input class="zhuceStyle"   type="text" placeholder="6位验证码" name="vCode" id="vCode">
+                    <p><div class="aui-btn mystyle-3" id="sendmsg">获取验证码</div></p>
+                    
+                </div>
+            </div>
+
+           </div>
+		</div>
+		<div class="aui-row  ">
+			<div class="aui-col-xs-12">
+            <div class="aui-padded-b-15">
+                <div class="aui-input-row mystyle-1">
+                    <div class="mystyle-2" >
+                        <img src="__STATIC__/img/mima.png" alt=""/>
+                        
+                    </div>
+                    <input  class="inputStyle zhuceStyle"  type="password" placeholder="设置密码" name="password" id="password">
+                    <div class=" mystyle-3 mystyle-4">
+                        <img  title="显示密码" src="__STATIC__/img/eye.jpg"  onclick="eyeclick()" id="eyess"/>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+		</div>
+		<div class="aui-row  ">
+			<div class="aui-col-xs-12">
+            <div class="aui-padded-b-15">
+                <div class="aui-input-row mystyle-1">
+                    <div class="mystyle-2" >
+                        <img src="__STATIC__/img/mima.png" alt=""/>
+                        
+                    </div>
+                    <input  class="inputStyle zhuceStyle"  type="password" placeholder="确认密码" name="rpassword" id="rpassword">
+                    <div class="mystyle-3 mystyle-4">
+                        <img title="显示密码"  src="__STATIC__/img/eye.jpg" onclick="eyesclick()" id="eyes"/>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+		</div>
+	
+		<div>
+			<a href="{:Url('login/index')}" class="mycolor zhdlstyle" >
+				已有账号直接登陆
+			</a>
+		</div>
+		<div class="mymargin-top">
+        	<div class="aui-content-padded">
+            	<div class="mybtn" id="register">
+                    注册
+            	</div>
+
+        	</div>
+    	</div>
+    <!--<div class="aui-col-xs-12 aui-text-center">
+        <div class=" weui-cells_checkbox ">
+            <label class="weui-cell weui-check__label " for="checkbox-11">
+                <div class="weui-cell__yyf aui-col-xs-12">
+                    <input class="weui-check border-none" name="checkbox-11" id="checkbox-11" checked="checked" type="checkbox">
+                    <a href="{:Url('register/getAgreement')}"><i class="weui-icon-checked "></i>同意明莲动力协议</a>
+                </div>
+            </label>
+        </div>
+    </div>-->
+    <div class="aui-col-xs-12 aui-text-center">
+        <div class="aui-margin-t-15">
+            <div class=" weui-cells_checkbox">
+                <label class="weui-cell" for="s11">
+                    <div class="weui-cell__hd aui-col-xs-12 jz">
+                        <input class="weui-check" name="checkbox1" id="s11" checked="checked" type="checkbox">
+                        <i class="weui-icon-checked"></i>
+                        <a href="{:Url('register/getAgreement')}"><span class="xy">同意名莲动力协议</span></a>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <p class="xy"> &nbsp;&nbsp;&nbsp;</p>
+                    </div>
+                </label>
+
+            </div>
+        </div>
+    </div>
+
+	</body>
+    <script>
+        //显示隐藏密码
+        function eyeclick() {
+            //var a = document.getElementById("inp").value;
+            var aa = document.getElementById("eyess").title;
+            if(aa === "隐藏密码") {
+                document.getElementById("password").type = "password";
+                document.getElementById("eyess").title = "显示密码";
+                document.getElementById("eyess").src = "__STATIC__/img/eye1.png";
+            } else {
+                document.getElementById("eyess").title = "隐藏密码";
+                document.getElementById("password").type = "text";
+                document.getElementById("eyess").src = "__STATIC__/img/eye.jpg";
+            }
+
+        }
+        function eyesclick() {
+            //var a = document.getElementById("inp").value;
+            var aa = document.getElementById("eyes").title;
+            if(aa === "隐藏密码") {
+                document.getElementById("rpassword").type = "password";
+                document.getElementById("eyes").title = "显示密码";
+                document.getElementById("eyes").src = "__STATIC__/img/eye1.png";
+            } else {
+                document.getElementById("eyes").title = "隐藏密码";
+                document.getElementById("rpassword").type = "text";
+                document.getElementById("eyes").src = "__STATIC__/img/eye.jpg";
+            }
+
+        }
+        //发送验证码
+        var InterValObj; //timer变量，控制时间
+        var count = 60; //间隔函数，1秒执行
+        var curCount;//当前剩余秒数
+        var code = ""; //验证码
+        var codeLength = 6;//验证码长度
+
+        $('#sendmsg').click(function(){
+
+            var phone=$("#phone").val();
+
+            $.ajax({
+
+                type:"POST",
+
+                url:"{:url('index/register/sendSms')}",
+
+                data:{"phone":phone},
+
+                success:function (res){
+
+                    console.log(res);
+
+                    if(res.code=="1"){
+
+                        curCount = count;
+
+                        //设置button效果，开始计时
+
+                        //  $("#sendmsg").css("background-color", "LightSkyBlue");
+
+                        $('#sendmsg').attr("disabled", "true");
+
+                        $('#sendmsg').text("还剩" + curCount + "秒");
+
+                        InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+
+                    }else if(res.code=="-1"){
+
+                        alert(res.message);
+
+                    }else{
+
+                        alert(res.message);
+
+                    }
+
+                },
+
+                dataType: 'json'
+
+            });
+
+            return false;
+
+        });
+
+
+
+        function SetRemainTime() {
+
+            if (curCount == 0) {
+
+                window.clearInterval(InterValObj);//停止计时器
+
+                $("#sendmsg").removeAttr("disabled");//启用按钮
+
+
+                $("#sendmsg").text("重发验证码");
+
+                code = ""; //清除验证码。如果不清除，过时间后，输入收到的验证码依然有效
+
+            }else {
+
+                curCount--;
+
+                $("#sendmsg").text("获取" + curCount + "秒");
+
+            }
+
+        }
+        //登录模块
+        $('#register').click(function () {
+            var phone=$("#phone").val();
+            var password=$("#password").val();
+            var rpassword=$("#rpassword").val();
+            var vCode=$("#vCode").val();
+	
+            $.ajax({
+                type:"POST",
+                url:"{:url('index/register/register')}",
+                data:{
+                    "phone":phone,
+                    "password":password,
+                    "rpassword":rpassword,
+                    "vCode":vCode
+					
+                },
+                success:function (res) {
+                    console.log(res);
+                    if (res.code==1) {
+                        alert(res.message);
+                            window.location.href = "{:url('index/login/index')}"
+                    }else{
+                        alert(res.message);
+                        //    window.location.href = "{:url('index/login/index')}"
+                    }
+                },
+                dataType: 'json'
+            });
+            return false;
+        });
+    </script>
+</html>

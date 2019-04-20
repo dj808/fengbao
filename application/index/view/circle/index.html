@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>蜂保网</title>
+
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/style-1.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/mystyle.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/myfooter.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css" />
+    <link rel="stylesheet" href="__STATIC__/css/weui.css">
+    <link rel="stylesheet" href="__STATIC__/css/weuix.css">
+    <script src="__STATIC__/js/zepto.min.js"></script>
+    <script src="__STATIC__/js/zepto.weui.js"></script>
+		<script src="__STATIC__/js/zepto.min.js"></script>
+		<style>
+			a {
+				text-decoration: none;
+			}
+
+			.underline {
+				height: 0.2rem;
+				border: none;
+				border-top: 1px solid #EEEEEE;
+				width: 92%;
+				margin: 0.5rem 0.6rem 0 0.7rem
+			}
+			
+			.fxphoto {
+				width: 3rem;
+				height: 3rem;
+				margin-left: 2rem;
+			}
+			
+			.fxphoto img {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.fxp {
+				margin-top: 1rem;
+			}
+			
+			.sharingbox {}
+			
+			.ewmfont {
+				font-size: 0.7rem;
+				color: #757575;
+				/* left: 2%; */
+				margin-left: 4%;
+			}
+			
+			.aui-sharebox {
+				width: 75%;
+				position: fixed;
+				bottom: 320px;
+				left: 50%;
+				z-index: 999;
+				background-color: #ffffff;
+				opacity: 0;
+				-webkit-transition: opacity .3s, -webkit-transform .3s;
+				transition: opacity .3s, transform .3s;
+				-webkit-transform: translate3d(0, 100%, 0);
+				transform: translate3d(0, 160px, 0) !important;
+				/* margin: 0 auto; */
+				margin-left: -40%;
+			}
+			#foot{
+				color: #333;
+				width: 25%;
+			}
+
+
+		</style>
+
+	</head>
+
+	<body>
+		<div class="header-img" style="height:8rem;">
+			<img src="__STATIC__/img/rw_header_img.png" alt="">
+			<span>
+            <a href="{:Url('circle/getRule')}">查看规则</a>
+        </span>
+		</div>
+
+		<div class="aui-content-padded" >
+            <input type="hidden" value="__ROOT__/{$data.qrcode}" id="qrcode">
+			<!--列表1-->
+			<div class="rw-list rw-list-1">
+				<div class="aui-row">
+					<div class="aui-col-xs-6">
+						<p>
+							邀请{$info.people_num}位好友加入
+						</p>
+						<p>
+							<a href="{:Url('home/share',array('user_id'=>$user_id))}">再邀请{$numInvite}位</a>
+						</p>
+					</div>
+					<div class="aui-col-xs-6">
+						<p class="rw-text-title">任务一</p>
+					</div>
+				</div>
+			</div>
+
+			<!--列表2-->
+			<div class="rw-list rw-list-2">
+				<div class="aui-row">
+					<div class="aui-col-xs-6">
+						<p>
+							在蜂保网出1单
+						</p>
+						<p>
+							<a href="{:Url('enquiry/one')}">{$isPlay}</a>
+						</p>
+					</div>
+					<div class="aui-col-xs-6">
+						<p class="rw-text-title">任务二</p>
+					</div>
+				</div>
+			</div>
+   <!-- <a href="javascript:;" class="weui-btn weui-btn_primary" onclick="share()">分享到朋友圈</a>-->
+			<div class="rw-list rw-list-3">
+				<div class="aui-row">
+					<div class="aui-col-xs-6" onclick="share()">
+						<p class="rw-text-title-1">
+							我的邀请
+						</p>
+					</div>
+					<div class="aui-col-xs-6 aui-text-center ">
+						<span class="rw-text-title-2">
+                        <a href="{:Url('circle/inviteList',array('user_id'=>$data.id))}">查看</a>
+                    </span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="myfooter">
+			<footer class="aui-bar aui-bar-tab" id="footer">
+				<div class="aui-bar-tab-item " tapmode>
+					<!--  <div class="aui-bar-tab-item aui-active" tapmode>-->
+					<a href="{:Url('home/index')}" id="foot">
+						<i class="footer-icon-1"></i>
+						<div class="aui-bar-tab-label yyyyyyyy" >首页</div>
+					</a>
+				</div>
+				<div class="aui-bar-tab-item aui-active" tapmode>
+					<a href="{:Url('circle/index')}" id="foot">
+						<i class="footer-icon-2"></i>
+						<div class="aui-bar-tab-label yyyyyyyy" >圈子</div>
+					</a>
+				</div>
+				<div class="aui-bar-tab-item" tapmode>
+					<a href="{:Url('order/orderAll')}" id="foot">
+						<i class="footer-icon-3"></i>
+						<div class="aui-bar-tab-label yyyyyyyy" >订单</div>
+					</a>
+				</div>
+				<div class="aui-bar-tab-item" tapmode>
+					<a href="{:Url('user/user')}" id="foot">
+						<i class="footer-icon-4"> </i>
+						<div class="aui-bar-tab-label yyyyyyyy" >我的</div>
+					</a>
+				</div>
+			</footer>
+		</div>
+	</body>
+	<script type="text/javascript" src="__STATIC__/js/auisharebox.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".aui-bar-tab-item").click(function(){
+				$(this).addClass("aui-active").siblings().removeClass("aui-active");
+				/* $(this).siblings().removeClass("aui-active");*/
+			})
+		})
+
+		apiready = function() {
+			api.parseTapmode();
+		}
+		var sharebox = new auiSharebox();
+		var qrcode=$('#qrcode').val();
+		console.log(qrcode);
+		function openSharebox() {
+			sharebox.init({
+				frameBounces: true, //当前页面是否弹动，（主要针对安卓端）
+				buttons: [{
+					image: qrcode,
+					text: '长按识别二维码马上出单拿奖励',
+					value: 'ewm'
+				}],
+				col: 2,
+				//cancelTitle: '关闭' //可选,当然也可以采用下面的方式使用图标
+				cancelTitle:'<i class="aui-iconfont aui-icon-close aui-font-size-16"></i>'//可选
+			}, function(ret) {
+				if(ret) {
+					document.getElementById("button-index").textContent = ret.buttonIndex;
+					document.getElementById("button-value").textContent = ret.buttonValue;
+				}
+			})
+		}
+	</script>
+</html>

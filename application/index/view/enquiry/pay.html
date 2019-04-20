@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title></title>
+		<script type="text/javascript" src="__STATIC__/js/api.js"></script>
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css" />
+
+		<style>
+		body{
+		 font-size:0.6rem!important;
+		}
+			.left {
+				margin-left: 0.6rem;
+			}
+			
+			.right {
+				position: absolute;
+				left: 5rem;
+			}
+			
+			.underline {
+				height: 0.2rem;
+				border: none;
+				border-top: 1px solid #EEEEEE;
+				width: 92%;
+				margin: 0.5rem 0.6rem 0 0.7rem
+			}
+			
+			.btnnext {
+				background-color: #CB924F;
+				color: wheat;
+				border-radius: 2rem;
+				width: 15rem;
+				margin: 0 auto;
+			}
+			
+			.middle {
+				margin: 0 auto;
+				
+				color: red;
+			}
+			
+			.ewm {
+				width: 8rem;
+				height: 8rem;
+				margin: 0 auto;
+				margin-top: 3rem;
+			}
+			
+			.ewm img {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.wx {
+				width: 3rem;
+				height: 3rem;
+				position: absolute;
+				top: 1rem;
+				left: 4.5rem;
+			}
+			
+			.wxzf {
+				display: inline-block;
+				position: absolute;
+				top: 1.5rem;
+				left: 7rem;
+				color: green;
+				font-size: 1.2rem;
+			}
+			
+			.money {
+				color: darkred;
+			}			
+			.aui-bg-grey {
+				font-size: 0.7rem;
+			}
+			.bottom p{
+			    margin-top: 0.5rem;
+    margin-left: 0.4rem;
+			}
+			.ewm-container{
+			padding-bottom:1rem!important;
+			}
+			.time-container{
+			padding-left:2rem!important;
+			}
+		</style>
+	</head>
+
+	<body class="aui-bg-grey" onload="leftTimer()">
+
+		<div class="aui-content aui-bg-white">
+			<div class="aui-col-xs-12 aui-text-left aui-padded-t-5 aui-padded-b-5 cp time-container">
+				<p class="blackfont  middle">二维码有效时间：<span id="timer"></span></p>
+
+			</div>
+			<!--下划线-->
+			<div class="aui-col-xs-12 aui-text-right">
+				<hr class="underline" />
+			</div>
+			<div class="aui-col-xs-12 aui-text-left aui-padded-t-5  positionrelative">
+				<span class="blackfont  left">订单金额:</span>
+				<span class="blackfont  right money">￥{$cc.Money} </span>
+
+			</div>
+			<!--下划线-->
+			<div class="aui-col-xs-12 aui-text-right">
+				<hr class="underline" />
+			</div>
+			<div class="aui-col-xs-12 aui-text-left aui-padded-t-5 positionrelative">
+				<span class="blackfont  left">姓名:</span>
+				<span class="blackfont  right">{$cc.Name}</span>
+			</div>
+			<!--下划线-->
+			<div class="aui-col-xs-12 aui-text-right">
+				<hr class="underline" />
+			</div>
+			<div class="aui-col-xs-12 aui-text-left aui-padded-t-5  positionrelative">
+				<span class="blackfont  left">车牌号:</span>
+				<span class="blackfont  right">{$cc.LicenseNo}</span>
+			</div>
+			<!--下划线-->
+			<div class="aui-col-xs-12 aui-text-right">
+				<hr class="underline" />
+			</div>
+			<div class="aui-col-xs-12 aui-text-left aui-padded-t-5 a positionrelative">
+				<span class="blackfont  left">缴费通知单号:</span>
+				<span class="blackfont  right">{$cc.TransactionNum}</span>
+			</div>
+			<!--下划线-->
+			<div class="aui-col-xs-12 aui-text-right">
+				<hr class="underline" />
+			</div>
+			<div class="aui-col-xs-12 aui-text-left aui-padded-t-5 aui-padded-b-5 positionrelative">
+				<div class="wx">
+					<img src="__STATIC__/img/balance.jpg">
+
+				</div>
+				<span class="blackfont  wxzf">微信支付</span>
+
+			</div>
+			<div class="aui-col-xs-12 aui-text-left aui-padded-t-5 aui-padded-b-5 ewm-container">
+
+				<div class="ewm">
+					<img src="{$cc.PayUrl}">
+
+				</div>
+
+				<div class="aui-col-xs-12 aui-padded-t-15">
+					<div class="aui-padded-25">
+						<div class="aui-btn aui-btn-block aui-btn-sm btnnext">
+							到账查询
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+		<div class="aui-col-xs-12 aui-bg-grey bottom">
+			<p>温馨提示：</p>
+		 
+			<p>1、微信扫一扫识别二维码付款</p>
+		 
+			<p>2、保存截图并识别二维吗付款</p>
+		 
+			<p>3、二维码失效后请下拉刷新后重新获取</p>
+		</div>
+
+	</body>
+<script language="javascript" type="text/javascript">  
+//function leftTimer(year,month,day,hour,minute,second){
+//  var leftTime = (new Date(year,month-1,day,hour,minute,second)) - (new Date()); //计算剩余的毫秒数
+//  var days = parseInt(leftTime / 1000 / 60 / 60 / 24 , 10); //计算剩余的天数
+//  var hours = parseInt(leftTime / 1000 / 60 / 60 % 24 , 10); //计算剩余的小时
+//  var minutes = parseInt(leftTime / 1000 / 60 % 60, 10);//计算剩余的分钟
+//  var seconds = parseInt(leftTime / 1000 % 60, 10);//计算剩余的秒数
+//  days = checkTime(days);
+//
+//  hours = checkTime(hours);
+//  minutes = checkTime(minutes);
+//  seconds = checkTime(seconds);
+//  //console.log(seconds)
+//  if(seconds<0){
+// document.getElementById("timer").innerHTML ="已失效";
+//
+//  }else{
+//  	 document.getElementById("timer").innerHTML = days+"天" + hours+"小时" + minutes+"分"+seconds+"秒";
+//
+//  }
+//  setInterval("leftTimer(2019,4,1,14,10,10)",1000);
+//}
+//function checkTime(i){ //将0-9的数字前面加上0，例1变为01
+//  if(i<10)
+//  {
+//    i = "0" + i;
+//  }
+//  return i;
+//} 
+
+var maxtime = "{$cc.addtime}"; //
+
+function CountDown() {
+
+    if (maxtime >= 0) {
+        hours = Math.floor(maxtime / 60 / 60);
+        minutes = Math.floor(maxtime / 60 % 60) ;
+
+        seconds = Math.floor(maxtime % 60);
+
+
+        msg = "距离结束还有" + hours + "时" + minutes + "分" + seconds + "秒";
+
+        document.all["timer"].innerHTML = msg;
+
+        if (maxtime == 5 * 60)alert("距离结束仅剩5分钟");
+
+        --maxtime;
+
+    } else{
+
+        document.all["timer"].innerHTML = "<p style='color: red'>二维码已失效</p>";
+    }
+
+}
+
+timer = setInterval("CountDown()", 1000);
+
+
+
+	</script>
+</html>

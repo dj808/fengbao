@@ -1,0 +1,16 @@
+<td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
+<td>{$vo.id}</td>
+<td>{$vo.user_name}</td>
+<td>{$vo.LicenseNo}</td>
+<td>{$vo.PayNum|high_light=$Request.param.order_no}</td>
+<td>{$vo.Money}</td>
+<td>{$vo.Source==1 ? '太平洋财险':'人保财险'}</td>
+<td>{$vo.CarVin}</td>
+<td>{$vo.BiztNo}</td>
+<td>{$vo.ForcetNo}</td>
+<td>{$vo.TransactionNum}</td>
+<td>{$vo.bonus}</td>
+
+<td>{$vo.is_pay==2 ? '已支付':'未支付'  }</td>
+<td>{$vo.order_status==1 ? '待配送':'已完成'  }</td>
+<td>{$vo.addtime|date="Y-m-d H:i:s",###}</td>

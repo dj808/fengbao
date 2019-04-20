@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>蜂保网</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/mystyle.css" />
+	<link rel="stylesheet" type="text/css" href="__STATIC__/css/myfooter.css"/>
+	<link rel="stylesheet" type="text/css" href="__STATIC__/css/weui.css" />
+	<script src="__STATIC__/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__STATIC__/js/php.js"></script>
+	<style>
+		a{
+			color: #333;
+			width: 25%;
+		}
+		#foot{
+			color: #333;
+			width: 25%;
+		}
+		#more{
+			text-align:center;
+			font-size:0.8rem;
+			color:#888888 !important;
+			padding-top:0.25rem;
+		}
+	</style>
+	<script type="text/javascript">
+		var pagesize=10;//每页数据条数
+		var page = 0;
+		var maxpage;
+		// 滚动底部
+		$(window).scroll(
+				function() {
+					var scrollTop = $(this).scrollTop();
+					var scrollHeight = $(document).height();
+					var windowHeight = $(this).height();
+					if (scrollTop + windowHeight == scrollHeight) {
+						maxpage = sessionStorage['maxpage'];
+						if(maxpage==0){
+							$("#more").html("没有更多数据了");
+							return false;
+						}
+						if(page<=maxpage) {
+							ajaxpage(page);
+							page++;
+							if(page==maxpage){
+								$("#more").html("没有更多数据了");
+								return false;
+							}
+						}
+					}
+				}
+		);
+		//加载页面
+		$(function() {
+			// 默认加载第一个
+			ajaxpage(page,pagesize);
+		});
+	</script>
+</head>
+<body>
+    <div class="aui-tab head-fontSize" id="tab" >
+        <a href="{:Url('order/orderAll')}"><div class="aui-tab-item aui-active-1" >全部</div></a>
+		<a href="{:Url('order/waitPlay')}"><div class="aui-tab-item">待付款</div></a>
+		<a href="{:Url('order/waitSend')}"><div class="aui-tab-item">待配送</div></a>
+		<a href="{:Url('order/overPlay')}"><div class="aui-tab-item">已完成</div></a>
+    </div>
+	<div class="aui-margin-t-10 " >
+	        <div id="goods_list_tpl">
+
+	        </div>
+		<div class="weui-loadmore" id="more">
+			<i class="weui-loading"></i>
+			<span class="weui-loadmore__tips">正在加载</span>
+		</div>
+    </div>
+
+	<div class="myfooter">
+		<footer class="aui-bar aui-bar-tab" id="footer">
+			<div class="aui-bar-tab-item " tapmode>
+				<!--  <div class="aui-bar-tab-item aui-active" tapmode>-->
+				<a href="{:Url('home/index')}" id="foot">
+					<i class="footer-icon-1"></i>
+					<div class="aui-bar-tab-label yyyyyyyy">首页</div>
+				</a>
+			</div>
+			<div class="aui-bar-tab-item " tapmode>
+				<a href="{:Url('circle/index')}" id="foot">
+					<i class="footer-icon-2"></i>
+					<div class="aui-bar-tab-label yyyyyyyy">圈子</div>
+				</a>
+			</div>
+			<div class="aui-bar-tab-item aui-active" tapmode>
+				<a href="{:Url('order/orderAll')}" id="foot">
+					<i class="footer-icon-3"></i>
+					<div class="aui-bar-tab-label yyyyyyyy">订单</div>
+				</a>
+			</div>
+			<div class="aui-bar-tab-item" tapmode>
+				<a href="{:Url('user/user')}" id="foot">
+					<i class="footer-icon-4"> </i>
+					<div class="aui-bar-tab-label yyyyyyyy">我的</div>
+				</a>
+			</div>
+		</footer>
+	</div>
+
+
+
+	<script id="tpl" type="text/html">
+		<ul class="aui-list aui-media-list aui-row" style="border: 0;  ">
+			<% for(var i in data) {  %>
+			<a href="/index/order/orderDetail?id=<%=data[i].id%>">
+				<li class="aui-list-item aui-list-item-arrow  myfonts-11" >
+					<div class="aui-media-list-item-inner">
+						<div class="aui-list-item-inner">
+							<div class="aui-list-item-text">
+								<div class="aui-list-item-title"><%=data[i].LicenseNo%></div>
+								<div class="aui-list-item-right"><%=data[i].Source==1 ?'太平洋财险':'人保财险' %>￥<%=data[i].Money%></div>
+							</div>
+							<div class="aui-list-item-text">
+								<div class="aui-list-item-title">
+									<p><%=data[i].Name%></p>
+									<p style="color:limegreen" >
+										<span class="aui-iconfont aui-icon-correct   myfonts-12" ></span>
+										<%=data[i].is_pay==1?'待付款':'已完成'%>
+									</p>
+								</div>
+								<div class="aui-list-item-right">
+									<span class="btn-11 aui-font-size-10 mycolor myfonts-111 " >奖￥<%=data[i].bonus%></span>
+								</div>
+							</div>
+							<div class="aui-list-item-text">
+								<div class="aui-list-item-title">&nbsp;</div>
+								<div class="aui-list-item-right sybx-fontSize aui-ellipsis-1"><span><%=date('Y-m-d H:i:s',data[i].addtime) %></span></div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</a>
+
+				<li class="aui-list-item aui-list-item-middle border-none" >
+					<div class="aui-media-list-item-inner" >
+
+						<div class="aui-list-item-inner" style="min-width: 14rem;">
+							<div class="aui-list-item-text aui-ellipsis-1 sybx-fontSize" >
+								交强险单号：<%=data[i].ForcetNo%>
+							</div>
+							<div class="aui-data-item-text aui-ellipsis-1 sybx-fontSize" >
+								商业保险单号：<%=data[i].BiztNo%>
+							</div>
+						</div>
+						<a href="/index/order/uploading?order_id=<%=data[i].id%>">
+							<div class="aui-list-item-media aui-margin-r-10 border-none" style="position: absolute;right:0rem;top:0rem">
+								<div class="aui-btn   myfonts-1-1" >
+									上传凭证
+								</div>
+							</div>
+						</a>
+					</div>
+				</li>
+
+			<% } %>
+		</ul>
+	</script>
+
+    <script src="__STATIC__/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    	$(function(){
+    		$(".aui-tab").on("click","div",function(){
+    			$(this).addClass("aui-active-1").siblings().removeClass("aui-active-1")
+    			
+    		})
+    	});
+		$('#more').hide();
+		function ajaxpage(page,pagesize){
+			$.ajax({
+				type : "POST",
+				url : "{:Url('index/order/orderAllShow')}",
+				data: {"page":page,"pagesize":pagesize,ajax:2},
+				dataType : "json",
+				beforeSend:function(){
+					$("#more").show();
+				},
+				success : function(rs) {
+
+
+					$("#goods_list_tpl").append(tpl(document.getElementById('tpl').innerHTML,rs));
+
+
+					var maxpage = Math.ceil(rs.data.length/pagesize);
+					sessionStorage['maxpage'] = maxpage;
+				},
+				timeout : 5000
+			});
+		}
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+#footer{
+    border: 1px solid #eee;
+}
+#footer.aui-bar-tab .aui-bar-tab-item{
+    height: 3rem;
+}
+#footer.aui-bar-tab .aui-active{
+    color: #c38945;
+}
+.footer-icon-1{
+    width: 1.5rem;
+    height: 1.5rem;
+    display: block;
+    margin: 0 auto;
+    background-image: url("../img/footer-icon-1.png");
+    background-size: 100% 100%;
+}
+.aui-bar-tab .aui-active .footer-icon-1{
+    background-image: url("../img/footer-icon-1-1.png");
+}
+.footer-icon-2{
+    width: 1.5rem;
+    height: 1.5rem;
+    display: block;
+    margin: 0 auto;
+    background-image: url("../img/footer-icon-2.png");
+    background-size: 100% 100%;
+}
+.aui-bar-tab .aui-active .footer-icon-2{
+    background-image: url("../img/footer-icon-2-1.png");
+}
+.footer-icon-3{
+    width: 1.5rem;
+    height: 1.5rem;
+    display: block;
+    margin: 0 auto;
+    background-image: url("../img/footer-icon-3.png");
+    background-size: 100% 100%;
+}
+.aui-bar-tab .aui-active .footer-icon-3{
+    background-image: url("../img/footer-icon-3-1.png");
+}
+.footer-icon-4{
+    width: 1.5rem;
+    height: 1.5rem;
+    display: block;
+    margin: 0 auto;
+    background-image: url("../img/footer-icon-4.png");
+    background-size: 100% 100%;
+}
+.aui-bar-tab .aui-active .footer-icon-4{
+    background-image: url("../img/footer-icon-4-1.png");
+}
+.yyyyyyyy{
+   /* margin-top:10rem; */
+}

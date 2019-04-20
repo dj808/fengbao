@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>蜂保网</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/mystyle.css" />
+    <link rel="stylesheet" href="__STATIC__/css/weui.css"/>
+    <link rel="stylesheet" href="__STATIC__/css/weuix.css"/>
+
+    <script src="__STATIC__/js/zepto.min.js"></script>
+    <script src="__STATIC__/js/zepto.weui.js"></script>
+    <script src="__STATIC__/js/php.js"></script>
+	<style>
+		.ewm-11>img{
+			width:100%;
+			height:100%
+		}
+	</style>
+</head>
+	<body class="aui-bg-white">
+		<header class="aui-bar aui-bar-nav aui-bar-light border-none">
+			<a class="aui-pull-left aui-btn" href="javascript:history.back(-1)">
+				<span class="aui-iconfont aui-icon-left mycolor"></span>
+			</a>
+			<div class="aui-title mycolor">邀请好友</div>
+	
+		</header>
+		<div class="bj">
+			
+			<div class="rzbj-1" style="position: relative;">
+				<img class="rzbj-11" src="__ROOT__/{$data.qrcode_big}"  />
+
+
+	              <div class="myfooter-title aui-padded-t-5 ">
+					邀请方式
+				</div>
+			</div>	
+				
+
+			<div class="aui-row myalert-11 aui-padded-t-5 " style="" >
+				<div class="aui-col-xs-4 ">
+					<div class="aui-margin-b-0">
+						<img src="__STATIC__/img/wch.png" alt="" class="myheight-1 " onclick="share()">
+					</div>
+					<p class="aui-font-size-10 aui-text-center myfontize">
+						微信
+					</p>
+				</div>
+				<div class="aui-col-xs-4 ">
+					<div class=" aui-margin-b-0 " >
+						<img src="__STATIC__/img/pyq.png" alt="" class="myheight-1 " onclick="share()">
+					</div>
+					<p class="aui-font-size-10 aui-text-center myfontize">
+						朋友圈
+					</p>
+				</div>
+				<div class="aui-col-xs-4 ">
+				<div class=" aui-margin-b-0">
+					<input type="hidden" value="__ROOT__/{$data.qrcode}" id="qrcode">
+					<img src="__STATIC__/img/erwm.png" alt="" class="myheight-1 " onclick="openSharebox()">
+				</div>
+				<p class=" aui-text-center myfontize">
+					二维码
+				</p>
+			</div>
+			
+			</div>
+		</div>
+		<script type="text/javascript" src="__STATIC__/js/auisharebox.js"></script>
+		<script type="text/javascript">
+			apiready = function() {
+				api.parseTapmode();
+			}
+			var sharebox = new auiSharebox();
+			var qrcode=$('#qrcode').val();
+			console.log(qrcode);
+			function openSharebox() {
+				sharebox.init({
+					frameBounces: true, //当前页面是否弹动，（主要针对安卓端）
+					buttons: [{
+						image: qrcode,
+						text: '长按识别二维码马上出单拿奖励',
+						value: 'ewm'
+					}],
+					col: 2,
+					//cancelTitle: '关闭' //可选,当然也可以采用下面的方式使用图标
+					cancelTitle:'<i class="aui-iconfont aui-icon-close aui-font-size-16"></i>'//可选
+				}, function(ret) {
+					if(ret) {
+						document.getElementById("button-index").textContent = ret.buttonIndex;
+						document.getElementById("button-value").textContent = ret.buttonValue;
+					}
+				})
+			}
+		</script>
+	</body>
+</html>

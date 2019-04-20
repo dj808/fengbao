@@ -1,0 +1,87 @@
+ 
+
+   .whitefont{
+    color: #FFFFFF;
+    font-size: 2rem;   	
+   }
+   .aui-bg-grey {
+   	background-color: #F2F2F2;
+   }
+   
+  
+   .b {
+   	border-radius: 1rem;
+   	position: relative;
+   }
+   
+   .money {
+   	position: absolute;
+   	left: 1rem;
+   	top: 0.6rem;
+   }
+   
+   .record {
+   	position: absolute;
+   	left: 3rem;
+   	top: 0.3rem;
+   }
+   
+   .nooffer {
+   	position: absolute;
+   	left: 1rem;
+   	top: 0.3rem;
+   }
+   
+   .family {
+   	position: absolute;
+   	right: 2rem;
+   	top: 0.3rem;
+   }
+   
+   .blackfont {
+   	color: #323232;
+   	font-size: 0.85rem;
+   	font-weight: bold;
+   }
+   .greyfont{
+    color:#F1BC78;
+   	font-size: 0.7rem;
+   	font-weight: bold;  
+   }
+   
+   .content {
+   	padding-top: 2rem;
+   	height: 8rem;
+   }
+   .arrowrightcontainer {
+   	position: relative;
+   }
+   
+   .arrowright {
+   	/*margin-left: 15rem;*/
+   	position: absolute;
+   	right: 0.2rem;
+    }
+    .profitli,.settlementli,.individualincentivesli,.circlereward_container{
+    	position: relative;
+    }
+   .profit_container,.settlement_container,.individual_incentives_container,.circlereward{   	
+   	position: absolute;
+    right: 1rem;
+    top: 1rem;
+   }
+   .h8rem{
+    height: 8rem;
+    width: 98%;
+    margin: 0 auto;
+    border-radius: 1rem;
+   }
+   .h3rem{
+   	height: 3rem;
+   }
+   .h6rem{
+   	height: 6rem;
+   }
+   .rightli{
+   	position: relative;
+   }

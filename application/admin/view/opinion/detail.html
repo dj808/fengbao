@@ -1,0 +1,24 @@
+{extend name="template/base" /}
+{block name="content"}
+<div class="page-container">
+    <div class="form form-horizontal">
+        <div >
+            <label style="font-weight:600;">意见内容</label>
+            <div class="formControls ">
+                {$list.content}
+            </div>
+            <div class=""></div>
+        </div>
+        <div class="row cl" style="width:80%;">
+            <!--<label class="form-label col-xs-3 col-sm-3" >图片显示</label>-->
+            <div class="margin:0 auto">
+                {volist name="photos" id="vo"}
+                    <div class="formControls col-xs-6 col-sm-6" >
+                        <img src="{$vo}" alt="照片" style="width:200px;height:150px; margin:0.5rem;"/>
+                    </div>
+                {/volist}
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

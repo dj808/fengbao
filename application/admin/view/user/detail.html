@@ -1,0 +1,73 @@
+{extend name="template/base" /}
+{block name="content"}
+<div class="page-container">
+    <div class="form form-horizontal">
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">昵称</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                {$list.nickname}
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">所在行业</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                {$list.industry_name}
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">钱包余额</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                {$list.money}
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">积分</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                {$list.score}
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">真实姓名</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                {$list.realname}
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">身份证号码</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                {$list.idcard}
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">身份证正面照片</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                {if condition="($list.idcard_pros neq '')"}
+                <img src="{$list.idcard_pros}" alt="用户头像" style="width:80px;height:50px;"/>
+                {else/}
+                暂无
+                {/if}
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">身份证反面照片</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                {if condition="($list.idcard_cons neq '')"}
+                <img src="{$list.idcard_cons}" alt="用户头像" style="width:80px;height:50px;"/>
+                {else/}
+                暂无
+                {/if}
+
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+      
+    </div>
+</div>
+{/block}

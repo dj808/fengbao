@@ -1,0 +1,112 @@
+{extend name="template/base" /}
+{block name="content"}
+<div class="page-container">
+    <div class="form form-horizontal">
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">用户昵称</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                {$list.user_name}
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">车牌号</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                {$list.LicenseNo}
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">保险公司</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                {$list.Source==1 ? '太平洋财险':'人保财险'}
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">总价钱</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                {$list.Money}
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">奖金</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                {$list.bonus}
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">车架号</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                {$list.CarVin}
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">商业险保单号</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                {$list.BiztNo}
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">强险保单号</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                {$list.ForcetNo}
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">身份证正面照片</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                {if condition="($list.idcard_pro neq '')"}
+                <img src="{$list.idcard_pro}" alt="用户头像" style="width:80px;height:50px;"/>
+                {else/}
+                暂无
+                {/if}
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">身份证反面照片</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                {if condition="($list.idcard_con neq '')"}
+                <img src="{$list.idcard_con}" alt="用户头像" style="width:80px;height:50px;"/>
+                {else/}
+                暂无
+                {/if}
+
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">行驶证正面</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                {if condition="($list.driving_pro neq '')"}
+                <img src="{$list.idcard_pro}" alt="用户头像" style="width:80px;height:50px;"/>
+                {else/}
+                暂无
+                {/if}
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">行驶证反面</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                {if condition="($list.driving_con neq '')"}
+                <img src="{$list.idcard_con}" alt="用户头像" style="width:80px;height:50px;"/>
+                {else/}
+                暂无
+                {/if}
+
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+
+    </div>
+</div>
+{/block}

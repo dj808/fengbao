@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>报价详情</title>
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/api.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/aui-slide.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/weui.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/aui-flex.css" />
+		<script src="__STATIC__/js/zepto.min.js"></script>
+		<script type="text/javascript" src="__STATIC__/js/api.js"></script>
+		<script type="text/javascript" src="__STATIC__/js/aui-slide.js"></script>
+
+		<style>
+			.underline {
+				height: 0.2rem;
+				border: none;
+				border-top: 1px solid #EEEEEE;
+				margin-top: 0rem;
+			}
+			
+			.redfont {
+				color: red;
+			}
+			
+			.aui-row input {
+				text-align: right;
+				position: absolute!important;
+				left: 3.5rem!important;
+				top: 0.5rem;
+				width: 80%;
+			}
+			
+			.aui-row label1 {
+				position: absolute;
+				left: 0.2rem;
+				top: 0.5rem;
+			}
+			
+			.underline {
+				height: 0.01rem;
+				border: none;
+				border-top: 1px solid #EEEEEE;
+				margin-top: 0rem;
+			}
+			
+			input {
+				text-align: right;
+			}
+			
+			.height3 {
+				height: 1.3rem;
+			}
+			
+			.height3 .label1 {
+			}
+			
+			.label2 {
+				position: absolute;
+				right: 1rem;
+				text-align: left;
+			}
+			
+			select {
+				position: absolute;
+				top: -0.5rem;
+				direction: rtl;
+				width: 9rem;
+				/* left: 10rem; */
+				right: 1rem;
+			}
+			
+			select option {
+				direction: ltr;
+			}
+			
+			.arrowrightcontainer:before {
+				content: '';
+				width: 0.4rem;
+				height: 0.4rem;
+				position: absolute;
+				top: 50%;
+				right: 9.6rem;
+				margin-top: -0.2rem;
+				background: transparent;
+				border: 1px solid #dddddd;
+				border-top: none;
+				border-right: none;
+				z-index: 2;
+				-webkit-border-radius: 0;
+				border-radius: 0;
+				-webkit-transform: rotate(-135deg);
+				transform: rotate(-135deg);
+				/* position: absolute; */
+				left: 19rem;
+				top: 0.6rem;
+			}
+			
+			.sucess {
+				color: #5DB83F;
+				position: absolute;
+				left: 4rem;/* 
+				top: 1rem; */
+			}
+			
+			.coverage {
+				height: 4rem;
+				position: relative;
+			}
+			
+			.commission {
+				position: absolute;
+				top: 1.5rem;
+				left: 1rem;
+				font-size: 0.65rem;
+				color: #121111;
+			}
+			
+			.commissioninfo {
+				position: absolute;
+				top: 2.8rem;
+				left: 1rem;
+				font-size: 0.65rem;
+			}
+			
+			.commission-money {
+				color: #FFCA64;
+			}
+			
+			.commissionkey {
+				/* font-weight: bolder; */
+			}
+			
+			.aui-list-sarrow1:before {
+				content: '';
+				width: 0.4rem;
+				height: 0.4rem;
+				position: absolute;
+				top: 0rem;
+				right: 0.75rem;
+				margin-top: 0.6rem;
+				background: transparent;
+				border: 1px solid #dddddd;
+				border-top: none;
+				border-right: none;
+				z-index: 2;
+				-webkit-border-radius: 0;
+				border-radius: 0;
+				-webkit-transform: rotate(-135deg);
+				transform: rotate(-135deg);
+			}
+			
+			.wytb {
+				height: 2.4rem;
+				padding-top: 0.6rem;
+			}
+			
+			.cxbj {
+				height: 2.2rem;
+				padding-top: 0.6rem;
+			}
+			
+			.kfdh {
+				height: 2.2rem;
+				background-color: white;
+				font-size: 0.52rem;
+			}
+			.kfdh>p{
+				font-size: 0.52rem;
+				text-align: center;
+				}
+			.fsbj {
+				height: 2.2rem;
+				background-color: white;
+				font-size: 0.52rem;
+			}
+			
+			.fsbj>p{
+				font-size: 0.52rem;
+				text-align: center;
+			}
+			.kfdhimg2,
+			.fsbjimg2 {
+				height: 1.3rem;
+				width: 1.3rem;
+				margin:0 auto;
+			}
+			
+			.kfdhimg2 img,
+			.fsbjimg2 img {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.cxbj,
+			.wytb {
+				height: 2.2rem;
+				padding-top: 0.6rem;
+				color: white;
+				/*padding-left: 1rem;*/
+				text-align: center;
+			}
+			
+			.cxbj {
+				background-color: #CB924F;
+			}
+			
+			.wytb {
+				background-color: red;
+			}
+			
+			.img1 {
+				width: 4rem;
+				height: 1.9rem;
+			}
+			
+			.img1 img {
+				width: 100%;
+				height: 100%;
+			}
+			body{
+				background-color: white;
+			}
+			.a{
+				width: 92%;
+				margin: 0 auto;
+				font-size: 0.65rem;
+				color: #595858;
+				font-weight: 500;
+			}
+			.abc{
+				width: 92%;
+				margin: 0 auto;
+				font-size: 0.7rem;
+				color: #282727;
+				font-weight: 500;
+			}
+			.abcd{
+				margin-left: 0.3rem;
+				width: 99%;
+				font-size: 0.6rem;
+				color: #595858;
+			}
+			.ab{
+				width: 100%;
+				font-size: 0.65rem;
+				color: #595858;
+				font-weight: 500;
+			}
+			.ab li{
+				padding-left:0 !important;
+				color: #595858 !important;
+				min-height: 1.3rem !important;
+			}
+			.minheight{
+				min-height:1.4rem !important;
+			}
+			.yyf-color-111111{
+				color:#727171;
+				font-size:0.5rem;
+				min-height: 1.1rem;
+			}
+			.yyf-height-1111{
+				    border-bottom: 1px solid #ececec;
+			}
+			.yy-color{
+				background-color: #efefef !important;
+			}
+			.yy-alert{
+				    width: 100%;
+					height: 100%;
+					background-color: rgba(0, 0, 0, 0.5);
+					position: fixed;
+					top: 0;
+					z-index: 100;
+			}
+			.yy-alert1{
+				    width: 50%;
+					height: 4rem;
+					position: fixed;
+					left: 50%;
+					margin-left: -25%;
+					top: 50%;
+					margin-top: -2rem;
+					background: #fff;
+					z-index: 1000;
+					border-radius: 1rem;
+					/* vertical-align: middle; */
+					padding-top: 0.8rem;
+			}
+			.alert-f{
+				font-size:0.5rem;
+				text-align: center;
+			}
+			.alert-f>p{
+				font-size: 0.6rem;
+				margin-bottom: 0.4rem;
+			}
+		</style>
+	</head>
+
+	<body class="aui-bg-grey">
+		<!--第一部分-->
+		<header class="aui-bar aui-bar-nav aui-bar-light">
+			<a class="aui-pull-left aui-btn blackfont">
+				<!--<span class="aui-iconfont aui-icon-left blackfont">
+					<>
+				</span>-->
+				<div class="img1">
+					{if condition="$data.Source eq '1'"}
+					<img src="__STATIC__/img/tpy.png">
+					{elseif condition="$data.Source eq '4'" }
+					<img src="__STATIC__/img/rb.png">
+					{/if}
+				</div>
+			</a>
+			<div class="aui-title blackfont"></div>
+			<a class="aui-pull-right aui-btn">
+	         {if condition="$data.all_price gt 0"}
+				<span class="redfont">{$data.all_price}</span>
+				{else}
+				<span class="redfont" style="font-size: 0.8rem;">报价失败</span>
+				{/if}
+			</a>
+		</header>
+		<div class="yy-color " style="height:0.5rem;width:100%;"></div>
+		<!--第二部分   我的好友-->
+		<div class="a  aui-text-center aui-margin-t-15">
+			<div class="aui-row aui-bg-white  aui-margin-t-0 ">
+				<div class="aui-col-xs-12 aui-text-left aui-padded-b-15">
+					<label class="label1">车牌号码:</label>
+					<label class="label3" id="LicenseNo">{$data.LicenseNo}</label>
+					<input type="hidden" id="insure_address" value="{$data.insure_address}"/>
+				</div>
+				<div class="aui-col-xs-12 aui-text-left aui-padded-b-15">
+					<label class="label1">品牌型号:</label>
+					<label class="label3">{$data.ModleName}</label>
+				</div>
+				<!--<div class="aui-col-xs-12 aui-text-left aui-padded-b-15">-->
+					<!--<label class="label1">商业出险:</label>-->
+					<!--<label class="label3">99</label>-->
+				<!--</div>-->
+				<!--<div class="aui-col-xs-12 aui-text-left aui-padded-b-15">-->
+					<!--<label class="label1">交强出险:</label>-->
+					<!--<label class="label3">99</label>-->
+				<!--</div>-->
+				<div class="aui-col-xs-12 aui-text-left aui-padded-b-15">
+					<label class="label1">折扣系数:</label>
+					<label class="label3">{$data.TotalRate}</label>
+				</div>
+				<div class="aui-col-xs-12 aui-text-left aui-padded-b-15">
+					<label class="label1">交强险到期时间:</label>
+					<label class="label3">{$data.ForceExpireDate}</label>
+				</div>
+				<div class="aui-col-xs-12 aui-text-left aui-padded-b-15">
+					<label class="label1">商业险到期时间:</label>
+					<label class="label3">{$data.BusinessExpireDate}</label>
+				</div>
+				<!--下划线-->
+				<div class="aui-col-xs-12 aui-text-right">
+					<hr class="underline" />
+				</div>
+				<div class="aui-col-xs-12 aui-text-left aui-padded-b-5 aui-margin-t-10" style="font-size: 0.5rem;">
+					<label class="label1">{$data.VehicleInfo}</label>
+				</div>
+			</div>
+		</div>
+		<div class="yy-color " style="height:0.5rem;width:100%;"></div>
+		<!--第三部分  -->
+		<!--报价成功，核保失败！-->
+		{if condition="$data.all_price gt 0  && $data.ForceNo eq '' && $data.BizNo eq ''   "  }
+		<div class="a three aui-text-center ">
+			<div class="aui-row aui-bg-white  aui-margin-t-0 ">
+				<div class="aui-col-xs-12 aui-text-left  height3">
+					<label class="label1 ">交强险</label>
+					<label class="label2">{$data.ForceTotal}元</label>
+				</div>
+				<!--下划线-->
+				<div class="aui-col-xs-12 aui-text-right  ">
+					<hr class="underline" />
+				</div>
+				<div class="aui-col-xs-12 aui-text-left  height3 aui-margin-t-5">
+					<label class="label1 ">车船税</label>
+					<label class="label2">{$data.TaxTotal}元</label>
+				</div>
+				<!--下划线-->
+				<div class="aui-col-xs-12 aui-text-right">
+					<hr class="underline" />
+				</div>
+				<!-- 核保失败新加 -->
+
+				<div>
+					<ul class="aui-list aui-collapse ab aui-margin-t-5">
+						<div class="aui-collapse-item ">
+							<li class="aui-list-item aui-collapse-header" tapmode>
+								<div class="aui-list-item-inner minheight">
+									<div class="">商业险 &nbsp;</div>
+									<div style="position:absolute; right:3.2rem;">{$data.BizTotal}元</div>
+									<div class="aui-list-item-right">
+										<i class="aui-iconfont aui-icon-down aui-collapse-arrow"></i>
+									</div>
+								</div>
+							</li>
+							<div class="aui-collapse-content  aui-margin-l-10 ">
+								{if condition="$data['CheSun_BaoFei'] gt '0'"}
+								<li class="yyf-height-1111 aui-margin-t-5">
+									<div class="aui-list-item-inner minheight">
+										<div class="aui-font-size-12">车辆损失险</div>
+										<div class="aui-font-size-12">{$data.CheSun_BaoFei}元</div>
+									</div>
+								</li>
+								{/if}
+								{if condition="$data['SanZhe_BaoFei'] gt '0'"}
+								<li class="yyf-height-1111 aui-margin-t-5">
+									<div class="aui-list-item-inner minheight">
+										<div class="aui-font-size-12">第三者责任险</div>
+										<div class="aui-font-size-12">{$data.SanZhe_BaoFei}元</div>
+									</div>
+								</li>
+								{/if}
+
+								<li class="aui-margin-t-5">
+									{if condition="$data['BuJiMian_Price'] gt '0'"}
+									<div class="aui-list-item-inner minheight">
+										<div class="aui-font-size-12">不计免赔险</div>
+										<div class="aui-font-size-12">{$data['BuJiMian_Price']}元</div>
+									</div>
+									{/if}
+									<div class="aui-list-item-inner minheight">
+										<div class="yyf-color-111111" >
+											{if condition="$data['BuJiMianCheSun_BaoFei'] gt '0'"}车损不计免赔({$data['BuJiMianCheSun_BaoFei']}元){/if}&nbsp;
+											{if condition="$data['BuJiMianSanZhe_BaoFei'] gt '0'"}第三者责任不计免赔({$data['BuJiMianSanZhe_BaoFei']})元{/if}&nbsp;
+											{if condition="$data['BuJiMianDaoQiang_BaoFei'] gt '0'"}不计免赔盗抢保费({$data['BuJiMianDaoQiang_BaoFei']})元{/if}&nbsp;
+											{if condition="$data['BuJiMianChengKe_BaoFei'] gt '0'"}不计免乘客保费({$data['BuJiMianChengKe_BaoFei']})元{/if}&nbsp;
+											{if condition="$data['BuJiMianSiJi_BaoFei'] gt '0'"}不计免司机保费({$data['BuJiMianSiJi_BaoFei']})元{/if}&nbsp;
+											{if condition="$data['BuJiMianHuaHen_BaoFei'] gt '0'"}不计免划痕保费({$data['BuJiMianHuaHen_BaoFei']})元{/if}&nbsp;
+											{if condition="$data['BuJiMianSheShui_BaoFei'] gt '0'"}不计免赔涉水({$data['BuJiMianSheShui_BaoFei']})元{/if}&nbsp;
+											{if condition="$data['BuJiMianZiRan_BaoFei'] gt '0'"}不计免赔自燃({$data['BuJiMianZiRan_BaoFei']})元{/if}&nbsp;
+										</div>
+										<div class="" style="opacity: 0;">23</div>
+									</div>
+								</li>
+							</div>
+						</div>
+
+					</ul>
+				</div>
+				<!-- <div class="aui-col-xs-12 aui-text-left aui-padded-b-15">
+					<label class="label1">商业险</label>
+					<span>{$data.BizTotal}</span>
+					<span class="licensenumber blackfont arrowrightcontainer">
+					<select dir="rtl" class="">
+						<option>760元</option>
+						<option>76330.00元</option>
+					</select>
+					<span class="aui-list-sarrow1"></span>
+					<p>商业险商业险商业险vv</p>
+					</span>
+				</div> -->
+				<!--下划线-->
+				<div class="aui-col-xs-12 aui-text-right">
+					<hr class="underline" />
+				</div>
+				<div class="aui-col-xs-12 coverage aui-text-left aui-margin-t-5">
+					<label class="label1">保费总额</label>
+					<label class="label2">{$data.all_price}</label>
+					<p class="commission "><span class="commissionkey">佣金：</span ><span class="commission-money">541.15元</span></p>
+					<p class="commissioninfo">奖励以实际订单金额为准</p>
+				</div>
+
+
+				<!--下划线-->
+
+
+				<!--下划线-->
+				<div class="aui-col-xs-12 aui-text-right">
+					<hr class="underline" />
+				</div>
+				<div class="aui-col-xs-12 aui-text-left  height3 aui-margin-t-5">
+					<label class="label1">核保状态</label>
+					<label class="label2 sucess" style="color: #d71f1b">核保失败</label>
+				</div>
+
+				<!--下划线-->
+				<div class="aui-col-xs-12 aui-text-right">
+					<hr class="underline" />
+				</div>
+				<div class="aui-col-xs-12 aui-text-left aui-margin-t-5" style="margin-bottom: 3rem;">
+					<!--<label class="label1">核保状态</label>-->
+					<!--<label class="label2 sucess" style="color: #d71f1b">核保失败</label>-->
+					<div class="aui-col-xs-12 aui-text-left ">
+						<label class="label1">核保内容&nbsp;&nbsp;&nbsp;&nbsp;
+							<span style="color: #d71f1b;"> {$data.SubmitResult}</span>
+						</label>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+		{elseif condition="$data.all_price eq 0"}
+		<!--报价失败，核保失败！-->
+		<div class="aui-row aui-bg-white  aui-margin-t-0 abc">
+			<div class="aui-col-xs-12 aui-text-left  aui-padded-b-15 height3">
+				<label class="label1">交强险</label>
+				<label class="label2">--</label>
+			</div>
+			<!--下划线-->
+			<div class="aui-col-xs-12 aui-text-right">
+				<hr class="underline" />
+			</div>
+			<div class="aui-col-xs-12 aui-text-left aui-padded-b-15 height3">
+				<label class="label1 ">车船税</label>
+				<label class="label2">--</label>
+			</div>
+			<!--下划线-->
+			<div class="aui-col-xs-12 aui-text-right">
+				<hr class="underline" />
+			</div>
+			<div class="aui-col-xs-12 aui-text-left aui-padded-b-15 height3">
+				<label class="label1 ">商业险</label>
+				<label class="label2">--</label>
+			</div>
+
+		<!--下划线-->
+		<div class="aui-col-xs-12 aui-text-right">
+			<hr class="underline" />
+		</div>
+		<div style="color: #d71f1b;">
+           报价失败
+		</div>
+		<div class="aui-col-xs-12 aui-text-left aui-padded-b-15 abcd" style="color: #d71f1b;">
+			{$data.QuoteResult}
+		</div>
+		<!--下划线-->
+		{else}
+			<!--报价成功，核保成功！-->
+		<div class="a three aui-text-center aui-margin-t-15 ">
+			<div class="aui-row aui-bg-white  aui-margin-t-0 ">
+				<div class="aui-col-xs-12 aui-text-left  aui-padded-b-15 height3">
+					<label class="label1 ">交强险</label>
+					<label class="label2">{$data.ForceTotal}元</label>
+				</div>
+				<!--下划线-->
+				<div class="aui-col-xs-12 aui-text-right">
+					<hr class="underline" />
+				</div>
+				<div class="aui-col-xs-12 aui-text-left aui-padded-b-15 height3">
+					<label class="label1 ">车船税</label>
+					<label class="label2">{$data.TaxTotal}元</label>
+				</div>
+				<!--下划线-->
+				<div class="aui-col-xs-12 aui-text-right">
+					<hr class="underline" />
+				</div>
+				<div>
+					<ul class="aui-list aui-collapse ab aui-margin-t-5">
+					    <div class="aui-collapse-item ">
+					        <li class="aui-list-item aui-collapse-header" tapmode>
+					            <div class="aui-list-item-inner minheight">
+					                <div class="">商业险 &nbsp;</div>
+									<div style="position:absolute; right:3.2rem;">2550.43元</div>
+					                <div class="aui-list-item-right">
+					                    <i class="aui-iconfont aui-icon-down aui-collapse-arrow"></i>
+					                </div>
+					            </div>
+					        </li>
+					        <div class="aui-collapse-content  aui-margin-l-10 ">
+					            <li class="yyf-height-1111 aui-margin-t-5">
+					                <div class="aui-list-item-inner minheight">
+					                    <div class="aui-font-size-12">车辆损失险(17.23万)</div>
+										<div class="aui-font-size-12">1677.68元</div>
+					                </div>
+					            </li>
+					            <li class="yyf-height-1111 aui-margin-t-5">
+					                <div class="aui-list-item-inner minheight">
+					                    <div class="aui-font-size-12">第三者责任险(17.23万)</div>
+					                    <div class="aui-font-size-12">540.68元</div>
+					                </div>
+					            </li>
+								 <li class="aui-margin-t-5">
+								    <div class="aui-list-item-inner minheight">
+								         <div class="aui-font-size-12">不计免赔险</div>
+								        <div class="aui-font-size-12">332.66元</div>
+								    </div>
+									<div class="aui-list-item-inner minheight">
+										<div class="yyf-color-111111" >
+											车损不计免赔(251.65元)、第三者责任不计免赔(81.01)元
+										</div>
+									     <div class="" style="opacity: 0;">23</div>
+									</div>
+								</li>
+					        </div>
+					    </div>
+					    
+					</ul>
+				</div>
+				<!-- <div class="aui-col-xs-12 aui-text-left aui-padded-b-15">
+					<label class="label1">商业险</label>
+					<span>{$data.BizTotal}</span>
+					<span class="licensenumber blackfont arrowrightcontainer">
+					<select dir="rtl" class="">
+						<option>760元</option>
+						<option>76330.00元</option>
+					</select>
+					<span class="aui-list-sarrow1"></span>
+					<p>商业险商业险商业险vv</p>
+					</span>
+				</div> -->
+				<!--下划线-->
+				<div class="aui-col-xs-12 aui-text-right">
+					<hr class="underline" />
+				</div>
+				<div class="aui-col-xs-12 coverage aui-text-left aui-padded-b-15">
+					<label class="label1">保费总额</label>
+					<label class="label2">{$data.all_price}</label>
+					<p class="commission aui-padded-b-15"><span class="commissionkey">佣金：</span ><span class="commission-money">541.15元</span></p>
+					<p class="commissioninfo">奖励以实际订单金额为准</p>
+				</div>
+
+
+				<!--下划线-->
+
+				<!--下划线-->
+				<div class="aui-col-xs-12 aui-text-right">
+					<hr class="underline" />
+				</div>
+				<div class="aui-col-xs-12 aui-text-left " style="margin-top:0.25rem;">
+					<label class="label1">交强险投保单号:</label>
+					<label class="label3">{$data.ForceNo}</label>
+				</div>
+
+				<div class="aui-col-xs-12 aui-text-left aui-margin-t-5 aui-margin-b-5">
+					<label class="label1">商业险投保单号:</label>
+					<label class="label3">{$data.BizNo}</label>
+				</div>
+				<!--下划线-->
+				<div class="aui-col-xs-12 aui-text-right">
+					<hr class="underline" />
+				</div>
+				<div class="aui-col-xs-12 aui-text-left aui-padded-b-15 height3">
+					<label class="label1">核保状态</label>
+					<label class="label2 sucess">核保成功</label>
+				</div>
+			</div>
+		</div>
+
+
+		{/if}
+			<div class="jiazai">
+
+			</div>
+		<div class="aui-content aui-bg-grey aui-margin-t-15" style="position: fixed;bottom: 0;left: 0;width: 100%;">
+
+			<div class="aui-col-xs-2 kfdh"  style="border-top:1px solid #f5f5f5">
+				<a href="tel:{$tel.tel}">
+					<div class="kfdhimg2">
+						<img src="__STATIC__/img/01.png">
+					</div>
+					<p>客服电话</p>
+				</a>
+			</div>
+			<div class="aui-col-xs-2 fsbj"  style="border-top:1px solid #f5f5f5;border-left:1px solid #f5f5f5">
+				<div class="fsbjimg2">
+					<img src="__STATIC__/img/02.png">
+				</div>
+				<p>发送报价</p>
+			</div>
+			<div class="aui-col-xs-4">
+
+				<div class="cxbj" id="cxbj">
+					重新报价
+				</div>
+
+			</div>
+			<div class="aui-col-xs-4">
+				<div class="aui-padded-25">
+
+						{if condition="$data.ForceNo eq '' && $data.BizNo eq ''"}
+						<a href="javascript:;"> <div class="wytb">我要投保	</div></a>
+						<!--<a href="javascript:;"> <div class="wytb">我要投保	</div></a>-->
+						{else}
+						<div class="wytb" onclick="toubao()">我要投保	</div>
+						{/if}
+				</div>
+			</div>
+		</div>
+ </div>
+
+
+	</body>
+
+	<script src="__STATIC__/js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="__STATIC__/js/api.js" ></script>
+		<script type="text/javascript" src="__STATIC__/js/aui-collapse.js" ></script>
+		<script type="text/javascript">
+			apiready = function () {
+				api.parseTapmode();
+			}
+			var collapse = new auiCollapse({
+				autoHide:false //是否自动隐藏已经展开的容器
+			});
+		   
+			
+		</script>
+
+</html>
+
+<script>
+	$('#cxbj').click(function(){
+        var car_id=$("#LicenseNo").html().substr(2,6);
+
+		var insure_address=$("#insure_address").val();
+
+		var car_gs=$("#LicenseNo").html().substr(0,2);
+
+		$.ajax({
+			type:"POST",
+			url:"{:url('index/enquiry/one')}",
+			data:{"car_id":car_id,"car_gs":car_gs,"tbd":insure_address},
+			success:function (res) {
+				console.log(res);
+				if (res.code == "0") {
+					window.location.href = "{:url('index/enquiry/two')}"
+				} else {
+					alert(res.message);
+				}
+			},
+			dataType: 'json'
+		});
+		return false;
+	});
+
+
+	function toubao() {
+
+//        var   BizNo = "{$data['BizNo']}";
+//        var   ForceNo= "{$data['ForceNo']}";
+//        var   Source= "{$data['Source']}";
+//        var   ChannelId= "{$data['ChannelId']}";
+var  jiazai = '<div class="yy-alert"></div>'+
+            '<div class="yy-alert1">'+
+            '<div class="alert-f">'+
+			'<p>二维码正在制作中</p>'+
+           ' <i class="weui-loading"></i>'+
+            '<span class="weui-loadmore__tips">正在加载</span>'+
+           ' </div>'+
+            '</div>';
+
+        $('.jiazai').append(jiazai);
+		var data ={
+           BizNo : "{$data['BizNo']}",
+		   ForceNo: "{$data['ForceNo']}",
+			Source: "{$data['Source']}",
+			ChannelId:"{$data['ChannelId']}",
+		}
+
+
+
+		   if(data.BizNo =='' && data.ForceNo ==''){
+				alert('强险和商业险保单不能同时为空！');
+				return false;
+		   }
+
+        $.ajax({
+            type: 'POST',
+            url: 'http://www.fengbaowang.net/index/enquiry/toubao',
+            dataType: 'json',
+            data: data,
+            success: function (data) {
+                setTimeout(function () {
+
+                    location.href = "http://www.fengbaowang.net/index/enquiry/pay?id="+data.data.id ;
+                                },3000);
+
+				//console.log(data);return;
+            }
+        });
+//        location.href = "http://www.fengbaowang.net/index/enquiry/toubao?BizNo="+BizNo+"&ForceNo="+ForceNo+"&Source="+Source+"&ChannelId="+ChannelId;
+
+    }
+
+
+</script>

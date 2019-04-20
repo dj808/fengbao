@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title></title>
+    <script type="text/javascript" src="__STATIC__/js/api.js"></script>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css"/>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/login.css"/>
+
+    <style>
+ 
+   .content{
+    background: url("__STATIC__/img/information.png") no-repeat 100%;
+
+   }
+   .whitefont{
+    color: #FFFFFF;
+    font-size: 2rem;   	
+   }
+   .aui-bg-grey {
+   	background-color: #F2F2F2;
+   }
+   
+  
+   .b {
+   	border-radius: 1rem;
+   	position: relative;
+   }
+   
+   .money {
+   	position: absolute;
+   	left: 1rem;
+   	top: 0.6rem;
+   }
+   
+   .record {
+   	position: absolute;
+   	left: 3rem;
+   	top: 0.3rem;
+   }
+   
+   .nooffer {
+   	position: absolute;
+   	left: 1rem;
+   	top: 0.3rem;
+   }
+   
+   .family {
+   	position: absolute;
+   	right: 2rem;
+   	top: 0.3rem;
+   }
+   
+   .blackfont {
+   	color: #323232;
+   	font-size: 0.85rem;
+   	font-weight: bold;
+   }
+   .greyfont{
+    color:#F1BC78;
+   	font-size: 0.7rem;
+   	font-weight: bold;  
+   }
+   
+   .content {
+   	padding-top: 2rem;
+   }
+   .arrowrightcontainer {
+   	position: relative;
+   }
+   
+   .arrowright {
+	   margin-left: 86%;
+    }
+    .profitli,.settlementli,.individualincentivesli,.circlereward_container{
+    	position: relative;
+    }
+   .profit_container,.settlement_container,.individual_incentives_container,.circlereward{   	
+   	position: absolute;
+    right: 1rem;
+    top: 1rem;
+   }
+    </style>
+</head>
+<body class="aui-bg-grey">
+<!--第一部分-->
+<div class="aui-margin-t-5 aui-padded-15 aui-text-center">
+	<div class="aui-row aui-bg-white b">
+		<div class="aui-col-xs-12 content" style="height: 8rem;">
+			<p class="greyfont">账户余额(元)</p>
+			<p class="whitefont">{$walletInfo.money}</p>
+		</div>
+	</div>
+</div>
+
+<!--第二部分-->
+<div class="aui-margin-t-5 aui-padded-15 aui-text-center arrowrightcontainer">
+	<div class="aui-row aui-bg-white b" style="height: 6rem;">
+
+		<ul class="aui-list aui-list-in">
+
+			<li class="aui-list-item profitli">
+				<div class="" style="height: 3rem;">
+					<div class="aui-text-left record">
+						<p class="text-js aui-padded-l-15 aui-padded-t-15 aui-font-size-14 blackfont"> 累计收益</p>
+					</div>
+					<div class=" aui-text-right profit_container">
+						<p class="profit">{$walletInfo.total_add}</p>
+					</div>
+					<div class="money">
+						<img src="__STATIC__/img/profit.png" alt="" />
+					</div>
+				</div>
+			</li>
+			<li class="aui-list-item settlementli">
+				<div class="" style="height: 3rem;">
+					<div class="aui-text-left record">
+						<p class="text-js aui-padded-l-15 aui-padded-t-15 aui-font-size-14 blackfont">待结算</p>
+					</div>
+					<div class=" aui-text-right settlement_container">
+						<p class="profit">{$walletInfo.wait_money}</p>
+					</div>
+					<div class="money">
+						<img src="__STATIC__/img/settlement.png" alt="" />
+					</div>
+				</div>
+			</li>
+		</ul>
+
+		</div>
+
+		</div>
+
+
+
+	<!--第三部分 individual_incentives_container individualincentivesli-->
+	<div class="aui-margin-t-5 aui-padded-15 aui-text-center arrowrightcontainer">
+		<div class="aui-row aui-bg-white b" style="height: 6rem;">
+
+			<ul class="aui-list aui-list-in">
+
+				<li class="aui-list-item individualincentivesli">
+					<div class="" style="height: 3rem;">
+						<div class="aui-text-left record ">
+							<p class="text-js aui-padded-l-15 aui-padded-t-15 aui-font-size-14 blackfont"> 个人奖励</p>
+						</div>
+						<div class=" aui-text-right individual_incentives_container">
+							<p class="profit">{$walletInfo.person_rewards}</p>
+						</div>
+						<div class="money ">
+							<img src="__STATIC__/img/individual_incentives.png" alt="" />
+						</div>
+					</div>
+				</li>
+				<li class="aui-list-item circlereward_container">
+					<div class="" style="height: 3rem;">
+						<div class="aui-text-left record">
+							<p class="text-js aui-padded-l-15 aui-padded-t-15 aui-font-size-14 blackfont">圈子奖励</p>
+						</div>
+						<div class=" aui-text-right circlereward">
+							<p class="profit">{$walletInfo.score}</p>
+						</div>
+						<div class="money">
+							<img src="__STATIC__/img/circlereward.png" alt="" />
+						</div>
+					</div>
+				</li>
+
+			</ul>
+
+			</div>
+
+			</div>
+
+
+
+		<!--第四部分-->
+		<div class="aui-margin-t-5 aui-padded-15 aui-text-center arrowrightcontainer">
+			<div class="aui-row aui-bg-white b" style="height: 3rem;">
+				<div class="aui-text-left record">
+					<p class="text-js aui-padded-l-15 aui-padded-t-15 aui-font-size-14 blackfont"> 余额明细</p>
+				</div>
+				<a href="{:Url('wallet/getMoneyLog',array('user_id'=>$user_id))}">
+					<div class=" aui-text-right ">
+						<img class="aui-padded-15 arrowright" src="__STATIC__/img/jtr.jpg">
+					</div>
+				</a>
+				<div class="money">
+					<img src="__STATIC__/img/moneyicon.jpg" alt="" />
+				</div>
+			</div>
+		</div>
+		<!--第五部分-->
+		<div class="aui-margin-t-5 aui-padded-15 aui-text-center arrowrightcontainer">
+			<div class="aui-row aui-bg-white b" style="height: 3rem;">
+				<div class="aui-text-left record">
+					<p class="text-js aui-padded-l-15 aui-padded-t-15 aui-font-size-14 blackfont"> 提现记录</p>
+				</div>
+				<a href="{:Url('wallet/getWithdrawLog',array('user_id'=>$user_id))}">
+				<div class=" aui-text-right ">
+					<img class="aui-padded-15 arrowright" src="__STATIC__/img/jtr.jpg">
+				</div>
+				</a>
+				<div class="money">
+					<img src="__STATIC__/img/moneyicon.jpg" alt="" />
+				</div>
+			</div>
+		</div>
+
+</body>
+</html>

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>报价</title>
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/api.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/aui-slide.css" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/weui.css" />
+
+		<script src="__STATIC__/js/zepto.min.js"></script>
+		<script type="text/javascript" src="__STATIC__/js/api.js"></script>
+		<script type="text/javascript" src="__STATIC__/js/aui-slide.js"></script>
+		<link rel="stylesheet" href="__STATIC__/css/weuix.css">
+
+        <script src="__STATIC__/js/zepto.min.js"></script>
+        <script src="__STATIC__/js/zepto.weui.js"></script>
+		<script type="text/javascript" src="__STATIC__/js/jquery-3.3.1.min.js"></script>
+
+		<style>
+			.one {
+				padding-left: 0.7rem;
+				font-size: 0.7rem;
+				padding-top: 0.5rem;
+			}
+			.height3 .label1 {
+				position: absolute;
+				top: 1rem;
+			}
+			.img {
+				width: 2.5rem;
+				height: 2.5rem;
+				margin-top: 0.2rem;
+				margin-left: 0.5rem;
+			}
+			.img img {
+				width: 100%;
+				height: 100%;
+				border-radius: 2rem;
+			}
+			.two {
+			/*	height: 5rem;*/
+			font-size: 0.7rem;
+			}
+			.left {
+				position: absolute;
+				top: 1.2rem;
+				left: 3.8rem;
+			}
+			.middle {
+				position: absolute;
+				top: 1.2rem;
+				left: 8rem;
+			}
+			.right {
+				position: absolute;
+				right: 1rem;
+				top: 1.2rem;
+			}
+			.underline {
+				height: 0.2rem;
+				border: none;
+				border-top: 1px solid #EEEEEE;
+				width: 92%;
+				margin: 0.5rem 0.6rem 0 0.7rem;
+			}
+			.weui-loadmore {
+    width: 6rem;
+    margin: 1.5em auto;
+    line-height: 1.6em;
+    font-size: 14px;
+    text-align: center;
+    position: absolute;
+    top: 3px;
+    left: 152px;
+}
+		</style>
+	</head>
+
+	<body class="aui-bg-grey">
+		<!--第一部分-->
+		<div class="aui-text-center">
+
+			<div class="aui-row aui-bg-white   one">
+				<div class="aui-col-xs-12 aui-text-left aui-padded-b-15">
+					<label class="label1">车牌号码:</label>
+					<label class="label3">{$data.LicenseNo}</label>
+				</div>
+				<div class="aui-col-xs-12 aui-text-left aui-padded-b-15">
+					<label class="label1">车主姓名:</label>
+					<label class="label3">{$data.PostedName}</label>
+				</div>
+				<div class="aui-col-xs-12 aui-text-left aui-padded-b-15">
+					<label class="label1">品牌型号:</label>
+					<label class="label3">{$data.ModleName}</label>
+				</div>
+				<div class="aui-col-xs-12 aui-text-left aui-padded-b-15">
+					<label class="label1">初次登记日期:</label>
+					<label class="label3">{$data.RegisterDate}</label>
+				</div>
+				<div class="aui-col-xs-12 aui-text-left aui-padded-b-15">
+					<label class="label1">交强险到期时间:</label>
+					<label class="label3">{$data.ForceExpireDate}</label>
+				</div>
+				<div class="aui-col-xs-12 aui-text-left aui-padded-b-15">
+					<label class="label1">商业险到期时间:</label>
+					<label class="label3">{$data.BusinessExpireDate}</label>
+				</div>
+
+			</div>
+		</div>
+		<!--第二部分-->
+		<div class="a three aui-text-center aui-margin-t-15">
+			<div class="aui-row aui-bg-white two aui-margin-t-0 ">
+               {if condition="$data.bg eq '1'"}
+
+				<a  id="bigqi" style="color: #0a0a0a;">
+				<div class="aui-col-xs-12 aui-text-left aui-padded-t-5   aui-padded-b-5 height3">
+					<div class="img">
+						<img src="__STATIC__/img/tpy.png">
+					</div>
+					<label class="left">太平洋车险</label>
+					<div class="weui-loadmore" id="sb1">
+                    <i class="weui-loading"></i>
+                    <span class="weui-loadmore__tips"  >正在加载</span>
+                    </div>
+					<input type="hidden" id="bg" value="{$data.bg}">
+					<input type="hidden" id="hb" value="{$data.hb}">
+
+
+                   <label class="middle" id="tpy" >报价失败</label>
+
+					<label class="right" id="hebao" >核保中...</label>
+					<!--<label class="hehe"  style="float: right;margin-top: -2.2rem;margin-right: 1rem;" > </label>-->
+				</div>
+				</a>
+              {/if}
+
+			<!--下划线-->
+
+			<div class="aui-col-xs-12 aui-text-right">
+				<hr class="underline" />
+			</div>
+
+				{if condition="$data.bg1 eq '1'"}
+				<a id="bigzq"  style="color: #0a0a0a;">
+			<div class="aui-col-xs-12 aui-text-left aui-padded-t-5  aui-padded-b-5 height3">
+					<div class="img">
+						<img src="__STATIC__/img/rb.png">
+					</div>
+					<label class="left">人保车险</label>
+					<div class="weui-loadmore" id="sb2">
+                     <i class="weui-loading"></i>
+                    <span class="weui-loadmore__tips"  >正在加载</span>
+                    </div>
+				<input type="hidden" id="bg1" value="{$data.bg1}">
+				<input type="hidden" id="hb1" value="{$data.hb1}">
+                <label class="middle" id="rb" >报价失败</label>
+
+					<label class="right" id="hebao1">核保中...</label>
+				</div>
+				</a>
+				{/if}
+
+		</div>
+	</div>
+
+	 <script>
+        $(function(){
+        	var middlearry=$(".middle");
+        	//console.log(middlearry);
+        	$.each(middlearry, function() {
+        		$(this).hide();
+        	});
+
+        });
+//        console.log($("input[id='bg']").val());
+//        console.log($("input[id='bg1']").val());
+
+    if($("input[id='bg']").val() == '1' && !$("input[id='bg1']").val() ){
+
+        var QuoteGroup= 1;
+
+        $.ajax({
+            type: 'POST',
+            url: 'http://www.fengbaowang.net/index/enquiry/gujia',
+            dataType: 'json',
+            data: 'QuoteGroup='+QuoteGroup,
+            success: function (data) {
+                //console.log(data);return;
+              //  alert(data.message);
+				if(data.data.price){
+                    $("label[id='tpy']").html('<span style="margin-left: 1.0rem;color: #00a0e9;">'+data.data.price+'</span>');
+				}else{
+                    $("label[id='tpy']").html('<span style="margin-left: 1.0rem;color: #d71f1b;">报价失败</span>');
+				}
+
+                setTimeout(function () {
+                  var weuiloadmorearry=$("#sb1");
+                  $.each(weuiloadmorearry, function() {
+                       $(this).hide();
+                       $(this).parent().find("#tpy").show();
+                  });
+              },3000);
+                $("a[id='bigqi']").attr('href','http://www.fengbaowang.net/index/enquiry/baojia_info?type=1');
+//                setAttribute
+
+                if(data.data.price){
+                    if($("input[id='hb']").val() == '1'){
+                        var SubmitGroup =1;
+                        setTimeout(function () {
+                            $.ajax({
+                                type: 'POST',
+                                url: 'http://www.fengbaowang.net/index/enquiry/hebao',
+                                dataType: 'json',
+                                data: 'SubmitGroup='+SubmitGroup,
+                                success: function (result) {
+                                    console.log(result.data);
+                                    if(result.data.BusinessStatus=='1'){
+                                        if(result.data.Item.SubmitStatus=='1' || result.data.Item.BizNo!='' || result.data.Item.ForceNo!='') {
+                                            $("label[id='hebao']").html("<span style='color: #00a0e9;'>核保成功!</span>");
+                                        }else{
+                                            $("label[id='hebao']").html("<span style='color:red;'> 核保失败! </span>");
+										}
+                                    }else{
+                                        $("label[id='hebao']").html("<span style='color:red;'>核保失败!</span>");
+
+                                    }
+									
+//                                setTimeout(function () {
+//                                    var zz=$(".right");
+//                                    $.each(zz, function() {
+//                                        $(this).hide();
+//                                        // $("label[id='hebao']").html('核保失败!');
+//                                        $(this).find("#hebao").show();
+//                                    });
+//                                },3000);
+
+
+
+                                    //   alert(data.message);
+                                },
+                                error: function (xhr, type) {
+                                    alert('服务器繁忙，请稍后再试!');
+                                }
+                            });
+                        },3000);
+                    }
+                }else{
+                    setTimeout(function () {
+
+                    $("label[id='hebao']").html("<span style='color:red;'>核保失败!</span>");
+                },3000);
+
+                }
+            },
+            error: function (xhr, type) {
+                alert('服务器繁忙，请稍后再试!');
+            }
+        });
+
+
+
+
+}
+
+
+        if( $("input[id='bg1']").val() == '1'  && !$("input[id='bg']").val()){
+
+            var QuoteGroup= 4;
+
+            $.ajax({
+                type: 'POST',
+                url: 'http://www.fengbaowang.net/index/enquiry/gujia',
+                dataType: 'json',
+                data: 'QuoteGroup='+QuoteGroup,
+                success: function (data) {
+                    //console.log(data);return;
+                    //  alert(data.message);
+                    if(data.data.price){
+                        $("label[id='rb']").html('<span style="margin-left: 1.0rem;color: #00a0e9;">'+data.data.price+'</span>');
+                    }else{
+                        $("label[id='rb']").html('<span style="margin-left: 1.0rem;color: #d71f1b;">报价失败</span>');
+                    }
+
+                    setTimeout(function () {
+                        var weuiloadmorearry=$("#sb2");
+                        $.each(weuiloadmorearry, function() {
+                            $(this).hide();
+                            $(this).parent().find(".middle").show();
+                        });
+                    },3000);
+                    $("a[id='bigzq']").attr('href','http://www.fengbaowang.net/index/enquiry/baojia_info?type=4');
+
+                    if(data.data.price){
+
+                        if($("input[id='hb1']").val() == '1'){
+                            var SubmitGroup =4;
+                            setTimeout(function () {
+                                $.ajax({
+                                    type: 'POST',
+                                    url: 'http://www.fengbaowang.net/index/enquiry/hebao',
+                                    dataType: 'json',
+                                    data: 'SubmitGroup='+SubmitGroup,
+                                    success: function (result) {
+                                        console.log(result.data);
+                                        if(result.data.BusinessStatus=='1'){
+                                            if(result.data.Item.SubmitStatus=='1' || result.data.Item.BizNo!='' || result.data.Item.ForceNo!='') {
+                                                $("label[id='hebao1']").html("<span style='color: #00a0e9;'>核保成功!</span>");
+                                            }else {
+                                                $("label[id='hebao1']").html("<span style='color:red;'> 核保失败! </span>");
+                                            }
+                                        }else{
+                                            $("label[id='hebao1']").html("<span style='color:red;'>核保失败!</span>");
+
+                                        }
+//                                setTimeout(function () {
+//                                    var zz=$(".right");
+//                                    $.each(zz, function() {
+//                                        $(this).hide();
+//                                        // $("label[id='hebao']").html('核保失败!');
+//                                        $(this).find("#hebao").show();
+//                                    });
+//                                },3000);
+
+
+
+                                        //   alert(data.message);
+                                    },
+                                    error: function (xhr, type) {
+                                        alert('服务器繁忙，请稍后再试!');
+                                    }
+                                });
+                            },3000);
+                        }
+                    }else{
+                        setTimeout(function () {
+
+                        $("label[id='hebao1']").html("<span style='color:red;'>核保失败!</span>");
+
+                        },3000);
+                    }
+
+                },
+                error: function (xhr, type) {
+                    alert('服务器繁忙，请稍后再试!');
+                }
+            });
+
+
+
+
+        }
+
+        if($("input[id='bg']").val() == '1' && $("input[id='bg1']").val() == '1'){
+
+            var QuoteGroup= 1;
+
+            $.ajax({
+                type: 'POST',
+                url: 'http://www.fengbaowang.net/index/enquiry/gujia',
+                dataType: 'json',
+                data: 'QuoteGroup='+QuoteGroup,
+                success: function (data) {
+                    if(data.data.price){
+                        $("label[id='tpy']").html('<span style="margin-left: 1.0rem;color: #00a0e9;">'+data.data.price+'</span>');
+                    }else{
+                        $("label[id='tpy']").html('<span style="margin-left: 1.0rem;color: #d71f1b;">报价失败</span>');
+                    }
+
+
+
+                    setTimeout(function () {
+                        var weuiloadmorearry=$("#sb1");
+                        $.each(weuiloadmorearry, function() {
+                            $(this).hide();
+                          //  $(this).parent().find("#tpy").show();
+                            $("label[id='tpy']").show();
+                        });
+                    },3000);
+                    $("a[id='bigqi']").attr('href','http://www.fengbaowang.net/index/enquiry/baojia_info?type=1');
+//                setAttribute
+
+                    if(data.data.price){
+                        if($("input[id='hb']").val() == '1'){
+                            var SubmitGroup =1;
+                            setTimeout(function () {
+                                $.ajax({
+                                    type: 'POST',
+                                    url: 'http://www.fengbaowang.net/index/enquiry/hebao',
+                                    dataType: 'json',
+                                    data: 'SubmitGroup='+SubmitGroup,
+                                    success: function (result) {
+                                      //  console.log(result.data);
+                                        if(result.data.BusinessStatus=='1'){
+                                            if(result.data.Item.SubmitStatus=='1' || result.data.Item.BizNo!='' || result.data.Item.ForceNo!='') {
+                                                $("label[id='hebao']").html("<span style='color: #00a0e9;'>核保成功!</span>");
+                                            }else{
+                                                $("label[id='hebao']").html("<span style='color:red;'> 核保失败! </span>");
+                                            }
+                                        }else{
+                                            $("label[id='hebao']").html("<span style='color:red;'>核保失败!</span>");
+
+                                        }
+                                        //   alert(data.message);
+                                    },
+                                    error: function (xhr, type) {
+                                        alert('服务器繁忙，请稍后再试!');
+                                    }
+                                });
+                            },3000);
+                        }
+                    }else{
+                        setTimeout(function () {
+
+                            $("label[id='hebao']").html("<span style='color:red;'>核保失败!</span>");
+                        },3000);
+
+                    }
+                    setTimeout(function () {
+
+                    var QuoteGroup= 4;
+
+                    $.ajax({
+                        type: 'POST',
+                        url: 'http://www.fengbaowang.net/index/enquiry/gujia',
+                        dataType: 'json',
+                        data: 'QuoteGroup='+QuoteGroup,
+                        success: function (zzz) {
+                            //console.log(data);return;
+                            //  alert(data.message);
+                            if(zzz.data.price){
+                                $("label[id='rb']").html('<span style="margin-left: 1.0rem;color: #00a0e9;">'+zzz.data.price+'</span>');
+                            }else{
+                                $("label[id='rb']").html('<span style="margin-left: 1.0rem;color: #d71f1b;">报价失败</span>');
+                            }
+
+                            setTimeout(function () {
+                                var bbb=$("#sb2");
+                                $.each(bbb, function() {
+                                    $(this).hide();
+                                  $(this).parent().find("#rb").show();
+                                   // $("label[id='rb']").show();
+                                });
+                            },3000);
+                            $("a[id='bigzq']").attr('href','http://www.fengbaowang.net/index/enquiry/baojia_info?type=4');
+
+                            if(zzz.data.price){
+
+                                if($("input[id='hb1']").val() == '1'){
+                                    var SubmitGroup =4;
+                                    setTimeout(function () {
+                                        $.ajax({
+                                            type: 'POST',
+                                            url: 'http://www.fengbaowang.net/index/enquiry/hebao',
+                                            dataType: 'json',
+                                            data: 'SubmitGroup='+SubmitGroup,
+                                            success: function (result) {
+                                                console.log(result.data);
+                                                if(result.data.BusinessStatus=='1'){
+                                                    if(result.data.Item.SubmitStatus=='1' || result.data.Item.BizNo!='' || result.data.Item.ForceNo!='' ) {
+                                                        $("label[id='hebao1']").html("<span style='color: #00a0e9;'>核保成功!</span>");
+                                                    }else {
+                                                        $("label[id='hebao1']").html("<span style='color:red;'> 核保失败! </span>");
+                                                    }
+                                                }else{
+                                                    $("label[id='hebao1']").html("<span style='color:red;'>核保失败!</span>");
+
+                                                }
+
+                                            },
+                                            error: function (xhr, type) {
+                                                alert('服务器繁忙，请稍后再试!');
+                                            }
+                                        });
+                                    },3000);
+                                }
+                            }else{
+                                setTimeout(function () {
+
+                                    $("label[id='hebao1']").html("<span style='color:red;'>核保失败!</span>");
+
+                                },3000);
+                            }
+
+                        },
+                        error: function (xhr, type) {
+                            alert('服务器繁忙，请稍后再试!');
+                        }
+                    });
+
+                    },3000);
+
+                },
+                error: function (xhr, type) {
+                    alert('服务器繁忙，请稍后再试!');
+                }
+            });
+
+
+
+
+        }
+
+    </script>
+
+	</body>
+
+</html>

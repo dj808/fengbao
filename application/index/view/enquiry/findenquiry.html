@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>蜂保网</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css"/>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/login.css"/>
+	<link rel="stylesheet" type="text/css" href="__STATIC__/css/style-1.css"/>
+
+    <style>
+ .aui-bg-grey {
+ 	background-color: #F5F5F5;
+ }
+ 
+ .searchinput {
+ 	position: relative;
+ 	height: 2.3rem;
+ }
+ 
+ .searchbtn {
+ 	background: url("__STATIC__/img/searchbtn.png") no-repeat 100%;
+ 	color: #FCFFFF;
+ 	    position: absolute;
+    top: 0.84rem;
+    right: 0.5rem;
+    height: 2.1rem;
+    border-radius: 2rem;
+    /* width: 4rem; */
+    font-size: 0.8rem;
+    padding: 0.2rem 0.9rem;
+    line-height: 1rem;
+    border: none;
+ }
+ 
+ .userinput {
+ 	position: absolute;
+ 	left: 0.8rem;
+ }
+ 
+ .border-input {
+ 	padding: 0 3rem;
+ 	border: 1px solid #eee;
+ 	border-radius: 2rem;
+ }
+ 
+ .aui-bg-grey {
+ 	background-color: #F2F2F2;
+ }
+ 
+ .text-js {
+ 	color: #D4AD82!important;
+ }
+ 
+ .b {
+ 	border-radius: 1rem;
+ 	position: relative;
+	 width:90%;
+	 margin:0.5rem auto;
+	 padding:0 0.5rem;
+ }
+ 
+ .carint {
+ 	    margin: 0rem 1.2rem;
+ }
+ 
+ .font-grey {
+ 	color: #666666;
+ }
+ 
+ .blackfont {
+ 	color: #323232;
+ 	font-size: 0.85rem;
+ 	font-weight: bold;
+ }
+ .h{
+ 	height: 3rem;
+ }
+ .date{
+ 	margin-top: 1rem;
+ }
+   
+    </style>
+    <script src="__STATIC__/js/php.js"></script>
+    <script src="__STATIC__/js/zepto.min.js"></script>
+    <script src="__STATIC__/js/zepto.weui.min.js"></script>
+	<script type="text/javascript" src="__STATIC__/js/api.js"></script>
+	<script type="text/javascript" src="__STATIC__/js/aui-tab.js"></script>
+
+
+</head>
+<body class="aui-bg-grey">
+<div class="aui-col-xs-12 ">
+	<form class="mb-20" method="get" action="{:Url('enquiry/findEnquiry','','')}">
+		<div class="aui-padded-b-15 aui-padded-15 aui-margin-t-15 ">
+			<div class="aui-input-row border-input aui-bg-white searchinput">
+				<input class="userinput font-grey" type="text" placeholder="输入车牌号、车主姓名查询历史报价" name="search" id="search">
+			</div>
+			<button type="submit" class="aui-btn searchbtn aui-padded-t-10">搜索</button>
+		</div>
+	</form>
+</div>
+<div class="aui-row">
+	<p class="carint text-js">以下为最近查询的车辆，点击可查看最新报价</p>
+</div>
+{volist name="enquiryInfo" id="vo"}
+<a href="{:Url('enquiry/details',array('LicenseNo'=>$vo.LicenseNo))}">
+ <div class="aui-margin-t-5  aui-text-center arrowrightcontainer">
+	<div class="aui-row aui-bg-white b h" >
+		<div class="aui-col-xs-6 aui-text-left">
+			<p href="" class="blackfont  aui-padded-l-10 aui-font-size-14 aui-padded-t-10">{$vo.LicenseNo}</p>
+			<p href="" class="font-grey  aui-padded-l-10 aui-font-size-14 aui-padded-t-5">{$vo.HolderName}</p>
+		</div>
+		<div class="aui-col-xs-6 aui-text-right">
+			<p href="" class="font-grey date aui-padded-r-10 aui-font-size-14">{$vo.create_time|date="Y-m-d H:i:s",###}</p>
+		</div>
+
+	</div>
+</div>
+</a>
+{/volist}
+
+<div class="myfooter">
+    {include file="public:footer"}
+</div>
+</body>
+</html>

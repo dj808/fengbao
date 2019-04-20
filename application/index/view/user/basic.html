@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title></title>
+    <script type="text/javascript" src="__STATIC__/js/api.js"></script>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css"/>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/login.css"/>
+    <script type="text/javascript" src="__STATIC__/js/auisharebox.js"></script>
+    <script src="__STATIC__/js/jquery-3.3.1.min.js"></script>
+    <style>
+    	.underline{    		
+            height:0.2rem;
+            border:none;
+            border-top:1px solid #EEEEEE;
+            margin-top: 2rem;"    		
+    	}
+   .blackfont {
+   	color: #323232;
+   	font-size: 0.85rem;
+   }
+   .arrowright:before {
+    content: '';
+    width: 0.4rem;
+    height: 0.4rem;
+    position: absolute;
+    top: 50%;
+    right: 0rem;
+    margin-top: -0.2rem;
+    background: transparent;
+    border: 1px solid #dddddd;
+    border-top: none;
+    border-right: none;
+    z-index: 2;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
+.ewmcontainer:before{
+	
+    content: '';
+    width: 0.4rem;
+    height: 0.4rem;
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    margin-top: -0.2rem;
+    background: transparent;
+    border: 1px solid #dddddd;
+    border-top: none;
+    border-right: none;
+    z-index: 2;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);	
+	
+}
+.rz{
+	padding-right: 1rem;
+}
+.ewmcontainer{
+	position: relative;
+	
+}
+.ewmcontainer img{
+	position: absolute;
+	top: -0.4rem;
+	right: 1rem;
+}
+.head_portraitli{
+	position: relative;
+}
+.head_portrait{
+	 width: 1rem;
+	 height: 1rem;
+	 border-radius: 2rem;
+	 position: absolute;
+	 right: 2rem;
+	 top: 0.7rem;
+}
+        .xgmm{
+            color: black;
+        }
+
+        .aui-list-item-arrow-xgma:before {
+            content: '';
+            width: 0.4rem;
+            height: 0.4rem;
+            position: absolute;
+            top: 50%;
+            /* right: -1.25rem; */
+            margin-top: -0.2rem;
+            background: transparent;
+            border: 1px solid #dddddd;
+            border-top: none;
+            border-right: none;
+            z-index: 2;
+            -webkit-border-radius: 0;
+            border-radius: 0;
+            -webkit-transform: rotate(-135deg);
+            transform: rotate(-135deg);
+            left: 17.8rem;
+        }
+        .xgmm-a{
+            display: inline-block;
+            width: 100%;
+        }
+        .head_portraitli{
+            height: 2.5rem;
+        }
+        .head_portrait{
+            width: 2rem;
+            height: 2rem;
+            border-radius: 2rem;
+            position: absolute;
+            right: 2rem;
+            top: 0.3rem;
+        }
+        .head_portrait img{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+        .myewm{
+            margin-left: 0.8rem;
+            /* margin-top: 0rem; */
+            padding-bottom: 0.6rem;
+        }
+
+    </style>
+</head>
+<body class="aui-bg-grey">
+    <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-list-in">
+            <li class="aui-list-item aui-list-item-middle head_portraitli">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                                        头像
+                </div>
+                <div class="head_portrait">
+                	<img src="{$userInfo.avatar}"/>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="aui-row aui-bg-white aui-padded-15 arrowrightcontainer">
+        <div class="aui-col-xs-6 aui-text-left">
+            <p class="blackfont">昵称</p>
+        </div> 
+
+        
+        <div class="aui-col-xs-6 aui-text-right ">
+            <p class="blackfont">{$userInfo.nickname}</p>
+        </div>
+        <!--下划线-->
+        <div  class="aui-col-xs-12 aui-text-right">
+        	<hr class="underline" /> 
+        </div>        
+        <div class="aui-col-xs-6 aui-text-left aui-margin-t-15">
+            <p class="blackfont">手机号</p>
+        </div>    	
+        <div class="aui-col-xs-6 aui-text-right aui-margin-t-15">
+            <p class="blackfont">{$userInfo.phone}</p>
+        </div> 
+        <!--下划线-->
+        <div  class="aui-col-xs-12 aui-text-right">
+        	<hr class="underline" /> 
+        </div>
+        
+        <div class="aui-col-xs-6 aui-text-left aui-margin-t-15">
+            <p class="blackfont">实名认证</p>  
+        </div>
+        <a href="{:Url('user/getApprove')}">
+            <div class="aui-col-xs-6 aui-text-right aui-margin-t-15 arrowrightcontainer">
+                <p class="arrowright rz blackfont" >{$userInfo.realname}</p>
+            </div>
+        </a>
+        <!--下划线-->
+        <div  class="aui-col-xs-12 aui-text-right">
+        	<hr class="underline" /> 
+        </div>
+
+    </div>
+    <div class="aui-row aui-bg-white  arrowrightcontainer">
+        <a href="javascript:;" onclick="openSharebox()">
+            <div class="aui-col-xs-12 aui-text-left  ewmcontainer">
+                <p class="blackfont myewm">我的二维码</p>
+                {if condition="$userInfo.qrcode neq ''"}
+                <input type="hidden" value="__ROOT__/{$userInfo.qrcode}" id="qrcode">
+                {else /}
+                <input type="hidden" value="" id="qrcode">
+                {/if}
+            </div>
+        </a>
+    </div> 
+    <div class="aui-content aui-margin-t-15">
+        <ul class="aui-list aui-list-in">
+            <a href="{:Url('login/pwd')}" class="xgmm-a">
+            <li class="aui-list-item aui-list-item-middle">
+                    <div class="aui-list-item-inner aui-list-item-arrow-xgma xgmm">
+                        修改密码
+                    </div>
+            </li>
+            </a>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        apiready = function() {
+            api.parseTapmode();
+        }
+        var sharebox = new auiSharebox();
+        var qrcode=$('#qrcode').val();
+        console.log(qrcode);
+        function openSharebox() {
+            sharebox.init({
+                frameBounces: true, //当前页面是否弹动，（主要针对安卓端）
+                buttons: [{
+                    image: qrcode,
+                    text: '长按识别二维码马上出单拿奖励',
+                    value: 'ewm'
+                }],
+                col: 2,
+                //cancelTitle: '关闭' //可选,当然也可以采用下面的方式使用图标
+                cancelTitle:'<i class="aui-iconfont aui-icon-close aui-font-size-16"></i>'//可选
+            }, function(ret) {
+                if(ret) {
+                    document.getElementById("button-index").textContent = ret.buttonIndex;
+                    document.getElementById("button-value").textContent = ret.buttonValue;
+                }
+            })
+        }
+    </script>
+
+</body>
+</html>

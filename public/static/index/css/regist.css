@@ -1,0 +1,70 @@
+        	.aui-padded-15{
+        		padding: ;
+        	}
+        	.border-input{
+        		padding: 0.5rem 3rem;
+        		border: 1px solid #eee;
+        		border-radius: 2rem;
+        	}
+        	.phoneimg,.passwordimg{
+        		width: 1.2rem;
+        		height: 1.2rem;
+        		position: absolute;
+        		top: 1.8rem;
+        		left: 2rem;
+        	}
+        	.phoneimg img,.passwordimg img{
+        		width: 100%;
+        		height: 100%;
+        	}
+        	
+        	.eyeimg{
+        		width: 1.2rem;
+        		height: 1.2rem;
+        		position: absolute;
+        		top: 1.8rem;
+        		left: 32rem;        		
+        	}
+        	.pb{
+        		position: relative;
+        	}
+        	.btnlogin{
+        		border-radius: 2rem;
+        	}
+        	.xy{
+        		padding-left: 15rem;
+        		color: #000000;
+        	}
+        	.login{
+        		padding-left: 34rem;
+        		color: #D4AD82;
+        	}
+        	.logo{
+        		padding: 5rem 0 0 9rem;
+        	} 
+        	.code{
+        		padding-left: 2rem;
+        		color: #F6D8BE;
+        	}
+        	.direct_logins{
+        		padding-left: 28rem;
+        		color: #F6D8BE;
+        	}
+        	.first{
+        		width: 100%;
+        		height: 40%;
+        	}           	
+        	.second{
+        		width: 100%;
+        		height: 60%;
+        	}
+        	.getcodecontainer{
+        		position: relative;
+        	} 
+        	.getcode{
+        		position: absolute;
+        		left: 27rem;
+        		width: 7rem;
+        		border-radius: 2rem;
+        		top: 27px;
+        	}               

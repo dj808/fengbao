@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+{include file="top"}
+			<!--导航结束-->
+			
+			<!--主体内容1开始-->
+			<div class="main clearfix">
+				<!--首页左侧开始-->
+				<div class="main-lf">
+					<!--今日值班-->
+					<div class="main-lf-1">
+						<div class="main-lf-title"></div>
+						<div class="main-lf-box">
+							<p>值班长：徐宁  经伟</p>
+							<p>指挥长：吴如凤</p>
+							<div class="clearfix">
+								<p>督察组：</p>
+								<span>
+								 	<marquee direction="left" onmouseout="this.scrollamount=2" onmouseover="this.scrollamount=0" scrollamount="2">
+								 		☆李  琳 ○谢  晶 △史  晶◆卜有香 王淑媛◆张夕珍 李群  赵玉成 ◆王维扬 黄成宏 毛莉莉
+								 	</marquee>
+ 								</span> 
+							</div>
+							<div class="clearfix">
+								<p>指挥中心：</p>
+								<span>
+									<marquee direction="left" onmouseout="this.scrollamount=2" onmouseover="this.scrollamount=0" scrollamount="2">
+								 		刘欣晶 王蒙蒙 还寰 沈培培 马阳 计屹
+								 	</marquee>
+								</span>
+							</div>
+							<div class="clearfix">
+								<p>天气预报：</p>
+								<span>
+									<marquee direction="left" onmouseout="this.scrollamount=2" onmouseover="this.scrollamount=0" scrollamount="2">
+								 		今日 雨 1-7°C 东南风1级
+								 	</marquee>
+								</span>
+							</div>
+						</div>
+					</div>
+					<!--一周工作安排-->
+					<img src="__STATIC__/images/zpimg.jpg" alt="" class="zpimg"/>
+					<!--一周工作安排结束-->
+					
+						
+					<!--群通知公告-->
+					<div class="main-lf-2">
+						<div class="main-lf-title">
+							<a href="#"></a>
+						</div>
+						<div class="main-lf-box">
+							<ul>
+								{volist id="vo10" name="tongzhigonggao"}
+								<li>
+									<a href="{:url('index/tzjg_detail',array('id'=>$vo10['id']))}">{$vo10.title}</a>
+									{if condition="$vo10.news eq 1 "}
+									<img src="__STATIC__/images/index20-1.gif" alt="" />
+									{/if}
+								</li>
+								{/volist}
+							</ul>
+						</div>
+					</div>
+					<!--群通知公告结束-->
+					
+					<!--日督查公告-->
+					<div class="main-lf-3">
+						<div class="main-lf-title">
+							<a href="#"></a>
+						</div>
+						<div class="main-lf-box">
+							<ul>
+								{volist id="vo10" name="riduchatongbao"}
+								<li>
+									<a href="{:url('index/rdctb_detail',array('id'=>$vo10['id']))}">{$vo10.title}</a>
+									{if condition="$vo10.news eq 1 "}
+									<img src="__STATIC__/images/index20-1.gif" alt="" />
+									{/if}
+								</li>
+								{/volist}
+							</ul>
+						</div>
+					</div>
+					<!--日督查公告结束-->
+					
+					<!--生产日报-->
+					<div class="main-lf-4">
+						<div class="main-lf-title">
+							<a href="#"></a>
+						</div>
+						<div class="main-lf-box">
+							<ul>
+								{volist id="vo10" name="shengchanribao"}
+								<li>
+									<a href="{:url('index/scrb_detail',array('id'=>$vo10['id']))}">{$vo10.title}</a>
+									{if condition="$vo10.news eq 1 "}
+									<img src="__STATIC__/images/index20-1.gif" alt="" />
+									{/if}
+								</li>
+								{/volist}
+							</ul>
+						</div>
+					</div>
+					<!--生产日报结束-->
+					
+					<!--狱情日报-->
+					<div class="main-lf-5">
+						<div class="main-lf-title">
+							<a href="#"></a>
+						</div>
+						<div class="main-lf-box">
+							<ul>
+								{volist id="vo10" name="yuqingzhoubao"}
+								<li>
+									<a href="{:url('index/yqzb_detail',array('id'=>$vo10['id']))}">{$vo10.title}</a>
+									{if condition="$vo10.news eq 1 "}
+									<img src="__STATIC__/images/index20-1.gif" alt="" />
+									{/if}
+								</li>
+								{/volist}
+							</ul>
+						</div>
+					</div>
+					<!--狱情日报结束-->
+					
+					<!--星光灿烂-->
+					<div class="main-lf-6">
+						<div class="main-lf-title">
+							<a href="#"></a>
+						</div>
+						<div class="main-lf-xg-box">
+							<div id="slideBox" class="slideBox1">
+								<div class="hd">
+									<ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul>
+								</div>
+								<div class="bd">
+									<ul>
+										{volist id="vo10" name="xgcl"}
+										<li>
+											<a href="##" >
+												<img src="{$vo10.img}" />
+												<p>{$vo10.title}</p>
+											</a>
+										</li>
+										{/volist}
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--星光灿烂结束-->
+				</div>
+				<!--首页左侧结束-->
+				<!--首页右侧开始-->
+				<div class="main-rt">
+					<!--监狱快讯-->
+					<div class="main-rt-1 clearfix">
+						<div class="main-rt-lunbo">
+							<div id="slideBox" class="slideBox2">
+								<div class="hd">
+									<ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul>
+								</div>
+								<div class="bd">
+									<ul>
+										{volist id="vo10" name="headlb"}
+										<li>
+											<a href="##" >
+												<img src="{$vo10.img}" />
+												<p>{$vo10.title}</p>
+											</a>
+										</li>
+										{/volist}
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="main-rt-box main-rt-1-box">
+							<div class="main-rt-title">
+								监狱快讯
+								<a href="{:url('index/jianyukuaixun')}">
+									<img src="__STATIC__/images/more1.jpg" alt="" />
+								</a>
+							</div>
+							<ul>
+								{volist id="vo10" name="jianyukuaixun"}
+								<li class="index-list">
+									<a href="{:url('index/jianyukuaixunshow',array('id'=>$vo10['id']))}">{$vo10.title}</a>
+									{if condition="$vo10.news eq 1 "}
+									<img src="__STATIC__/images/index20-1.gif" alt="" />
+									{/if}
+									<span>{$vo10.create_time}</span>
+								</li>
+								{/volist}
+							</ul>
+							<div class="search clearfix">
+								<p class="search-lf">站内搜索</p>
+								<div class="search-rt">
+									<form action="">
+										<input type="text" />
+										<button type="submit">查找</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--监狱快讯结束-->
+					
+					<!--监狱公文，上级来文-->
+					<div class="main-rt-2 clearfix">
+						<div class="main-rt-2-lf">
+							<div class="main-rt-box">
+								<div class="main-rt-title">
+									监狱公文
+									<a href="{:url('index/jianyugongwen')}">
+										<img src="__STATIC__/images/more1.jpg" alt="" />
+									</a>
+								</div>
+								<ul>
+									{volist id="vo10" name="jianyugongwen"}
+									<li class="index-list">
+										<a href="{:url('index/jianyugongwenshow',array('id'=>$vo10['id']))}" target="_blank">{$vo10.title}</a>
+										{if condition="$vo10.news eq 1 "}
+										<img src="__STATIC__/images/index20-1.gif" alt="" />
+										{/if}
+										<span>{$vo10.create_time}</span>
+										{/volist}
+									</li>
+								</ul>
+							</div>
+
+							<div class="main-rt-box">
+								<div class="main-rt-title">
+									上级来文
+									<a href="{:url('index/shangjilaiwen')}">
+										<img src="__STATIC__/images/more1.jpg" alt="" />
+									</a>
+								</div>
+								<ul>
+									{volist id="vo10" name="shangjilaiwen"}
+									<li class="index-list">
+										<a href="{:url('index/sjlw_detail',array('id'=>$vo10['id']))}">{$vo10.title}</a>
+										{if condition="$vo10.news eq 1 "}
+										<img src="__STATIC__/images/index20-1.gif" alt="" />
+										{/if}
+										<span>{$vo10.create_time}</span>
+									</li>
+									{/volist}
+								</ul>
+							</div>
+						</div>
+						<div class="main-rt-2-rt">
+							<div class="main-rt-2-list">
+								<div>
+									<a href=""><img src="__STATIC__/images/pic1.jpg"/></a>
+									<a href=""><img src="__STATIC__/images/pic2.jpg"/></a>
+									<a href=""><img src="__STATIC__/images/pic3.jpg"/></a>
+									<a href=""><img src="__STATIC__/images/pic4.jpg"/></a>
+									<a href=""><img src="__STATIC__/images/pic5.jpg"/></a>
+									<a href=""><img src="__STATIC__/images/pic6.jpg"/></a>
+								</div>
+								<div class="main-rt-2-inf">
+									<p class="main-rt-2-inf-title">
+										<a href="#"></a>
+									<p>
+									<ul>
+										{volist id="vo10" name="gonggongxinxi"}
+										<li>
+											<a href="{:url('index/ggxx_detail',array('id'=>$vo10['id']))}">{$vo10.title}</a>
+										</li>
+										{/volist}
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--监狱公文，上级来文结束-->
+					
+					<!--右侧gif图-->
+					<img src="images/zq1.jpg" class="zq1"/>
+					<!--右侧gif图结束-->
+					
+					<div class="main-rt-3 clearfix">
+						<div class="tab-box jyTable">
+							<div class="tab-title clearfix">
+								<p>政工天地</p>
+								<ul class="title title1 left">
+									<li class='cur'>政工快讯</li>
+									<li>警务平台</li>
+									<li>教育培训</li>
+								</ul>
+								<a href="">
+									<img src="__STATIC__/images/more1.jpg" alt="">
+								</a>
+							</div>
+							<div class='zong'>
+								<div class="list list1">
+									<div class="tabCon main-rt-box">
+										<ul>
+											{volist name="zhengcekuaixun" id="vo" }
+											<li class="index-list">
+												<a href="{:Url('detail/zhengcekuaixun')}?id={$vo.id}">{$vo.title}</a>
+												<img src="__STATIC__/images/index20-1.gif" alt="" />
+												<span>{$vo.create_time|date="Y-m-d",###}</span>
+											</li>
+                                             {/volist}
+										</ul>
+									</div>
+									<div class="tabCon main-rt-box">
+										<ul>
+											{volist name="jingwupintai" id="vo" }
+											<li class="index-list">
+												<a href="{:Url('detail/jingwupintai')}?id={$vo.id}">{$vo.title}</a>
+												<img src="__STATIC__/images/index20-1.gif" alt="" />
+												<span>{$vo.create_time|date="Y-m-d",###}</span>
+											</li>
+											{/volist}
+										</ul>
+									</div>
+									<div class="tabCon main-rt-box">
+										<ul>
+											{volist name="jiaoyupeixun" id="vo" }
+											<li class="index-list">
+												<a href="{:Url('detail/jiaoyupeixun')}?id={$vo.id}">{$vo.title}</a>
+												<img src="__STATIC__/images/index20-1.gif" alt="" />
+												<span>{$vo.create_time|date="Y-m-d",###}</span>
+											</li>
+											{/volist}
+
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-box jyTable">
+							<div class="tab-title clearfix">
+								<p>纪检审计</p>
+								<ul class="title title1 left">
+									<li class='cur'>警苑清风</li>
+									<li>思廉园地</li>
+									<li>审计工作</li>
+								</ul>
+								<a href="">
+									<img src="images/more1.jpg" alt="">
+								</a>
+							</div>
+							<div class='zong'>
+								<div class="list list1">
+									<div class="tabCon main-rt-box">
+										<ul>
+											{volist name="jingyuanqingfeng" id="vo" }
+											<li class="index-list">
+												<a href="{:Url('detail/jingyuanqingfeng')}?id={$vo.id}">{$vo.title}</a>
+												<img src="__STATIC__/images/index20-1.gif" alt="" />
+												<span>{$vo.create_time|date="Y-m-d",###}</span>
+											</li>
+											{/volist}
+
+
+										</ul>
+									</div>
+									<div class="tabCon main-rt-box">
+										<ul>
+											{volist name="silianyuandi" id="vo" }
+											<li class="index-list">
+												<a href="{:Url('detail/silianyuandi')}?id={$vo.id}">{$vo.title}</a>
+												<img src="__STATIC__/images/index20-1.gif" alt="" />
+												<span>{$vo.create_time|date="Y-m-d",###}</span>
+											</li>
+											{/volist}
+
+										</ul>
+									</div>
+									<div class="tabCon main-rt-box">
+										<ul>
+											{volist name="shenjigongongzuo" id="vo" }
+											<li class="index-list">
+												<a href="{:Url('detail/shenjigongongzuo')}?id={$vo.id}">{$vo.title}</a>
+												<img src="__STATIC__/images/index20-1.gif" alt="" />
+												<span>{$vo.create_time|date="Y-m-d",###}</span>
+											</li>
+											{/volist}
+
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-box jyTable">
+							<div class="tab-title clearfix">
+								<p>监管安全</p>
+								<ul class="title title1 left">
+									<li class='cur'>狱政管理</li>
+									<li>刑罚执行</li>
+									<li>指挥中心</li>
+								</ul>
+								<a href="">
+									<img src="images/more1.jpg" alt="">
+								</a>
+							</div>
+							<div class='zong'>
+								<div class="list list1">
+									<div class="tabCon main-rt-box">
+										<ul>
+											{volist name="yuzhengguanli" id="vo" }
+											<li class="index-list">
+												<a href="{:Url('detail/yuzhengguanli')}?id={$vo.id}">{$vo.title}</a>
+												<img src="__STATIC__/images/index20-1.gif" alt="" />
+												<span>{$vo.create_time|date="Y-m-d",###}</span>
+											</li>
+											{/volist}
+
+										</ul>
+									</div>
+									<div class="tabCon main-rt-box">
+										<ul>
+											{volist name="xingfazhixing" id="vo" }
+											<li class="index-list">
+												<a href="{:Url('detail/xingfazhixing')}?id={$vo.id}">{$vo.title}</a>
+												<img src="__STATIC__/images/index20-1.gif" alt="" />
+												<span>{$vo.create_time|date="Y-m-d",###}</span>
+											</li>
+											{/volist}
+										</ul>
+									</div>
+									<div class="tabCon main-rt-box">
+										<ul>
+											{volist name="zhihuizhongxin" id="vo" }
+											<li class="index-list">
+												<a href="{:Url('detail/zhihuizhongxin')}?id={$vo.id}">{$vo.title}</a>
+												<img src="__STATIC__/images/index20-1.gif" alt="" />
+												<span>{$vo.create_time|date="Y-m-d",###}</span>
+											</li>
+											{/volist}
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-box jyTable">
+							<div class="tab-title clearfix">
+								<p>企业管理</p>
+								<ul class="title title1 left">
+									<li class='cur'>企业信息</li>
+									<li>安全生产</li>
+									<li>生产报表</li>
+								</ul>
+								<a href="">
+									<img src="images/more1.jpg" alt="">
+								</a>
+							</div>
+							<div class='zong'>
+								<div class="list list1">
+									<div class="tabCon main-rt-box">
+										<ul>
+											{volist name="qiyexinxi" id="vo" }
+											<li class="index-list">
+												<a href="{:Url('detail/qiyexinxi')}?id={$vo.id}">{$vo.title}</a>
+												<img src="__STATIC__/images/index20-1.gif" alt="" />
+												<span>{$vo.create_time|date="Y-m-d",###}</span>
+											</li>
+											{/volist}
+										</ul>
+									</div>
+									<div class="tabCon main-rt-box">
+										<ul>
+											{volist name="anquanshengchang" id="vo" }
+											<li class="index-list">
+												<a href="{:Url('detail/anquanshengchang')}?id={$vo.id}">{$vo.title}</a>
+												<img src="__STATIC__/images/index20-1.gif" alt="" />
+												<span>{$vo.create_time|date="Y-m-d",###}</span>
+											</li>
+											{/volist}
+										</ul>
+									</div>
+									<div class="tabCon main-rt-box">
+										<ul>
+											{volist name="shengchangbaobiao" id="vo" }
+											<li class="index-list">
+												<a href="{:Url('detail/shengchangbaobiao')}?id={$vo.id}">{$vo.title}</a>
+												<img src="__STATIC__/images/index20-1.gif" alt="" />
+												<span>{$vo.create_time|date="Y-m-d",###}</span>
+											</li>
+											{/volist}
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-box jyTable">
+							<div class="tab-title clearfix">
+								<p>教育改造</p>
+								<ul class="title title1 left">
+									<li class='cur'>教改工作</li>
+									<li>生卫管理</li>
+									<li>矫治评估</li>
+								</ul>
+								<a href="">
+									<img src="images/more1.jpg" alt="">
+								</a>
+							</div>
+							<div class='zong'>
+								<div class="list list1">
+									<div class="tabCon main-rt-box">
+										<ul>
+											{volist name="jiaogaigongzuo" id="vo" }
+											<li class="index-list">
+												<a href="{:Url('detail/jiaogaigongzuo')}?id={$vo.id}">{$vo.title}</a>
+												<img src="__STATIC__/images/index20-1.gif" alt="" />
+												<span>{$vo.create_time|date="Y-m-d",###}</span>
+											</li>
+											{/volist}
+										</ul>
+									</div>
+									<div class="tabCon main-rt-box">
+										<ul>
+											{volist name="shengweiguanli" id="vo" }
+											<li class="index-list">
+												<a href="{:Url('detail/shengweiguanli')}?id={$vo.id}">{$vo.title}</a>
+												<img src="__STATIC__/images/index20-1.gif" alt="" />
+												<span>{$vo.create_time|date="Y-m-d",###}</span>
+											</li>
+											{/volist}
+										</ul>
+									</div>
+									<div class="tabCon main-rt-box">
+										<ul>
+											{volist name="jiaozhipingu" id="vo" }
+											<li class="index-list">
+												<a href="{:Url('detail/jiaozhipingu')}?id={$vo.id}">{$vo.title}</a>
+												<img src="__STATIC__/images/index20-1.gif" alt="" />
+												<span>{$vo.create_time|date="Y-m-d",###}</span>
+											</li>
+											{/volist}
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-box jyTable">
+							<div class="tab-title clearfix">
+								<p>信息后勤</p>
+								<ul class="title title1 left">
+									<li class='cur'>狱内科技</li>
+									<li>维修保障</li>
+									<li>后勤服务</li>
+								</ul>
+								<a href="">
+									<img src="images/more1.jpg" alt="">
+								</a>
+							</div>
+							<div class='zong'>
+								<div class="list list1">
+									<div class="tabCon main-rt-box">
+										<ul>
+											{volist name="yuneikeji" id="vo"}
+											<li class="index-list">
+												<a href="{:Url('detail/yuneikeji')}?id={$vo.id}">{$vo.title}</a>
+												<img src="__STATIC__/images/index20-1.gif" alt="" />
+												<span>{$vo.create_time|date="Y-m-d",###}</span>
+											</li>
+											{/volist}
+										</ul>
+									</div>
+									<div class="tabCon main-rt-box">
+										<ul>
+											{volist name="weixiubaozhang" id="vo" }
+											<li class="index-list">
+												<a href="{:Url('detail/weixiubaozhang')}?id={$vo.id}">{$vo.title}</a>
+												<img src="__STATIC__/images/index20-1.gif" alt="" />
+												<span>{$vo.create_time|date="Y-m-d",###}</span>
+											</li>
+											{/volist}
+										</ul>
+									</div>
+									<div class="tabCon main-rt-box">
+										<ul>
+											{volist name="houqingfuwu" id="vo" }
+											<li class="index-list">
+												<a href="{:Url('detail/houqingfuwu')}?id={$vo.id}">{$vo.title}</a>
+												<img src="__STATIC__/images/index20-1.gif" alt="" />
+												<span>{$vo.create_time|date="Y-m-d",###}</span>
+											</li>
+											{/volist}
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--右侧6张选项卡结束-->
+				</div>
+				<!--首页右侧结束-->
+			</div>
+			<!--主体内容1结束-->
+			<!--主体内容轮播开始-->
+			<div class="main dcnj">
+				<div class="picMarquee-left">
+					<div class="bd">
+						<ul class="picList">
+
+							{volist name="duocainvjian" id="vo" }
+							<li>
+								<div class="pic">
+									<a href="{:Url('detail/duocainvjian')}?id={$vo.id}" target="_blank">
+										<img src="{$vo.img}" />
+									</a>
+								</div>
+								<div class="title">
+									<a href="#" target="_blank">
+										{$vo.title}
+									</a>
+								</div>
+							</li>
+							{/volist}
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--主体内容轮播结束-->
+			
+				
+			<!--主体内容2开始-->
+			<div class="main clearfix">
+				<!--主体内容2左侧-->
+				<div class="main-lf">
+					<img src="__STATIC__/images/fangcao.jpg" class="fangcao"/>
+					<!--留言板-->
+					<div class="main-lf-7">
+						<div class="txtMarquee-top">
+							<div class="bd">
+								<ul class="infoList">
+									{volist name="liuyanban" id="vo" }
+									<li><a>{$vo.content}</a></li>
+									{/volist}
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!--留言板结束-->
+					<!--专题活动-->
+					<div class="main-lf-8">
+						<div class="main-lf-title">
+							<a href="#"></a>
+						</div>
+						<div class="main-lf-8-box">
+							{volist name="zhuantihuodongfenlei" id="vo" }
+							<a href="{:Url('detail/zhuantihuodongfenlei')}?id={$vo.id}">
+
+								<img src="{$vo.img}" alt="" />
+
+							</a>
+							{/volist}
+						</div>
+					</div>
+					<!--专题活动结束-->
+					<!--综合服务-->
+					<div class="main-lf-9">
+						<div class="main-lf-title">
+							<a href="#"></a>
+						</div>
+						<div class="main-lf-box">
+							<ul>
+								{volist name="zonghefuwu" id="vo" }
+								<li>
+									<a href="{:Url('detail/zonghefuwu')}?id={$vo.id}">{$vo.title}</a>
+									<img src="__STATIC__/images/index20-1.gif" alt="">
+								</li>
+								{/volist}
+							</ul>
+						</div>
+					</div>
+					<!--综合服务结束-->
+				</div>
+				<!--主体内容2左侧结束-->
+				<!--主体内容2右侧开始-->
+				<div class="main-rt">
+					学习交流，警苑文化
+					<div class="main-rt-3 clearfix">
+						<div class="main-rt-3-list">
+							<div class="main-rt-box">
+								<div class="main-rt-title">
+									监狱快讯
+									<a href="">
+										<img src="images/more1.jpg" alt="">
+									</a>
+								</div>
+								<ul>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="main-rt-3-list">
+							<div class="main-rt-box">
+								<div class="main-rt-title">
+									监狱快讯
+									<a href="">
+										<img src="images/more1.jpg" alt="">
+									</a>
+								</div>
+								<ul>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					学习交流，警苑文化结束
+					
+					20个内容图
+					<div class="main-rt-info clearfix">
+						<a href=""><img src="images/qk1.jpg" alt="" /></a>
+						<a href=""><img src="images/qk2.jpg" alt="" /></a>
+						<a href=""><img src="images/qk3.jpg" alt="" /></a>
+						<a href=""><img src="images/qk4.jpg" alt="" /></a>
+						<a href=""><img src="images/qk5.jpg" alt="" /></a>
+						<a href=""><img src="images/qk6.jpg" alt="" /></a>
+						<a href=""><img src="images/qk7.jpg" alt="" /></a>
+						<a href=""><img src="images/qk8.jpg" alt="" /></a>
+						<a href=""><img src="images/qk9.jpg" alt="" /></a>
+						<a href=""><img src="images/qk10.jpg" alt="" /></a>
+						<a href=""><img src="images/qk11.jpg" alt="" /></a>
+						<a href=""><img src="images/qk12.jpg" alt="" /></a>
+						<a href=""><img src="images/qk13.jpg" alt="" /></a>
+						<a href=""><img src="images/qk14.jpg" alt="" /></a>
+						<a href=""><img src="images/qk15.jpg" alt="" /></a>
+						<a href=""><img src="images/qk16.jpg" alt="" /></a>
+						<a href=""><img src="images/qk17.jpg" alt="" /></a>
+						<a href=""><img src="images/qk18.jpg" alt="" /></a>
+						<a href=""><img src="images/qk19.jpg" alt="" /></a>
+						<a href=""><img src="images/qk20.jpg" alt="" /></a>
+					</div>
+					20个内容图结束
+					
+					基层速递
+					<div class="main-rt-3 clearfix">
+						<div class="main-rt-3-list">
+							<div class="main-rt-box">
+								<div class="main-rt-title">
+									基层速递
+									<a href="">
+										<img src="images/more1.jpg" alt="">
+									</a>
+								</div>
+								<ul>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="main-rt-3-list">
+							<div class="main-rt-box">
+								<div class="main-rt-title">
+									信息简报
+									<a href="">
+										<img src="images/more1.jpg" alt="">
+									</a>
+								</div>
+								<ul>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					基层速递结束
+					铿锵广场八面来风
+					<div class="main-rt-3 clearfix">
+						<div class="tab-box jyTable">
+							<div class="tab-title clearfix">
+								<p>铿锵广场</p>
+								<ul class="title title1 left">
+									<li class="cur">社团动态</li>
+									<li>怡情空间</li>
+									<li>心灵鸡汤</li>
+								</ul>
+								<a href="">
+									<img src="images/more1.jpg" alt="">
+								</a>
+							</div>
+							<div class="zong">
+								<div class="list list1">
+									<div class="tabCon main-rt-box">
+										<ul>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-12-14</span>
+											</li>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-3-4</span>
+											</li>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-3-4</span>
+											</li>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-3-4</span>
+											</li>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-3-4</span>
+											</li>
+										</ul>
+									</div>
+									<div class="tabCon main-rt-box">
+										<ul>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-12-11</span>
+											</li>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-3-4</span>
+											</li>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-3-4</span>
+											</li>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-3-4</span>
+											</li>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-3-4</span>
+											</li>
+										</ul>
+									</div>
+									<div class="tabCon main-rt-box">
+										<ul>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-12-12</span>
+											</li>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-3-4</span>
+											</li>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-3-4</span>
+											</li>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-3-4</span>
+											</li>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-3-4</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-box jyTable">
+							<div class="tab-title clearfix">
+								<p>八面来风</p>
+								<ul class="title title1 left">
+									<li class="cur">监狱传真</li>
+									<li>法制天地</li>
+									<li>社会经纬</li>
+								</ul>
+								<a href="">
+									<img src="images/more1.jpg" alt="">
+								</a>
+							</div>
+							<div class="zong">
+								<div class="list list1">
+									<div class="tabCon main-rt-box">
+										<ul>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-12-14</span>
+											</li>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-3-4</span>
+											</li>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-3-4</span>
+											</li>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-3-4</span>
+											</li>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-3-4</span>
+											</li>
+										</ul>
+									</div>
+									<div class="tabCon main-rt-box">
+										<ul>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-12-11</span>
+											</li>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-3-4</span>
+											</li>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-3-4</span>
+											</li>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-3-4</span>
+											</li>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-3-4</span>
+											</li>
+										</ul>
+									</div>
+									<div class="tabCon main-rt-box">
+										<ul>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-12-12</span>
+											</li>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-3-4</span>
+											</li>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-3-4</span>
+											</li>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-3-4</span>
+											</li>
+											<li class="index-list">
+												<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+												<img src="images/index20-1.gif" alt="">
+												<span>2019-3-4</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					铿锵广场八面来风结束
+				</div>
+				主体内容2右侧结束
+			</div>
+				<!--主体内容2左侧-->
+				<div class="main-lf">
+					<img src="images/fangcao.jpg" class="fangcao"/>
+					<!--留言板-->
+					<div class="main-lf-7">
+						<div class="txtMarquee-top">
+							<div class="bd">
+								<ul class="infoList">
+									<li><a>中国打破了世界软件巨头规则</a></li>
+									<li><a>中国打破了世界软件巨头规则中国打破了世界软件巨头规则</a></li>
+									<li><a>中国打破了世界软件巨头规则</a></li>
+									<li><a>中国打破了世界软件巨头规则</a></li>
+									<li><a>中国打破了世界软件巨头规则</a></li>
+									<li><a>中国打破了世界软件巨头规则</a></li>
+									<li><a>中国打破了世界软件巨头规则</a></li>
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!--留言板结束-->
+					<!--专题活动-->
+					<div class="main-lf-8">
+						<div class="main-lf-title">
+							<a href="#"></a>
+						</div>
+						<div class="main-lf-8-box">
+							<a href="">
+								<img src="images/zt1.jpg" alt="" />
+							</a>
+							<a href="">
+								<img src="images/zt2.jpg" alt="" />
+							</a>
+							<a href="">
+								<img src="images/zt3.jpg" alt="" />
+							</a>
+							<a href="">
+								<img src="images/zt4.jpg" alt="" />
+							</a>
+							<a href="">
+								<img src="images/zt5.jpg" alt="" />
+							</a>
+							<a href="">
+								<img src="images/zt6.jpg" alt="" />
+							</a>
+							<a href="">
+								<img src="images/zt7.jpg" alt="" />
+							</a>
+						</div>
+					</div>
+					<!--专题活动结束-->
+					<!--综合服务-->
+					<div class="main-lf-9">
+						<div class="main-lf-title">
+							<a href="#"></a>
+						</div>
+						<div class="main-lf-box">
+							<ul>
+								<li>
+									<a href="">监狱安全隐患排查整治</a>
+									<img src="images/index20-1.gif" alt="">
+								</li>
+								<li>
+									<a href="">监狱安全隐患排查整治</a>
+									<img src="images/index20-1.gif" alt="">
+								</li>
+								<li>
+									<a href="">监狱安全隐患排查整治</a>
+									<img src="images/index20-1.gif" alt="">
+								</li>
+								<li>
+									<a href="">监狱安全隐患排查整治</a>
+									<img src="images/index20-1.gif" alt="">
+								</li>
+								<li>
+									<a href="">监狱安全隐患排查整治</a>
+									<img src="images/index20-1.gif" alt="">
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!--综合服务结束-->
+				</div>
+				<!--主体内容2左侧结束-->
+				<!--主体内容2右侧开始-->
+				<div class="main-rt">
+					<!--学习交流，警苑文化-->	
+					<div class="main-rt-3 clearfix">
+						<div class="main-rt-3-list">
+							<div class="main-rt-box">
+								<div class="main-rt-title">
+									监狱快讯
+									<a href="">
+										<img src="images/more1.jpg" alt="">
+									</a>
+								</div>
+								<ul>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="main-rt-3-list">
+							<div class="main-rt-box">
+								<div class="main-rt-title">
+									监狱快讯
+									<a href="">
+										<img src="images/more1.jpg" alt="">
+									</a>
+								</div>
+								<ul>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>	
+					<!--学习交流，警苑文化结束-->	
+					
+					<!--20个内容图-->
+					<div class="main-rt-info clearfix">
+						<a href=""><img src="images/qk1.jpg" alt="" /></a>
+						<a href=""><img src="images/qk2.jpg" alt="" /></a>
+						<a href=""><img src="images/qk3.jpg" alt="" /></a>
+						<a href=""><img src="images/qk4.jpg" alt="" /></a>
+						<a href=""><img src="images/qk5.jpg" alt="" /></a>
+						<a href=""><img src="images/qk6.jpg" alt="" /></a>
+						<a href=""><img src="images/qk7.jpg" alt="" /></a>
+						<a href=""><img src="images/qk8.jpg" alt="" /></a>
+						<a href=""><img src="images/qk9.jpg" alt="" /></a>
+						<a href=""><img src="images/qk10.jpg" alt="" /></a>
+						<a href=""><img src="images/qk11.jpg" alt="" /></a>
+						<a href=""><img src="images/qk12.jpg" alt="" /></a>
+						<a href=""><img src="images/qk13.jpg" alt="" /></a>
+						<a href=""><img src="images/qk14.jpg" alt="" /></a>
+						<a href=""><img src="images/qk15.jpg" alt="" /></a>
+						<a href=""><img src="images/qk16.jpg" alt="" /></a>
+						<a href=""><img src="images/qk17.jpg" alt="" /></a>
+						<a href=""><img src="images/qk18.jpg" alt="" /></a>
+						<a href=""><img src="images/qk19.jpg" alt="" /></a>
+						<a href=""><img src="images/qk20.jpg" alt="" /></a>
+					</div>
+					<!--20个内容图结束-->
+					
+					<!--基层速递-->
+					<div class="main-rt-3 clearfix">
+						<div class="main-rt-3-list">
+							<div class="main-rt-box">
+								<div class="main-rt-title">
+									基层速递
+									<a href="">
+										<img src="images/more1.jpg" alt="">
+									</a>
+								</div>
+								<ul>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="main-rt-3-list">
+							<div class="main-rt-box">
+								<div class="main-rt-title">
+									信息简报
+									<a href="">
+										<img src="images/more1.jpg" alt="">
+									</a>
+								</div>
+								<ul>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+									<li class="index-list">
+										<a href="">南京女子监狱持续推进“警服蓝+N”志愿服务项目</a>
+										<img src="images/index20-1.gif" alt="">
+										<span>2019-3-4</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>	
+					<!--基层速递结束-->
+					<!--铿锵广场八面来风 jzw-->
+					<div class="main-rt-3 clearfix">
+						<div class="tab-box jyTable">
+							<div class="tab-title clearfix">
+								<p>铿锵广场</p>
+								<ul class="title title1 left">
+								{volist name="kqgcinfo" id="vo"}
+								
+									<li class="cur">{$vo.f_name}</li>
+								{/volist}	
+								</ul>
+								<a href="">
+									<img src="__STATIC__/images/more1.jpg" alt="">
+								</a>
+							</div>
+							<div class="zong">
+								<div class="list list1">
+									<div class="tabCon main-rt-box">
+										<ul>
+										{volist name="kqgcinfos1" id="vo"}
+											<li class="index-list">
+												<a href="{:url('index/kqgcinfo',['id'=>$vo['id']])}">{$vo.f_name}</a>
+												<img src="__STATIC__/images/index20-1.gif" alt="">
+												<span>{$vo.add_time}</span>
+											</li>
+										{/volist}	
+										</ul>
+									</div>
+									<div class="tabCon main-rt-box">
+										<ul>
+											{volist name="kqgcinfos2" id="vo"}
+											<li class="index-list">
+												<a href="{:url('index/kqgcinfo',['id'=>$vo['id']])}">{$vo.f_name}</a>
+												<img src="__STATIC__/images/index20-1.gif" alt="">
+												<span>{$vo.add_time}</span>
+											</li>
+											{/volist}
+										</ul>
+									</div>
+									<div class="tabCon main-rt-box">
+										<ul>
+										{volist name="kqgcinfos2" id="vo"}
+											<li class="index-list">
+												<a href="{:url('index/kqgcinfo',['id'=>$vo['id']])}">{$vo.f_name}</a>
+												<img src="__STATIC__/images/index20-1.gif" alt="">
+												<span>{$vo.add_time}</span>
+											</li>
+										{/volist}
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- 八面来风 jzw -->
+						<div class="tab-box jyTable">
+							<div class="tab-title clearfix">
+								<p>八面来风</p>
+								<ul class="title title1 left">
+								{volist name="tp_bamlftype" id="vo"}
+									<li class="cur">{$vo.f_name}</li>
+									
+								{/volist}
+								</ul>
+								<a href="">
+									<img src="images/more1.jpg" alt="">
+								</a>
+							</div>
+							<div class="zong">
+								<div class="list list1">
+									<div class="tabCon main-rt-box">
+										<ul>
+										{volist name="tp_bamlfadd1" id="vo"}
+											<li class="index-list">
+												<a href="{:url('index/bamianinfo',['id'=>$vo['id']])}">{$vo.f_name}</a>
+												<img src="__STATIC__/images/index20-1.gif" alt="">
+												<span>{$vo.add_time}</span>
+											</li>
+										{/volist}
+										</ul>
+									</div>
+									<div class="tabCon main-rt-box">
+										<ul>
+										{volist name="tp_bamlfadd2" id="vo"}
+											<li class="index-list">
+												<a href="{:url('index/bamianinfo',['id'=>$vo['id']])}">{$vo.f_name}</a>
+												<img src="__STATIC__/images/index20-1.gif" alt="">
+												<span>{$vo.add_time}</span>
+											</li>
+										{/volist}
+										</ul>
+									</div>
+									<div class="tabCon main-rt-box">
+										<ul>
+										{volist name="tp_bamlfadd2" id="vo"}
+											<li class="index-list">
+												<a href="{:url('index/bamianinfo',['id'=>$vo['id']])}">{$vo.f_name}</a>
+												<img src="__STATIC__/images/index20-1.gif" alt="">
+												<span>{$vo.add_time}</span>
+											</li>
+										{/volist}	
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--铿锵广场八面来风结束-->
+				</div>
+				<!--主体内容2右侧结束-->
+			</div>
+			<!--主体内容2结束-->
+			
+			<!--主体内容3开始-->
+			<div class="main">
+				<!--主体活动图标开始-->
+				<div class="index_yj">
+					<a href="#"><img src="__STATIC__/images/ztt1.jpg"></a>
+					<a href="#"><img src="__STATIC__/images/ztt2.jpg"></a>
+					<a href="#"><img src="__STATIC__/images/ztt3.jpg"></a>
+					<a href="#"><img src="__STATIC__/images/ztt4.jpg"></a>
+					<a href="#"><img src="__STATIC__/images/ztt5.jpg"></a>
+				</div>
+				<!--主体活动图标结束-->
+				<!--时尚女性开始  jzw-->
+				<div class="index_box">
+					<div class="index_stitle">
+						<img src="__STATIC__/images/title10.jpg">
+					</div>
+					<div class="__STATIC__/index_sscont clearfix">
+						<!--lf-->
+						<div class="indexsslf">
+							<div><img src="__STATIC__/images/s1.jpg"></div>
+							<div class="indexssnr clearfix">
+								<div class="index_xsspic">
+									<img src="__STATIC__/images/pic8.jpg" width="110" height="120">
+								</div>
+								<div class="index_sslb">
+									<ul>
+									{volist name="Faisheigirlinfos1" id="vo"}
+										<li>
+											<a href="{:url('index/faisheigirladdinfo',['id'=>$vo['id']])}" title="{$vo.f_name}">{$vo.f_name}</a>
+											<img src="__STATIC__/images/index20-1.gif" alt="">
+										</li>
+									{/volist}
+									</ul>
+								</div>
+							</div>
+							<div class="index_ssmore" style="text-align: right;margin-top: 10px;"><a href="#"><img src="__STATIC__/images/more1.jpg" alt=""></a></div>
+						</div>
+						<!--lf-->
+						<!--ct-->
+						<div class="indexsslf">
+							<div><img src="__STATIC__/images/s2.jpg"></div>
+							<div class="indexssnr clearfix">
+								<div class="index_xsspic">
+									<img src="__STATIC__/images/pic9.jpg" width="110" height="120">
+								</div>
+								<div class="index_sslb">
+									<ul>
+									{volist name="Faisheigirlinfos2" id="vo"}
+										<li>
+											<a href="{:url('index/faisheigirladdinfo',['id'=>$vo['id']])}" title="{$vo.f_name}">{$vo.f_name}</a>
+											<img src="__STATIC__/images/index20-1.gif" alt="">
+										</li>
+									{/volist}
+									</ul>
+								</div>
+							</div>
+							<div class="index_ssmore" style="text-align: right;margin-top: 10px;"><a href="#"><img src="__STATIC__/images/more1.jpg" alt=""></a></div>
+						</div>
+						<!--ct-->
+						<!--rt-->
+						<div class="indexsslf">
+							<div><img src="__STATIC__/images/s3.jpg"></div>
+							<div class="indexssnr clearfix">
+								<div class="index_xsspic">
+									<img src="__STATIC__/images/pic10.jpg" width="110" height="120">
+								</div>
+								<div class="index_sslb">
+									<ul>
+									{volist name="Faisheigirlinfos3" id="vo"}
+										<li>
+											<a href="{:url('index/faisheigirladdinfo',['id'=>$vo['id']])}" title="{$vo.f_name}">{$vo.f_name}</a>
+											<img src="__STATIC__/images/index20-1.gif" alt="">
+										</li>
+									{/volist}
+									</ul>
+								</div>
+							</div>
+							<div class="index_ssmore" style="text-align: right;margin-top: 10px;"><a href="#"><img src="__STATIC__/images/more1.jpg" alt=""></a></div>
+						</div>
+						<!--rt-->
+					</div>
+				</div>
+				<!--时尚女性结束-->
+				<!--五洲来凤滚动 jzw-->
+				<div class="main wzlf">
+				<div class="picMarquee-left">
+					<div class="bd">
+						<div class="tempWrap" style="overflow:hidden; position:relative; width:648px"><ul class="picList" style="width: 1944px; position: relative; overflow: hidden; padding: 0px; margin: 0px; left: -667px;">
+
+							{volist name="wuzhou" id="vo"}
+							<li class="clone" style="float: left; width: 200px;">
+								<div class="pic">
+									<a href="{:url('index/wuzhouinfo',['id'=>$vo['id']])}" target="_blank">
+										<img src="__IMG__/{$vo.n_img}">
+									</a>
+								</div>
+								<div class="title">
+									<a href="#" target="_blank">
+										{$vo.f_name}
+									</a>
+								</div>
+							</li>
+							{/volist}
+				
+							</ul></div>
+					</div>
+				</div>
+			</div>
+				<!--五洲来凤滚动结束-->
+			</div>
+			<!--主体内容3结束-->
+			<!--foot-->
+			<div class="foot1">
+				<div class="foot1t"><span>网站维护: 江苏省南京女子监狱</span><span>地址：南京市雨花台区凤信路28号（邮编：210012）</span></div>
+			     <div class="foot1b">
+			     	<a href="">《阳光下》</a>
+			     	<a href="">《阳光下》管理</a>
+			     	<a href="">民警考核管理</a>
+			     	<a href="">网站管理</a>
+			     	<a href="">值班留言管理</a>
+			     	<a href="">生日管理</a>
+			     	
+			     </div>
+			</div>
+			<!--foot-->
+		</div>
+
+		<script type="text/javascript" src="__STATIC__/js/jquery-1.7.2.min.js"></script>
+		<script src="__STATIC__/js/jquery.SuperSlide.2.1.3.js"></script>
+		<script src="__STATIC__/js/tab.js" type="text/javascript"></script>
+		<script src="__STATIC__/js/index.js"></script>
+	</body>
+</html>

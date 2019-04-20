@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>提现记录</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/aui.css"/>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/login.css"/>
+
+    <style>
+    	.underline{    		
+            height:0.2rem;
+            border:none;
+            border-top:1px solid #EEEEEE;
+            margin-top: 2.5rem;  		
+    	}
+    	.fontcolor{
+    		color: #343434;
+    	}
+    </style>
+</head>
+<body  class="aui-bg-white">
+    <div class="aui-row aui-bg-white aui-padded-15 arrowrightcontainer">
+        <div class="aui-col-xs-4 aui-text-left aui-padded-t-15 ">
+            <p class="blackfont aui-font-size-18">提现时间</p>
+        </div> 
+        
+        <div class="aui-col-xs-4 aui-text-center aui-padded-t-15">
+            <p class="blackfont aui-font-size-18">提现金额</p>
+        </div>
+        
+        <div class="aui-col-xs-4 aui-text-right aui-padded-t-15">
+            <p class="blackfont aui-font-size-18">提现状态</p>
+        </div>
+
+        <!--下划线-->
+        {volist name="withdraw" id="vo"}
+            <div  class="aui-col-xs-12 aui-text-right">
+                <hr class="underline" />
+            </div>
+            <div class="aui-col-xs-4 aui-text-left  aui-padded-t-5">
+                <p class="fontcolor">{$vo.create_time|date="Y-m-d H:i:s",###}</p>
+
+            </div>
+
+            <div class="aui-col-xs-4 aui-text-center aui-padded-t-15">
+                <p class="fontcolor">￥{$vo.money}</p>
+            </div>
+
+            <div class="aui-col-xs-4 aui-text-right aui-padded-t-15">
+                <p class="fontcolor">{$vo.type==2 ? '提现失败':($vo.type==1 ? '提现成功':'审核中')}</p>
+            </div>
+        {/volist}
+
+        <!--下划线-->
+        <div  class="aui-col-xs-12 aui-text-right">
+        	<hr class="underline" /> 
+        </div>          
+    </div>
+
+</body>
+</html>
